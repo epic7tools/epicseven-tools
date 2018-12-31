@@ -1,1 +1,3 @@
-export default [];
+import middleware from './middleware';
+
+export default [...middleware];
