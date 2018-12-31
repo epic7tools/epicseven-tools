@@ -1,23 +1,28 @@
-import {REQUEST_ACTION_PREFIX, SUCCESS_ACTION_SUFFIX} from '../../constants';
+import {
+	GET_ARTIFACTS_SUCCESS,
+	GET_HEROES_SUCCESS,
+	GET_RESOURCES_SUCCESS,
+	GET_STATUS_EFFECTS_SUCCESS,
+} from '../../actionTypes';
 
 export default (state = {}, action) => {
 	switch (action.type) {
-		case `${REQUEST_ACTION_PREFIX}/GET_HEROES/${SUCCESS_ACTION_SUFFIX}`:
+		case GET_HEROES_SUCCESS:
 			return {
 				...state,
 				heroes: [...action.payload.result.filter(id => id !== '_HERO_TEMPLATE')],
 			};
-		case `${REQUEST_ACTION_PREFIX}/GET_ARTIFACTS/${SUCCESS_ACTION_SUFFIX}`:
+		case GET_ARTIFACTS_SUCCESS:
 			return {
 				...state,
 				artifacts: [...action.payload.result],
 			};
-		case `${REQUEST_ACTION_PREFIX}/GET_STATUS-EFFECTS/${SUCCESS_ACTION_SUFFIX}`:
+		case GET_STATUS_EFFECTS_SUCCESS:
 			return {
 				...state,
 				statusEffects: [...action.payload.result],
 			};
-		case `${REQUEST_ACTION_PREFIX}/GET_RESOURCES/${SUCCESS_ACTION_SUFFIX}`:
+		case GET_RESOURCES_SUCCESS:
 			return {
 				...state,
 				resources: [...action.payload.result],
