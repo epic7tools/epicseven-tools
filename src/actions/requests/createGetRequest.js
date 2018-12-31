@@ -1,34 +1,18 @@
 import {RSAA} from 'redux-api-middleware';
-import {
-	ACTION_SEPARATOR,
-	FAILURE_ACTION_SUFFIX,
-	REQUEST_ACTION_PREFIX,
-	REQUEST_ACTION_SUFFIX,
-	SUCCESS_ACTION_SUFFIX,
-} from '../../constants';
-import {API_URL} from '../../util/env';
-import normalizePayload from '../../util/normalizePayload';
+import normalizeType from '../../util/normalizeType';
 
-const actionType = (action, suffix) =>
-	[REQUEST_ACTION_PREFIX, action, suffix].join(ACTION_SEPARATOR);
-
-export default (name, schema) => {
-	const action = `GET_${name.toUpperCase()}`;
+export default (schema, req) => {
+	const types = [...req.types];
+	types[1] = normalizeType(types[1], schema);
 	return {
 		[RSAA]: {
-			endpoint: `${API_URL}/${name}`,
+			...req,
+			types,
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
+				...req.headers,
 			},
-			types: [
-				actionType(action, REQUEST_ACTION_SUFFIX),
-				{
-					type: actionType(action, SUCCESS_ACTION_SUFFIX),
-					payload: normalizePayload(schema),
-				},
-				actionType(action, FAILURE_ACTION_SUFFIX),
-			],
 		},
 	};
 };
