@@ -4,6 +4,8 @@
 	"private": true,
 	"license": "MIT",
 	"dependencies": {
+		"lodash.merge": "^4.6.1",
+		"normalizr": "^3.3.0",
 		"react": "^16.7.0",
 		"react-dom": "^16.7.0",
 		"react-redux": "^6.0.0",
