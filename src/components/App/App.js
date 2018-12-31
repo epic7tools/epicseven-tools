@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
-import logo from '../logo.svg';
+import logo from '../../logo.svg';
 import './App.css';
 
 class App extends Component {
+	componentDidMount() {
+		this.props.onMount();
+	}
+
 	render() {
 		return (
 			<div className="App">
