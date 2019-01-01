@@ -1,5 +1,6 @@
 import {withStyles} from '@material-ui/core/styles';
 import React from 'react';
+import HeroSelect from '../HeroSelect';
 
 const styles = theme => ({
 	root: {
@@ -11,6 +12,7 @@ const styles = theme => ({
 const Main = ({classes}) => (
 	<main className={classes.root}>
 		<div className={classes.appBarSpacer} />
+		<HeroSelect />
 	</main>
 );
 
