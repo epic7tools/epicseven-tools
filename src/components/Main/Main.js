@@ -1,5 +1,6 @@
 import {withStyles} from '@material-ui/core/styles';
-import React from 'react';
+import * as PropTypes from 'prop-types';
+import React, {Component} from 'react';
 import HeroSelect from '../HeroSelect';
 
 const styles = theme => ({
@@ -9,11 +10,26 @@ const styles = theme => ({
 	appBarSpacer: theme.mixins.toolbar,
 });
 
-const Main = ({classes}) => (
-	<main className={classes.root}>
-		<div className={classes.appBarSpacer} />
-		<HeroSelect />
-	</main>
-);
+class Main extends Component {
+	state = {
+		value: '',
+	};
+
+	handleChange = event => {
+		return this.setState({value: event.target.value});
+	};
+
+	render() {
+		let {classes} = this.props;
+		return (
+			<main className={classes.root}>
+				<div className={classes.appBarSpacer} />
+				<HeroSelect value={this.state.value} onChange={this.handleChange} />
+			</main>
+		);
+	}
+}
+
+Main.propTypes = {classes: PropTypes.any};
 
 export default withStyles(styles)(Main);
