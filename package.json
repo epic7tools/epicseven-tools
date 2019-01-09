@@ -6,6 +6,8 @@
 	"dependencies": {
 		"@material-ui/core": "^3.8.1",
 		"@material-ui/icons": "^3.0.2",
+		"classnames": "^2.2.6",
+		"lodash.isempty": "^4.4.0",
 		"lodash.merge": "^4.6.1",
 		"normalizr": "^3.3.0",
 		"prop-types": "^15.6.2",

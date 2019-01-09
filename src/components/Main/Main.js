@@ -26,7 +26,7 @@ class Main extends Component {
 			<main className={classes.root}>
 				<div className={classes.appBarSpacer} />
 				<HeroSelect value={this.state.value} onChange={this.handleChange} />
-				<HeroView />
+				<HeroView id="sez" />
 			</main>
 		);
 	}
