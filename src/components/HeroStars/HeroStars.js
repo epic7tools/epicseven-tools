@@ -1,3 +1,4 @@
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import HeroStar from './HeroStar';
 
@@ -6,7 +7,11 @@ const HeroStars = ({awakened, total, ...props}) => {
 	for (let i = 0; i < total; i++) {
 		stars.push(<HeroStar awakened={i < awakened} />);
 	}
-	return <span {...props}>{stars}</span>;
+	return (
+		<Typography component="span" {...props}>
+			{stars}
+		</Typography>
+	);
 };
 
 export default HeroStars;
