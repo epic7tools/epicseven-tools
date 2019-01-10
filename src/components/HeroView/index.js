@@ -1,11 +1,10 @@
 import {connect} from 'react-redux';
 import getHeroEntities from '../../selectors/getHeroEntities';
-import getStats from '../../selectors/getStats';
 import HeroView from './HeroView';
 import isEmpty from 'lodash.isempty';
+import stats from '../../constants/stats';
 
 const mapState = (state, ownProps) => {
-	const stats = getStats(state);
 	const heroes = getHeroEntities(state);
 
 	if (isEmpty(heroes)) {
@@ -20,11 +19,9 @@ const mapState = (state, ownProps) => {
 		hero: {
 			...hero,
 			stats: stats.map(stat => ({
-				id: stat.fileId,
-				label: stat.name,
-				base: hero.stats.max[stat.fileId],
+				...stat,
+				base: hero.stats.max[stat.id],
 				gear: 0,
-				percentage: false,
 			})),
 		},
 	};
