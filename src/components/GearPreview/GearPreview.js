@@ -2,6 +2,8 @@ import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import React, {Component} from 'react';
+import GearInput from '../GearInput/GearInput';
+import GearStatValueInput from '../GearStatValueInput';
 import HeroSelect from '../HeroSelect';
 import HeroView from '../HeroView';
 
@@ -11,7 +13,7 @@ const style = theme => ({
 		width: 600,
 		marginLeft: 'auto',
 		marginRight: 'auto',
-		padding: theme.spacing.unit,
+		padding: theme.spacing.unit * 2,
 	},
 	main: {
 		marginTop: theme.spacing.unit * 2,
@@ -38,6 +40,7 @@ class GearPreview extends Component {
 				</Paper>
 				<div className={classes.main}>
 					{this.state.value && <HeroView className={classes.heroview} id={this.state.value} />}
+					<GearStatValueInput percentage />
 				</div>
 			</div>
 		);
