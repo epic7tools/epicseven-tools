@@ -5,7 +5,9 @@ import classNames from 'classnames';
 import React from 'react';
 
 const style = {
-	root: {},
+	root: {
+		width: 100,
+	},
 };
 
 const GearStatValueInput = ({className, classes, percentage, ...props}) => {
@@ -14,6 +16,7 @@ const GearStatValueInput = ({className, classes, percentage, ...props}) => {
 	return (
 		<TextField
 			className={classNames(classes.root, className)}
+			margin="dense"
 			type="number"
 			variant="outlined"
 			InputProps={{

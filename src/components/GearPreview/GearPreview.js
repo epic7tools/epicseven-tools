@@ -2,8 +2,8 @@ import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import React, {Component} from 'react';
+import equipmentTypes from '../../constants/equipmentTypes';
 import GearInput from '../GearInput/GearInput';
-import GearStatValueInput from '../GearStatValueInput';
 import HeroSelect from '../HeroSelect';
 import HeroView from '../HeroView';
 
@@ -13,13 +13,23 @@ const style = theme => ({
 		width: 600,
 		marginLeft: 'auto',
 		marginRight: 'auto',
-		padding: theme.spacing.unit * 2,
+		padding: theme.spacing.unit,
 	},
 	main: {
-		marginTop: theme.spacing.unit * 2,
 		display: 'flex',
+		alignItems: 'flex-start',
+		marginTop: theme.spacing.unit,
 	},
-	heroview: {},
+	equipment: {
+		display: 'flex',
+		flexWrap: 'wrap',
+		'& > *': {
+			margin: theme.spacing.unit,
+		},
+	},
+	heroview: {
+		margin: theme.spacing.unit,
+	},
 });
 
 class GearPreview extends Component {
@@ -33,6 +43,11 @@ class GearPreview extends Component {
 
 	render() {
 		const {classes, className, ...props} = this.props;
+
+		const equipmentInputs = equipmentTypes.map(x => (
+			<GearInput key={x.id} name={x.id} label={x.label} />
+		));
+
 		return (
 			<div className={classNames(classes.root, className)} {...props}>
 				<Paper className={classes.selection}>
@@ -40,7 +55,8 @@ class GearPreview extends Component {
 				</Paper>
 				<div className={classes.main}>
 					{this.state.value && <HeroView className={classes.heroview} id={this.state.value} />}
-					<GearStatValueInput percentage />
+
+					<div className={classes.equipment}>{equipmentInputs}</div>
 				</div>
 			</div>
 		);

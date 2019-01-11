@@ -1,68 +1,72 @@
 import {atk, def, hp, chc, chd, spd, eff, efr} from '../constants/stats';
-import {atkPerc, hpPerc, defPerc} from './equipmentStats';
+import equipmentStats from './equipmentStats';
+import {atkPerc, defPerc} from './equipmentStats';
 
-const weapon = {
+const statsExcept = statFilter => equipmentStats.filter(stat => statFilter.includes(stat));
+
+export const weapon = {
 	id: 'weapon',
-	name: 'Weapon',
+	label: 'Weapon',
 	possibleStats: {
 		main: [atk.id],
-		sub: [atkPerc.id, hp.id, hpPerc.id, chc.id, chd.id, spd, eff, efr],
+		sub: statsExcept([atk.id, def.id, defPerc.id]),
 	},
 };
 
-const helmet = {
+export const helmet = {
 	id: 'helmet',
-	name: 'Helmet',
+	label: 'Helmet',
 	possibleStats: {
 		main: [hp.id],
-		sub: [atk.id, atkPerc.id, hpPerc.id, def.id, defPerc.id, chc.id, chd.id, spd, eff, efr],
+		sub: statsExcept([hp.id]),
 	},
 };
 
-const armor = {
+export const armor = {
 	id: 'armor',
-	name: 'Armor',
+	label: 'Armor',
 	possibleStats: {
 		main: [def.id],
-		sub: [hp.id, hpPerc.id, defPerc.id, chc.id, chd.id, spd.id, eff.id, efr.id],
+		sub: statsExcept([def.id, atk.id, atkPerc.id]),
 	},
 };
 
 export const necklace = {
 	id: 'necklace',
-	name: 'Necklace',
+	label: 'Necklace',
 	possibleStats: {
-		main: [atk.id, atkPerc.id, hp.id, hpPerc.id, def.id, defPerc.id, chc.id, chd.id],
-		sub: [atk.id, atkPerc.id, hp.id, hpPerc.id, def.id, defPerc.id, chc.id, chd.id, spd, eff, efr],
+		main: statsExcept([eff.id, efr.id, spd.id]),
+		sub: equipmentStats,
 	},
 };
 
 export const ring = {
 	id: 'ring',
-	name: 'Ring',
+	label: 'Ring',
 	possibleStats: {
-		main: [atk.id, atkPerc.id, hp.id, hpPerc.id, def.id, defPerc.id, eff, efr],
-		sub: [atk.id, atkPerc.id, hp.id, hpPerc.id, def.id, defPerc.id, chc.id, chd.id, spd, eff, efr],
+		main: statsExcept([chc.id, chd.id, spd.id]),
+		sub: equipmentStats,
 	},
 };
 
 export const boots = {
 	id: 'boots',
-	name: 'Boots',
+	label: 'Boots',
 	possibleStats: {
-		main: [atk.id, atkPerc.id, hp.id, hpPerc.id, def.id, defPerc.id, spd.id],
-		sub: [
-			atk.id,
-			atkPerc.id,
-			hp.id,
-			hpPerc.id,
-			def.id,
-			defPerc.id,
-			chc.id,
-			chd.id,
-			spd.id,
-			eff.id,
-			efr.id,
-		],
+		main: statsExcept([chc.id, chd.id, eff.id, efr.id]),
+		sub: equipmentStats,
 	},
 };
+
+export const equipmentTypesById = {
+	weapon,
+	helmet,
+	armor,
+	necklace,
+	ring,
+	boots,
+};
+
+export const equipmentTypes = [weapon, helmet, armor, necklace, ring, boots];
+
+export default equipmentTypes;

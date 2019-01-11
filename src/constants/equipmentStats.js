@@ -1,4 +1,4 @@
-import {statsById} from './stats';
+import {atk, chc, chd, def, eff, efr, hp, spd, statsById} from './stats';
 
 export const atkPerc = Object.freeze({
 	id: 'atk%',
@@ -27,3 +27,19 @@ export const equipmentStatsById = Object.freeze({
 	'hp%': hpPerc,
 	'def%': defPerc,
 });
+
+export const equipmentStats = Object.freeze([
+	atk,
+	atkPerc,
+	hp,
+	hpPerc,
+	def,
+	defPerc,
+	spd,
+	chc,
+	chd,
+	eff,
+	efr,
+]);
+
+export default equipmentStats;
