@@ -2,6 +2,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, {Component} from 'react';
+import {equipmentStatsById} from '../../constants/equipmentStats';
 import GearStatSelect from '../GearStatSelect';
 import GearStatValueInput from '../GearStatValueInput';
 
@@ -27,10 +28,15 @@ class GearStatInput extends Component {
 	};
 	render() {
 		const {className, classes, label, stats, defaultStat, ...props} = this.props;
+
+		const disabled = Boolean(defaultStat);
+		const percentage = this.state.stat && equipmentStatsById[this.state.stat].percentage;
+
 		return (
 			<div className={classNames(classes.root, className)} {...props}>
 				<GearStatSelect
 					name="stat"
+					disabled={disabled}
 					onChange={this.handleChange}
 					label={label}
 					stats={stats}
@@ -39,7 +45,7 @@ class GearStatInput extends Component {
 					}}
 					value={this.state.stat}
 				/>
-				<GearStatValueInput onChange={this.handleChange} name="value" percentage />
+				<GearStatValueInput onChange={this.handleChange} name="value" percentage={percentage} />
 			</div>
 		);
 	}

@@ -43,24 +43,23 @@ const style = theme => ({
 
 class GearPreview extends Component {
 	state = {
-		value: '',
+		selectedHero: '',
 	};
 
 	handleChange = event => {
-		return this.setState({value: event.target.value});
+		return this.setState({hero: event.target.value});
 	};
 
 	render() {
 		const {classes, className, ...props} = this.props;
+		const {selectedHero} = this.state;
 
 		const equipmentInputs = equipmentTypes.map(x => {
-			console.log(x);
 			const stats = {
 				main: x.possibleStats.main.map(id => equipmentStatsById[id]),
 				sub: x.possibleStats.sub.map(id => equipmentStatsById[id]),
 			};
 			const defaultStat = stats.main.length === 1 ? stats.main[0].id : null;
-
 			return (
 				<GearInput key={x.id} name={x.id} label={x.label} stats={stats} defaultStat={defaultStat} />
 			);
@@ -69,11 +68,10 @@ class GearPreview extends Component {
 		return (
 			<div className={classNames(classes.root, className)} {...props}>
 				<Paper className={classes.selection}>
-					<HeroSelect value={this.state.value} onChange={this.handleChange} />
+					<HeroSelect value={selectedHero} onChange={this.handleChange} />
 				</Paper>
 				<div className={classes.main}>
-					{this.state.value && <HeroView className={classes.heroview} id={this.state.value} />}
-
+					{selectedHero && <HeroView className={classes.heroview} id={selectedHero} />}
 					<div className={classes.equipment}>{equipmentInputs}</div>
 				</div>
 			</div>
