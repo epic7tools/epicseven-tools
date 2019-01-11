@@ -9,9 +9,6 @@ import HeroSelect from '../HeroSelect';
 import HeroView from '../HeroView';
 
 // todos:
-// - default left side equipment to their only value
-// - display only available stats for equipment type
-// - add and remove % when a percentage stat is selected
 // - add changes to redux
 // - calculate & display gear stats
 // - make it look good
