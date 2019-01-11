@@ -1,4 +1,4 @@
-import {withStyles} from '@material-ui/core/styles';
+import withStyles from '@material-ui/core/styles/withStyles';
 import * as PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import GearPreview from '../GearPreview';

@@ -1,5 +1,5 @@
-import {withStyles} from '@material-ui/core/styles';
 import MuiAppBar from '@material-ui/core/AppBar';
+import withStyles from '@material-ui/core/styles/withStyles';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
