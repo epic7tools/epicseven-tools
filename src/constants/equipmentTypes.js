@@ -1,8 +1,9 @@
-import {atk, def, hp, chc, chd, spd, eff, efr} from '../constants/stats';
-import equipmentStats from './equipmentStats';
-import {atkPerc, defPerc} from './equipmentStats';
+import {atk, chc, chd, def, eff, efr, hp, spd} from '../constants/stats';
+import equipmentStats, {atkPerc, defPerc} from './equipmentStats';
 
-const statsExcept = statFilter => equipmentStats.filter(stat => statFilter.includes(stat));
+const equipmentStatIds = equipmentStats.map(stat => stat.id);
+
+const statsExcept = statFilter => equipmentStatIds.filter(stat => !statFilter.includes(stat));
 
 export const weapon = {
 	id: 'weapon',
@@ -36,7 +37,7 @@ export const necklace = {
 	label: 'Necklace',
 	possibleStats: {
 		main: statsExcept([eff.id, efr.id, spd.id]),
-		sub: equipmentStats,
+		sub: equipmentStatIds,
 	},
 };
 
@@ -45,7 +46,7 @@ export const ring = {
 	label: 'Ring',
 	possibleStats: {
 		main: statsExcept([chc.id, chd.id, spd.id]),
-		sub: equipmentStats,
+		sub: equipmentStatIds,
 	},
 };
 
@@ -54,7 +55,7 @@ export const boots = {
 	label: 'Boots',
 	possibleStats: {
 		main: statsExcept([chc.id, chd.id, eff.id, efr.id]),
-		sub: equipmentStats,
+		sub: equipmentStatIds,
 	},
 };
 

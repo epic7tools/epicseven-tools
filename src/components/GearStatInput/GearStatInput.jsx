@@ -2,7 +2,6 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import equipmentStats from '../../constants/equipmentStats';
 import GearStatSelect from '../GearStatSelect';
 import GearStatValueInput from '../GearStatValueInput';
 
@@ -16,7 +15,7 @@ const style = theme => ({
 
 class GearStatInput extends Component {
 	state = {
-		stat: '',
+		stat: this.props.defaultStat || '',
 		value: 0,
 	};
 
@@ -27,14 +26,14 @@ class GearStatInput extends Component {
 		}
 	};
 	render() {
-		const {className, classes, label, ...props} = this.props;
+		const {className, classes, label, stats, defaultStat, ...props} = this.props;
 		return (
 			<div className={classNames(classes.root, className)} {...props}>
 				<GearStatSelect
 					name="stat"
 					onChange={this.handleChange}
 					label={label}
-					stats={equipmentStats}
+					stats={stats}
 					SelectProps={{
 						value: this.state.stat,
 					}}

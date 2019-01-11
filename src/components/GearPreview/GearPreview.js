@@ -2,6 +2,7 @@ import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import React, {Component} from 'react';
+import {equipmentStatsById} from '../../constants/equipmentStats';
 import equipmentTypes from '../../constants/equipmentTypes';
 import GearInput from '../GearInput/GearInput';
 import HeroSelect from '../HeroSelect';
@@ -52,9 +53,18 @@ class GearPreview extends Component {
 	render() {
 		const {classes, className, ...props} = this.props;
 
-		const equipmentInputs = equipmentTypes.map(x => (
-			<GearInput key={x.id} name={x.id} label={x.label} />
-		));
+		const equipmentInputs = equipmentTypes.map(x => {
+			console.log(x);
+			const stats = {
+				main: x.possibleStats.main.map(id => equipmentStatsById[id]),
+				sub: x.possibleStats.sub.map(id => equipmentStatsById[id]),
+			};
+			const defaultStat = stats.main.length === 1 ? stats.main[0].id : null;
+
+			return (
+				<GearInput key={x.id} name={x.id} label={x.label} stats={stats} defaultStat={defaultStat} />
+			);
+		});
 
 		return (
 			<div className={classNames(classes.root, className)} {...props}>

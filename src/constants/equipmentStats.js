@@ -16,7 +16,7 @@ export const hpPerc = Object.freeze({
 
 export const defPerc = Object.freeze({
 	id: 'def%',
-	label: 'Defense',
+	label: 'Defense%',
 	percentage: true,
 	extends: 'def',
 });

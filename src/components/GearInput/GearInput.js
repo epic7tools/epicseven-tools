@@ -12,14 +12,19 @@ const style = theme => ({
 	},
 });
 
-const GearInput = ({className, classes, label, name, ...props}) => (
+const GearInput = ({className, classes, label, name, stats, defaultStat, ...props}) => (
 	<Paper className={classNames(classes.root, className)} {...props}>
 		<Typography variant="h5">{label}</Typography>
-		<GearStatInput label="Main Stat" name={`${name}_main`} />
-		<GearStatInput label="Sub Stat #1" name={`${name}_sub1`} />
-		<GearStatInput label="Sub Stat #2" name={`${name}_sub2`} />
-		<GearStatInput label="Sub Stat #3" name={`${name}_sub3`} />
-		<GearStatInput label="Sub Stat #4" name={`${name}_sub4`} />
+		<GearStatInput
+			stats={stats.main}
+			defaultStat={defaultStat}
+			label="Main Stat"
+			name={`${name}_main`}
+		/>
+		<GearStatInput stats={stats.sub} label="Sub Stat #1" name={`${name}_sub1`} />
+		<GearStatInput stats={stats.sub} label="Sub Stat #2" name={`${name}_sub2`} />
+		<GearStatInput stats={stats.sub} label="Sub Stat #3" name={`${name}_sub3`} />
+		<GearStatInput stats={stats.sub} label="Sub Stat #4" name={`${name}_sub4`} />
 	</Paper>
 );
 
