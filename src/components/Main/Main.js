@@ -1,17 +1,14 @@
 import {withStyles} from '@material-ui/core/styles';
 import * as PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import TestHeroStuff from '../TestHeroStuff';
+import GearPreview from '../GearPreview';
 
 const styles = theme => ({
 	root: {
 		flexGrow: 1,
 	},
 	content: {
-		width: '100%',
-		maxWidth: 800,
-		marginRight: 'auto',
-		marginLeft: 'auto',
+		padding: theme.spacing.unit * 4,
 	},
 	appBarSpacer: theme.mixins.toolbar,
 });
@@ -23,7 +20,7 @@ class Main extends Component {
 			<main className={classes.root}>
 				<div className={classes.appBarSpacer} />
 				<div className={classes.content}>
-					<TestHeroStuff />
+					<GearPreview />
 				</div>
 			</main>
 		);
