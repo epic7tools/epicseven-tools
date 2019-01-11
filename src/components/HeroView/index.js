@@ -1,19 +1,15 @@
 import {connect} from 'react-redux';
-import getHeroEntities from '../../selectors/getHeroEntities';
-import HeroView from './HeroView';
-import isEmpty from 'lodash.isempty';
 import stats from '../../constants/stats';
+import getHeroById from '../../selectors/getHeroById';
+import HeroView from './HeroView';
 
 const mapState = (state, ownProps) => {
-	const heroes = getHeroEntities(state);
+	const hero = getHeroById(state, ownProps.id);
 
-	if (isEmpty(heroes)) {
+	// note: temporary until implemented loading... screen
+	if (hero === null) {
 		return {};
 	}
-
-	console.log(heroes);
-	const hero = heroes[ownProps.id];
-	console.log(hero);
 
 	return {
 		hero: {
