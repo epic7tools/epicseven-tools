@@ -8,4 +8,7 @@ const mapState = (state, {stats}) => ({
 	})),
 });
 
-export default connect(mapState)(GearStatSelect);
+export default connect(
+	mapState,
+	() => ({})
+)(GearStatSelect);

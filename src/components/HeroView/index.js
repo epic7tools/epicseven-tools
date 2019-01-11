@@ -23,4 +23,7 @@ const mapState = (state, ownProps) => {
 	};
 };
 
-export default connect(mapState)(HeroView);
+export default connect(
+	mapState,
+	() => ({})
+)(HeroView);

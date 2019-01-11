@@ -9,7 +9,7 @@ const style = {
 	},
 };
 
-const GearStatSelect = ({className, classes, dispatch, ...other}) => {
+const GearStatSelect = ({className, classes, ...other}) => {
 	return <BasicSelect className={classNames(classes.root, className)} margin="dense" {...other} />;
 };
 
