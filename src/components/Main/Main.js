@@ -1,32 +1,27 @@
 import {withStyles} from '@material-ui/core/styles';
 import * as PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import HeroSelect from '../HeroSelect';
-import HeroStars from '../HeroStars/HeroStars';
+import GearPreview from '../GearPreview';
 
 const styles = theme => ({
 	root: {
 		flexGrow: 1,
 	},
+	content: {
+		padding: theme.spacing.unit * 4,
+	},
 	appBarSpacer: theme.mixins.toolbar,
 });
 
 class Main extends Component {
-	state = {
-		value: '',
-	};
-
-	handleChange = event => {
-		return this.setState({value: event.target.value});
-	};
-
 	render() {
 		let {classes} = this.props;
 		return (
 			<main className={classes.root}>
 				<div className={classes.appBarSpacer} />
-				<HeroSelect value={this.state.value} onChange={this.handleChange} />
-				<HeroStars awakened={5} total={6} />
+				<div className={classes.content}>
+					<GearPreview />
+				</div>
 			</main>
 		);
 	}
