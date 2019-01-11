@@ -44,7 +44,7 @@ class GearPreview extends Component {
 	};
 
 	handleChange = event => {
-		return this.setState({hero: event.target.value});
+		return this.setState({selectedHero: event.target.value});
 	};
 
 	render() {
