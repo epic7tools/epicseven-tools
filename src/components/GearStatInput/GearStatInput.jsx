@@ -23,11 +23,11 @@ class GearStatInput extends Component {
 	handleChange = event => {
 		this.setState({[event.target.name]: event.target.value});
 		if (this.props.onChange) {
-			this.props.onChange(event);
+			this.props.onChange({[this.props.name]: {[event.target.name]: event.target.value}});
 		}
 	};
 	render() {
-		const {className, classes, label, stats, defaultStat, ...props} = this.props;
+		const {className, classes, label, stats, defaultStat, onChange, ...props} = this.props;
 
 		const disabled = Boolean(defaultStat);
 		const percentage = this.state.stat && equipmentStatsById[this.state.stat].percentage;
@@ -45,7 +45,7 @@ class GearStatInput extends Component {
 					}}
 					value={this.state.stat}
 				/>
-				<GearStatValueInput onChange={this.handleChange} name="value" percentage={percentage} />
+				<GearStatValueInput name="value" onBlur={this.handleChange} percentage={percentage} />
 			</div>
 		);
 	}

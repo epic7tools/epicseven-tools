@@ -6,7 +6,7 @@ import React from 'react';
 
 const style = {
 	root: {
-		width: 100,
+		width: 80,
 	},
 };
 

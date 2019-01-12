@@ -2,9 +2,7 @@ import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import React, {Component} from 'react';
-import {equipmentStatsById} from '../../constants/equipmentStats';
-import equipmentTypes from '../../constants/equipmentTypes';
-import GearInput from '../GearInput/GearInput';
+import GearInput from '../GearInput';
 import HeroSelect from '../HeroSelect';
 import HeroView from '../HeroView';
 
@@ -47,22 +45,22 @@ class GearPreview extends Component {
 		return this.setState({selectedHero: event.target.value});
 	};
 
-	handleStatChange = piece => change => {
+	handleStatChange = change => {
 		console.log(change);
 	};
 
 	render() {
-		const {classes, className, ...props} = this.props;
+		const {classes, className, equipment, ...props} = this.props;
 		const {selectedHero} = this.state;
 
-		const equipmentInputs = equipmentTypes.map(piece => (
+		const equipmentInputs = equipment.map(piece => (
 			<GearInput
 				key={piece.id}
 				name={piece.id}
 				label={piece.label}
 				stats={piece.stats}
 				defaultStat={piece.stats.main.length === 1 ? piece.stats.main[0].id : null}
-				onChange={this.handleStatChange(piece.id)}
+				onChange={this.handleStatChange}
 			/>
 		));
 
