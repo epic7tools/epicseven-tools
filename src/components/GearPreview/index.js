@@ -1,3 +1,12 @@
+import {connect} from 'react-redux';
+import getEquipmentTypes from '../../selectors/getEquipmentTypes';
 import GearPreview from './GearPreview';
 
-export default GearPreview;
+const mapState = state => ({
+	equipment: getEquipmentTypes(state),
+});
+
+export default connect(
+	mapState,
+	() => ({})
+)(GearPreview);

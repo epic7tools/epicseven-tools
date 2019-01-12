@@ -8,7 +8,7 @@ const statsExcept = statFilter => equipmentStatIds.filter(stat => !statFilter.in
 export const weapon = {
 	id: 'weapon',
 	label: 'Weapon',
-	possibleStats: {
+	stats: {
 		main: [atk.id],
 		sub: statsExcept([atk.id, def.id, defPerc.id]),
 	},
@@ -17,7 +17,7 @@ export const weapon = {
 export const helmet = {
 	id: 'helmet',
 	label: 'Helmet',
-	possibleStats: {
+	stats: {
 		main: [hp.id],
 		sub: statsExcept([hp.id]),
 	},
@@ -26,7 +26,7 @@ export const helmet = {
 export const armor = {
 	id: 'armor',
 	label: 'Armor',
-	possibleStats: {
+	stats: {
 		main: [def.id],
 		sub: statsExcept([def.id, atk.id, atkPerc.id]),
 	},
@@ -35,7 +35,7 @@ export const armor = {
 export const necklace = {
 	id: 'necklace',
 	label: 'Necklace',
-	possibleStats: {
+	stats: {
 		main: statsExcept([eff.id, efr.id, spd.id]),
 		sub: equipmentStatIds,
 	},
@@ -44,7 +44,7 @@ export const necklace = {
 export const ring = {
 	id: 'ring',
 	label: 'Ring',
-	possibleStats: {
+	stats: {
 		main: statsExcept([chc.id, chd.id, spd.id]),
 		sub: equipmentStatIds,
 	},
@@ -53,7 +53,7 @@ export const ring = {
 export const boots = {
 	id: 'boots',
 	label: 'Boots',
-	possibleStats: {
+	stats: {
 		main: statsExcept([chc.id, chd.id, eff.id, efr.id]),
 		sub: equipmentStatIds,
 	},

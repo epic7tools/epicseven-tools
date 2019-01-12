@@ -12,7 +12,12 @@ const style = theme => ({
 	},
 });
 
-const GearInput = ({className, classes, label, name, stats, defaultStat, ...props}) => (
+const handleChange = name => change => ({
+	...change,
+	name,
+});
+
+const GearInput = ({className, classes, label, name, stats, defaultStat, onChange, ...props}) => (
 	<Paper className={classNames(classes.root, className)} {...props}>
 		<Typography variant="h5">{label}</Typography>
 		<GearStatInput

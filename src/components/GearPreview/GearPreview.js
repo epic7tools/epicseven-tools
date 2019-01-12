@@ -47,20 +47,24 @@ class GearPreview extends Component {
 		return this.setState({selectedHero: event.target.value});
 	};
 
+	handleStatChange = piece => change => {
+		console.log(change);
+	};
+
 	render() {
 		const {classes, className, ...props} = this.props;
 		const {selectedHero} = this.state;
 
-		const equipmentInputs = equipmentTypes.map(x => {
-			const stats = {
-				main: x.possibleStats.main.map(id => equipmentStatsById[id]),
-				sub: x.possibleStats.sub.map(id => equipmentStatsById[id]),
-			};
-			const defaultStat = stats.main.length === 1 ? stats.main[0].id : null;
-			return (
-				<GearInput key={x.id} name={x.id} label={x.label} stats={stats} defaultStat={defaultStat} />
-			);
-		});
+		const equipmentInputs = equipmentTypes.map(piece => (
+			<GearInput
+				key={piece.id}
+				name={piece.id}
+				label={piece.label}
+				stats={piece.stats}
+				defaultStat={piece.stats.main.length === 1 ? piece.stats.main[0].id : null}
+				onChange={this.handleStatChange(piece.id)}
+			/>
+		));
 
 		return (
 			<div className={classNames(classes.root, className)} {...props}>

@@ -10,6 +10,7 @@ import Zodiac from '../Zodiac';
 
 const style = theme => ({
 	root: {
+		minWidth: 420,
 		padding: theme.spacing.unit,
 	},
 	title: {
