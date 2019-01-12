@@ -2,8 +2,8 @@ import {connect} from 'react-redux';
 import GearInput from './GearInput';
 
 const mapState = (state, ownProps) => ({
-	onChange: (change) => {
-		if(ownProps.onChange) {
+	onChange: change => {
+		if (ownProps.onChange) {
 			ownProps.onChange({
 				[ownProps.name]: change,
 			});
@@ -11,4 +11,7 @@ const mapState = (state, ownProps) => ({
 	},
 });
 
-export default connect(mapState, () => ({}))(GearInput);
+export default connect(
+	mapState,
+	() => ({})
+)(GearInput);

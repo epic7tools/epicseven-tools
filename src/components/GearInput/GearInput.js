@@ -22,10 +22,10 @@ const GearInput = ({className, classes, label, name, stats, defaultStat, onChang
 			name="main"
 			onChange={onChange}
 		/>
-		<GearStatInput stats={stats.sub} label="Sub Stat #1" name="sub1" />
-		<GearStatInput stats={stats.sub} label="Sub Stat #2" name="sub2" />
-		<GearStatInput stats={stats.sub} label="Sub Stat #3" name="sub3" />
-		<GearStatInput stats={stats.sub} label="Sub Stat #4" name="sub4" />
+		<GearStatInput name="sub1" label="Sub Stat #1" stats={stats.sub} onChange={onChange} />
+		<GearStatInput name="sub2" label="Sub Stat #2" stats={stats.sub} onChange={onChange} />
+		<GearStatInput name="sub3" label="Sub Stat #3" stats={stats.sub} onChange={onChange} />
+		<GearStatInput name="sub4" label="Sub Stat #4" stats={stats.sub} onChange={onChange} />
 	</Paper>
 );
 
