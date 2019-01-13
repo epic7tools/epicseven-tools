@@ -7,7 +7,6 @@ import HeroSelect from '../HeroSelect';
 import HeroView from '../HeroView';
 
 // todos:
-// - add changes to redux
 // - calculate & display gear stats
 // - make it look good
 
@@ -37,21 +36,20 @@ const style = theme => ({
 });
 
 class GearPreview extends Component {
-	state = {
-		selectedHero: '',
+	handleHeroChange = event => {
+		if (this.props.onHeroChange) {
+			this.props.onHeroChange(event.target.value);
+		}
 	};
 
-	handleChange = event => {
-		return this.setState({selectedHero: event.target.value});
-	};
-
-	handleStatChange = change => {
-		console.log(change);
+	handleGearChange = change => {
+		if (this.props.onGearChange) {
+			this.props.onGearChange(change);
+		}
 	};
 
 	render() {
-		const {classes, className, equipment, ...props} = this.props;
-		const {selectedHero} = this.state;
+		const {classes, className, equipment, onHeroChange, hero, ...props} = this.props;
 
 		const equipmentInputs = equipment.map(piece => (
 			<GearInput
@@ -60,17 +58,17 @@ class GearPreview extends Component {
 				label={piece.label}
 				stats={piece.stats}
 				defaultStat={piece.stats.main.length === 1 ? piece.stats.main[0].id : null}
-				onChange={this.handleStatChange}
+				onChange={this.handleGearChange}
 			/>
 		));
 
 		return (
 			<div className={classNames(classes.root, className)} {...props}>
 				<Paper className={classes.selection}>
-					<HeroSelect value={selectedHero} onChange={this.handleChange} />
+					<HeroSelect value={hero} onChange={this.handleHeroChange} />
 				</Paper>
 				<div className={classes.main}>
-					{selectedHero && <HeroView className={classes.heroview} id={selectedHero} />}
+					{hero && <HeroView className={classes.heroview} id={hero} />}
 					<div className={classes.equipment}>{equipmentInputs}</div>
 				</div>
 			</div>

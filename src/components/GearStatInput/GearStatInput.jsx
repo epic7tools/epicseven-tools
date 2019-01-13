@@ -20,7 +20,21 @@ class GearStatInput extends Component {
 		value: 0,
 	};
 
-	handleChange = event => {
+	// if we have a default stat we need to emit an onChange
+	// event since we can never select it
+	componentDidMount() {
+		if (this.props.defaultStat) {
+			this.handleChange(this.props.name, 'stat', this.props.defaultStat);
+		}
+	}
+
+	handleChange = (piece, name, value) => {
+		if (this.props.onChange) {
+			this.props.onChange({[piece]: {[name]: value}});
+		}
+	};
+
+	handleChangeEvent = event => {
 		this.setState({[event.target.name]: event.target.value});
 		if (this.props.onChange) {
 			this.props.onChange({[this.props.name]: {[event.target.name]: event.target.value}});
@@ -37,7 +51,7 @@ class GearStatInput extends Component {
 				<GearStatSelect
 					name="stat"
 					disabled={disabled}
-					onChange={this.handleChange}
+					onChange={this.handleChangeEvent}
 					label={label}
 					stats={stats}
 					SelectProps={{
@@ -45,7 +59,7 @@ class GearStatInput extends Component {
 					}}
 					value={this.state.stat}
 				/>
-				<GearStatValueInput name="value" onBlur={this.handleChange} percentage={percentage} />
+				<GearStatValueInput name="value" onBlur={this.handleChangeEvent} percentage={percentage} />
 			</div>
 		);
 	}
