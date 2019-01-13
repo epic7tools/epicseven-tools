@@ -1,5 +1,4 @@
 import {createSelector} from 'reselect';
-import {hpPerc} from '../constants/equipmentStats';
 import {stats} from '../constants/stats';
 import getGearStatsFlattened from './getGearStatsFlattened';
 
@@ -7,33 +6,18 @@ export default createSelector(
 	getGearStatsFlattened,
 	(state, hero) => hero,
 	(statModifiers, hero) => {
-		const baseStats = hero.stats.max;
 		const gearStats = {};
+		const baseStats = hero.stats.max;
 		stats.forEach(stat => (gearStats[stat.id] = 0));
 
-		statModifiers.push({
-			stat: hpPerc,
-			value: 15,
-		});
-		statModifiers.push({
-			stat: hpPerc,
-			value: 15,
-		});
-		statModifiers.push({
-			stat: hpPerc,
-			value: 15,
-		});
-
-		statModifiers.map(x => {
-			console.log('x', x);
-			if (x.stat.extends) {
-				gearStats[x.stat.extends] += baseStats[x.stat.extends] * (Number(x.value) / 100);
+		statModifiers.forEach(stat => {
+			if (stat.stat.extends) {
+				gearStats[stat.stat.extends] += baseStats[stat.stat.extends] * (Number(stat.value) / 100);
 			} else {
-				gearStats[x.stat.id] += Number(x.value);
+				gearStats[stat.stat.id] += Number(stat.value);
 			}
 		});
 
-		console.log(gearStats);
 		return gearStats;
 	}
 );

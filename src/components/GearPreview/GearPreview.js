@@ -6,10 +6,6 @@ import GearInput from '../GearInput';
 import HeroSelect from '../HeroSelect';
 import HeroView from '../HeroView';
 
-// todos:
-// - make it look good
-// - loading screen until initialise() complete
-
 const style = theme => ({
 	root: {},
 	selection: {
@@ -49,7 +45,7 @@ class GearPreview extends Component {
 	};
 
 	render() {
-		const {classes, className, equipment, onHeroChange, hero, ...props} = this.props;
+		const {classes, className, equipment, onHeroChange, onGearChange, hero, ...props} = this.props;
 
 		const equipmentInputs = equipment.map(piece => (
 			<GearInput
