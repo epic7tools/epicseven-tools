@@ -7,8 +7,8 @@ import HeroSelect from '../HeroSelect';
 import HeroView from '../HeroView';
 
 // todos:
-// - calculate & display gear stats
 // - make it look good
+// - loading screen until initialise() complete
 
 const style = theme => ({
 	root: {},
