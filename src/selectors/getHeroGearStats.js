@@ -27,7 +27,7 @@ export default createSelector(
 		statModifiers.map(x => {
 			console.log('x', x);
 			if (x.stat.extends) {
-				gearStats[x.stat.extends] += (baseStats[x.stat.extends] / 100.0) * Number(x.value);
+				gearStats[x.stat.extends] += baseStats[x.stat.extends] * (Number(x.value) / 100);
 			} else {
 				gearStats[x.stat.id] += Number(x.value);
 			}
