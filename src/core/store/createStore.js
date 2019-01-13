@@ -1,12 +1,17 @@
-import {applyMiddleware, createStore} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
+import {applyMiddleware, compose, createStore} from 'redux';
 import isProd from '../util/isProd';
-import middleware from './middleware';
-import devMiddleware from './devMiddleware';
+import devEnhancers from './dev/enhancers';
+import devMiddleware from './dev/middleware';
+import prodEnhancers from './prod/enhancers';
+import prodMiddleware from './prod/middleware';
 
 export default (reducer, initialState = {}) => {
-	const enhancer = isProd()
-		? applyMiddleware(...middleware)
-		: composeWithDevTools(applyMiddleware(...devMiddleware));
+	const enhancers = isProd() ? prodEnhancers : devEnhancers;
+	const middleware = isProd() ? prodMiddleware : devMiddleware;
+
+	const enhancer = compose(
+		applyMiddleware(...middleware),
+		...enhancers
+	);
 	return createStore(reducer, initialState, enhancer);
 };
