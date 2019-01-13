@@ -1,4 +1,7 @@
 export const PREFIX = `@@e7tools/`;
+export const LOADING = `${PREFIX}LOADING`;
+export const LOADING_SUCCESS = `${PREFIX}LOADING_SUCCESS`;
+export const LOADING_FAILURE = `${PREFIX}LOADING_FAILURE`;
 export const GET_HEROES = `${PREFIX}GET_HEROES`;
 export const GET_HEROES_SUCCESS = `${PREFIX}GET_HEROES_SUCCESS`;
 export const GET_HEROES_FAILURE = `${PREFIX}GET_HEROES_FAILURE`;
