@@ -38,7 +38,7 @@ HeroStats.propTypes = {
 			label: PropTypes.string.isRequired,
 			base: PropTypes.number.isRequired,
 			gear: PropTypes.number.isRequired,
-			percentage: PropTypes.string.isRequired,
+			percentage: PropTypes.bool.isRequired,
 		})
 	),
 };
