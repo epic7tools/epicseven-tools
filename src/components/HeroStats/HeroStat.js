@@ -10,7 +10,9 @@ const style = theme => ({
 	name: {},
 	base: {},
 	gear: {},
-	total: {},
+	total: {
+		fontWeight: theme.typography.fontWeightMedium,
+	},
 });
 
 const HeroStat = ({className, classes, name, base, gear, percentage, ...props}) => {
@@ -24,11 +26,11 @@ const HeroStat = ({className, classes, name, base, gear, percentage, ...props}) 
 				{percentage && '%'}
 			</TableCell>
 			<TableCell className={classes.gear} align="right">
-				{gear > 0 && gear}
+				{gear > 0 && Math.round(gear)}
 				{gear > 0 && percentage && '%'}
 			</TableCell>
 			<TableCell className={classes.total} align="right">
-				{base + gear}
+				{Math.round(base + gear)}
 				{percentage && '%'}
 			</TableCell>
 		</TableRow>

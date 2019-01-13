@@ -5,7 +5,7 @@ import HeroStar from './HeroStar';
 const HeroStars = ({awakened, total, ...props}) => {
 	const stars = [];
 	for (let i = 0; i < total; i++) {
-		stars.push(<HeroStar awakened={i < awakened} />);
+		stars.push(<HeroStar key={i} awakened={i < awakened} />);
 	}
 	return (
 		<Typography component="span" {...props}>
