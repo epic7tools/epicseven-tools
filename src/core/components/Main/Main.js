@@ -2,6 +2,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import * as PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import GearPreview from '../../../gear-preview/components/GearPreview';
+import LoadingScreen from '../LoadingScreen';
 
 const styles = theme => ({
 	root: {
@@ -15,18 +16,16 @@ const styles = theme => ({
 
 class Main extends Component {
 	render() {
-		let {classes} = this.props;
+		const {classes, isLoading, ...props} = this.props;
 		return (
-			<main className={classes.root}>
+			<main className={classes.root} {...props}>
 				<div className={classes.appBarSpacer} />
-				<div className={classes.content}>
-					<GearPreview />
-				</div>
+				<div className={classes.content}>{isLoading ? <LoadingScreen /> : <GearPreview />}</div>
 			</main>
 		);
 	}
 }
 
-Main.propTypes = {classes: PropTypes.any};
+Main.propTypes = {classes: PropTypes.any, isLoading: PropTypes.bool.isRequired};
 
 export default withStyles(styles)(Main);
