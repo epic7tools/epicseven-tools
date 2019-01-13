@@ -5,12 +5,5 @@ import getResources from './requests/getResources';
 import getStatusEffects from './requests/getStatusEffects';
 
 export default () => dispatch => {
-	dispatch(
-		batchActions([
-			getHeroes(),
-			getArtifacts(),
-			getResources(),
-			getStatusEffects(),
-		])
-	);
+	dispatch(batchActions([getHeroes(), getArtifacts(), getResources(), getStatusEffects()]));
 };
