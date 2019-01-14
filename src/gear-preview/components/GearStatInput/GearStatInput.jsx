@@ -15,51 +15,40 @@ const style = theme => ({
 });
 
 class GearStatInput extends Component {
-	state = {
-		stat: this.props.defaultStat || '',
-		value: 0,
-	};
-
-	// if we have a default stat we need to emit an onChange
-	// event since we can never select it
-	componentDidMount() {
-		if (this.props.defaultStat) {
-			this.handleChange(this.props.name, 'stat', this.props.defaultStat);
-		}
-	}
-
-	handleChange = (piece, name, value) => {
+	handleChange = event => {
 		if (this.props.onChange) {
-			this.props.onChange({[piece]: {[name]: value}});
+			this.props.onChange({
+				event: event.type,
+				line: this.props.name,
+				name: event.target.name,
+				value: event.target.value,
+			});
 		}
 	};
 
-	handleChangeEvent = event => {
-		this.setState({[event.target.name]: event.target.value});
-		if (this.props.onChange) {
-			this.props.onChange({[this.props.name]: {[event.target.name]: event.target.value}});
-		}
-	};
 	render() {
-		const {className, classes, label, stats, defaultStat, onChange, ...props} = this.props;
+		const {className, classes, label, stats, defaultStat, onChange, values, ...props} = this.props;
 
 		const disabled = Boolean(defaultStat);
-		const percentage = this.state.stat && equipmentStatsById[this.state.stat].percentage;
+		const percentage = values.stat && equipmentStatsById[values.stat].percentage;
 
 		return (
 			<div className={classNames(classes.root, className)} {...props}>
 				<GearStatSelect
 					name="stat"
 					disabled={disabled}
-					onChange={this.handleChangeEvent}
+					onChange={this.handleChange}
 					label={label}
 					stats={stats}
-					SelectProps={{
-						value: this.state.stat,
-					}}
-					value={this.state.stat}
+					value={values.stat}
 				/>
-				<GearStatValueInput name="value" onBlur={this.handleChangeEvent} percentage={percentage} />
+				<GearStatValueInput
+					name="value"
+					onBlur={this.handleChange}
+					onChange={this.handleChange}
+					percentage={percentage}
+					value={values.currentValue}
+				/>
 			</div>
 		);
 	}
