@@ -6,12 +6,6 @@ import HeroView from './HeroView';
 
 const mapState = (state, ownProps) => {
 	const hero = getHeroById(state, ownProps.id);
-
-	// note: temporary until implemented loading... screen
-	if (hero === null) {
-		return {};
-	}
-
 	const gearStats = getHeroGearStats(state, hero);
 
 	return {
