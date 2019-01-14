@@ -1,6 +1,6 @@
 import merge from 'lodash.merge';
 import {atk, def, hp} from '../../core/constants/stats';
-import {CHANGE_GEAR, SELECT_HERO} from '../constants/actionTypes';
+import {CHANGE_GEAR, CHANGE_GEARSET, SELECT_HERO} from '../constants/actionTypes';
 
 const defaultLine = {
 	stat: '',
@@ -8,6 +8,7 @@ const defaultLine = {
 };
 
 const initialStats = {
+	set: '',
 	main: defaultLine,
 	sub1: defaultLine,
 	sub2: defaultLine,
@@ -59,6 +60,18 @@ export default (state = initialState, action) => {
 					},
 				}),
 			};
+		}
+		case CHANGE_GEARSET: {
+			const {piece, set} = action.payload;
+
+			let newVar = {
+				...state,
+				gear: merge({}, state.gear, {
+					[piece]: {set},
+				}),
+			};
+			console.log('changing', newVar);
+			return newVar;
 		}
 		default:
 			return state;

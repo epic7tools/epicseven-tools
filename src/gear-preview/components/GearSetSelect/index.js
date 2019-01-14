@@ -9,4 +9,7 @@ const mapState = state => ({
 	})),
 });
 
-export default connect(mapState)(GearSetSelect);
+export default connect(
+	mapState,
+	() => ({})
+)(GearSetSelect);

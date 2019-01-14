@@ -1,4 +1,4 @@
-import {atkPerc, ca, chc, chd, defPerc, dmg, eff, efr, hp, ls, spdPerc} from './stats';
+import {atkPerc, ca, chc, chd, defPerc, dmg, eff, efr, hpPerc, ls, spdPerc} from './stats';
 
 export const attack = Object.freeze({
 	id: 'attack',
@@ -19,7 +19,7 @@ export const critical = Object.freeze({
 export const health = Object.freeze({
 	id: 'health',
 	label: 'Health Set',
-	stat: hp.id,
+	stat: hpPerc.id,
 	value: 15,
 	required: 2,
 });
@@ -45,6 +45,7 @@ export const speed = Object.freeze({
 	label: 'Speed Set',
 	stat: spdPerc.id,
 	value: 25,
+	required: 4,
 });
 
 export const destruction = Object.freeze({
@@ -52,6 +53,7 @@ export const destruction = Object.freeze({
 	label: 'Destruction Set',
 	stat: chd.id,
 	value: 40,
+	required: 4,
 });
 
 export const counter = Object.freeze({
@@ -59,6 +61,7 @@ export const counter = Object.freeze({
 	label: 'Counter Set',
 	stat: ca.id,
 	value: 20,
+	required: 4,
 });
 
 export const resist = Object.freeze({
@@ -66,6 +69,7 @@ export const resist = Object.freeze({
 	label: 'Resist Set',
 	stat: efr.id,
 	value: 20,
+	required: 2,
 });
 
 export const defense = Object.freeze({
@@ -73,6 +77,7 @@ export const defense = Object.freeze({
 	label: 'Defense Set',
 	stat: defPerc.id,
 	value: 15,
+	required: 2,
 });
 
 export const rage = Object.freeze({
@@ -80,6 +85,7 @@ export const rage = Object.freeze({
 	label: 'Rage Set',
 	stat: dmg.id,
 	value: 30,
+	required: 4,
 });
 
 export const gearSets = Object.freeze([

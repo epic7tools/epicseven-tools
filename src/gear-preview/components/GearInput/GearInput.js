@@ -19,17 +19,16 @@ const GearInput = ({
 	label,
 	name,
 	stats,
-	defaultStat,
 	onChange,
+	onGearsetChange,
 	values,
 	...props
 }) => (
 	<Paper className={classNames(classes.root, className)} {...props}>
 		<Typography variant="h5">{label}</Typography>
-		<GearSetSelect />
+		<GearSetSelect name="set" onChange={onGearsetChange} value={values.set} />
 		<GearStatInput
 			stats={stats.main}
-			defaultStat={defaultStat}
 			label="Main Stat"
 			name="main"
 			onChange={onChange}
