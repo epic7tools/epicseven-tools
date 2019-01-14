@@ -1,6 +1,3 @@
-import {combineReducers} from 'redux';
-import entities from './entities';
-import gearPreview from '../../gear-preview/reducer';
-import loading from './loading';
+import persist from './persist';
 
-export default combineReducers({entities, loading, gearPreview});
+export default persist;
