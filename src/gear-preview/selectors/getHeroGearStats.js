@@ -11,9 +11,6 @@ export default createSelector(
 		const gearStats = {};
 		const baseStats = hero.stats.max;
 
-		console.log('stats', statModifiers);
-		console.log('sets', sets);
-
 		stats.filter(stat => !('extends' in stat)).forEach(stat => (gearStats[stat.id] = 0));
 
 		const calculateStats = x => {

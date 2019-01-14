@@ -22,13 +22,10 @@ export default createSelector(
 			const set = setsById[setId];
 			const count = counts[setId];
 			const effectCount = Math.floor(count / set.required);
-			console.log(count, set.required);
-
 			for (let i = 0; i < effectCount; i++) {
 				completedSets.push(set);
 			}
 		});
-
 		return completedSets;
 	}
 );

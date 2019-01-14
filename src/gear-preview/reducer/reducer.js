@@ -63,15 +63,12 @@ export default (state = initialState, action) => {
 		}
 		case CHANGE_GEARSET: {
 			const {piece, set} = action.payload;
-
-			let newVar = {
+			return {
 				...state,
 				gear: merge({}, state.gear, {
 					[piece]: {set},
 				}),
 			};
-			console.log('changing', newVar);
-			return newVar;
 		}
 		default:
 			return state;
