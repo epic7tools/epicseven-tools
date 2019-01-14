@@ -5,7 +5,7 @@ import root from './root';
 const config = {
 	key: 'root',
 	storage,
-	blacklist: ['entitites', 'loading'],
+	whitelist: ['gearPreview'],
 };
 
 export default persistReducer(config, root);
