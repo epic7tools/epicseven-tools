@@ -53,7 +53,6 @@ class GearPreview extends Component {
 				name={piece.id}
 				label={piece.label}
 				stats={piece.stats}
-				defaultStat={piece.stats.main.length === 1 ? piece.stats.main[0].id : null}
 				onChange={this.handleGearChange}
 			/>
 		));

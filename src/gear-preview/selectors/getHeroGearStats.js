@@ -1,22 +1,28 @@
 import {createSelector} from 'reselect';
-import {stats} from '../../core/constants/stats';
+import {baseStats as stats} from '../../core/constants/stats';
+import getCompleteGearSets from './getCompleteGearSets';
 import getGearStatsFlattened from './getGearStatsFlattened';
 
 export default createSelector(
-	getGearStatsFlattened,
 	(state, hero) => hero,
-	(statModifiers, hero) => {
+	getGearStatsFlattened,
+	getCompleteGearSets,
+	(hero, statModifiers, sets) => {
 		const gearStats = {};
 		const baseStats = hero.stats.max;
-		stats.forEach(stat => (gearStats[stat.id] = 0));
 
-		statModifiers.forEach(stat => {
-			if (stat.stat.extends) {
-				gearStats[stat.stat.extends] += baseStats[stat.stat.extends] * (Number(stat.value) / 100);
+		stats.filter(stat => !('extends' in stat)).forEach(stat => (gearStats[stat.id] = 0));
+
+		const calculateStats = x => {
+			if (x.stat.extends) {
+				gearStats[x.stat.extends] += baseStats[x.stat.extends] * (Number(x.value) / 100);
 			} else {
-				gearStats[stat.stat.id] += Number(stat.value);
+				gearStats[x.stat.id] += Number(x.value);
 			}
-		});
+		};
+
+		statModifiers.forEach(calculateStats);
+		sets.forEach(calculateStats);
 
 		return gearStats;
 	}
