@@ -3,6 +3,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 import React from 'react';
+import GearSetSelect from '../GearSetSelect';
 import GearStatInput from '../GearStatInput';
 
 const style = theme => ({
@@ -25,6 +26,7 @@ const GearInput = ({
 }) => (
 	<Paper className={classNames(classes.root, className)} {...props}>
 		<Typography variant="h5">{label}</Typography>
+		<GearSetSelect />
 		<GearStatInput
 			stats={stats.main}
 			defaultStat={defaultStat}
