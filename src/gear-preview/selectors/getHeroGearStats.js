@@ -1,5 +1,5 @@
 import {createSelector} from 'reselect';
-import {stats} from '../../core/constants/stats';
+import {baseStats as stats} from '../../core/constants/stats';
 import getGearStatsFlattened from './getGearStatsFlattened';
 
 export default createSelector(
@@ -8,7 +8,8 @@ export default createSelector(
 	(statModifiers, hero) => {
 		const gearStats = {};
 		const baseStats = hero.stats.max;
-		stats.forEach(stat => (gearStats[stat.id] = 0));
+
+		stats.filter(stat => !('extends' in stat)).forEach(stat => (gearStats[stat.id] = 0));
 
 		statModifiers.forEach(stat => {
 			if (stat.stat.extends) {

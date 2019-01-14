@@ -1,5 +1,5 @@
 import {createSelector} from 'reselect';
-import {equipmentStatsById} from '../../core/constants/equipmentStats';
+import {statsById} from '../../core/constants/stats';
 import getGearStats from './getGearStats';
 
 export default createSelector(
@@ -12,7 +12,7 @@ export default createSelector(
 				if (stat.stat && stat.value) {
 					flattened.push({
 						...stat,
-						stat: equipmentStatsById[stat.stat],
+						stat: statsById[stat.stat],
 					});
 				}
 			});

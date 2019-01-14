@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import stats from '../../../core/constants/stats';
+import {baseStats} from '../../../core/constants/stats';
 import getHeroById from '../../../core/selectors/getHeroById';
 import getHeroGearStats from '../../selectors/getHeroGearStats';
 import HeroView from './HeroView';
@@ -17,9 +17,9 @@ const mapState = (state, ownProps) => {
 	return {
 		hero: {
 			...hero,
-			stats: stats.map(stat => ({
+			stats: baseStats.map(stat => ({
 				...stat,
-				base: hero.stats.max[stat.id],
+				base: hero.stats.max[stat.id] || 0,
 				gear: gearStats[stat.id],
 			})),
 		},
