@@ -1,73 +1,73 @@
 import {atk, chc, chd, def, eff, efr, hp, spd} from './stats';
-import equipmentStats, {atkPerc, defPerc} from './equipmentStats';
+import stats, {atkPerc, defPerc} from './stats';
 
-const equipmentStatIds = equipmentStats.map(stat => stat.id);
+const equipmentStatIds = stats.filter(stat => stat.gearLine).map(stat => stat.id);
 
 const statsExcept = statFilter => equipmentStatIds.filter(stat => !statFilter.includes(stat));
 
-export const weapon = {
+export const weapon = Object.freeze({
 	id: 'weapon',
 	label: 'Weapon',
 	stats: {
 		main: [atk.id],
 		sub: statsExcept([atk.id, def.id, defPerc.id]),
 	},
-};
+});
 
-export const helmet = {
+export const helmet = Object.freeze({
 	id: 'helmet',
 	label: 'Helmet',
 	stats: {
 		main: [hp.id],
 		sub: statsExcept([hp.id]),
 	},
-};
+});
 
-export const armor = {
+export const armor = Object.freeze({
 	id: 'armor',
 	label: 'Armor',
 	stats: {
 		main: [def.id],
 		sub: statsExcept([def.id, atk.id, atkPerc.id]),
 	},
-};
+});
 
-export const necklace = {
+export const necklace = Object.freeze({
 	id: 'necklace',
 	label: 'Necklace',
 	stats: {
 		main: statsExcept([eff.id, efr.id, spd.id]),
 		sub: equipmentStatIds,
 	},
-};
+});
 
-export const ring = {
+export const ring = Object.freeze({
 	id: 'ring',
 	label: 'Ring',
 	stats: {
 		main: statsExcept([chc.id, chd.id, spd.id]),
 		sub: equipmentStatIds,
 	},
-};
+});
 
-export const boots = {
+export const boots = Object.freeze({
 	id: 'boots',
 	label: 'Boots',
 	stats: {
 		main: statsExcept([chc.id, chd.id, eff.id, efr.id]),
 		sub: equipmentStatIds,
 	},
-};
+});
 
-export const equipmentTypesById = {
+export const equipmentTypesById = Object.freeze({
 	weapon,
 	helmet,
 	armor,
 	necklace,
 	ring,
 	boots,
-};
+});
 
-export const equipmentTypes = [weapon, helmet, armor, necklace, ring, boots];
+export const equipmentTypes = Object.freeze([weapon, helmet, armor, necklace, ring, boots]);
 
 export default equipmentTypes;

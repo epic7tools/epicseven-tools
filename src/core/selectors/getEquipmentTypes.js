@@ -1,11 +1,11 @@
-import {equipmentStatsById} from '../constants/equipmentStats';
+import {statsById} from '../constants/stats';
 import equipmentTypes from '../constants/equipmentTypes';
 
 export default () =>
 	equipmentTypes.map(type => ({
 		...type,
 		stats: {
-			main: type.stats.main.map(id => equipmentStatsById[id]),
-			sub: type.stats.sub.map(id => equipmentStatsById[id]),
+			main: type.stats.main.map(id => statsById[id]),
+			sub: type.stats.sub.map(id => statsById[id]),
 		},
 	}));

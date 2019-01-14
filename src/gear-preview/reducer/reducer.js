@@ -1,6 +1,6 @@
 import merge from 'lodash.merge';
-import {equipmentStatsById} from '../../core/constants/equipmentStats';
-import {CHANGE_GEAR, SELECT_HERO} from '../constants/actionTypes';
+import {atk, def, hp} from '../../core/constants/stats';
+import {CHANGE_GEAR, CHANGE_GEARSET, SELECT_HERO} from '../constants/actionTypes';
 
 const defaultLine = {
 	stat: '',
@@ -8,6 +8,7 @@ const defaultLine = {
 };
 
 const initialStats = {
+	set: '',
 	main: defaultLine,
 	sub1: defaultLine,
 	sub2: defaultLine,
@@ -19,17 +20,17 @@ const initialState = {
 	gear: {
 		weapon: merge({}, initialStats, {
 			main: {
-				stat: equipmentStatsById.atk.id,
+				stat: atk.id,
 			},
 		}),
 		helmet: merge({}, initialStats, {
 			main: {
-				stat: equipmentStatsById.hp.id,
+				stat: hp.id,
 			},
 		}),
 		armor: merge({}, initialStats, {
 			main: {
-				stat: equipmentStatsById.def.id,
+				stat: def.id,
 			},
 		}),
 		necklace: initialStats,
@@ -57,6 +58,15 @@ export default (state = initialState, action) => {
 							[name]: value,
 						},
 					},
+				}),
+			};
+		}
+		case CHANGE_GEARSET: {
+			const {piece, set} = action.payload;
+			return {
+				...state,
+				gear: merge({}, state.gear, {
+					[piece]: {set},
 				}),
 			};
 		}

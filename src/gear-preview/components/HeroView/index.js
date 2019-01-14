@@ -1,25 +1,19 @@
 import {connect} from 'react-redux';
-import stats from '../../../core/constants/stats';
+import {baseStats} from '../../../core/constants/stats';
 import getHeroById from '../../../core/selectors/getHeroById';
 import getHeroGearStats from '../../selectors/getHeroGearStats';
 import HeroView from './HeroView';
 
 const mapState = (state, ownProps) => {
 	const hero = getHeroById(state, ownProps.id);
-
-	// note: temporary until implemented loading... screen
-	if (hero === null) {
-		return {};
-	}
-
 	const gearStats = getHeroGearStats(state, hero);
 
 	return {
 		hero: {
 			...hero,
-			stats: stats.map(stat => ({
+			stats: baseStats.map(stat => ({
 				...stat,
-				base: hero.stats.max[stat.id],
+				base: hero.stats.max[stat.id] || 0,
 				gear: gearStats[stat.id],
 			})),
 		},

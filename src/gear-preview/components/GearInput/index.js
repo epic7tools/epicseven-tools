@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import changeGearSet from '../../actions/changeGearSet';
 import getGearStats from '../../selectors/getGearStats';
 import GearInput from './GearInput';
 
@@ -14,6 +15,14 @@ const mapDispatch = (dispatch, ownProps) => ({
 				...change,
 			});
 		}
+	},
+	onGearsetChange: value => {
+		dispatch(
+			changeGearSet({
+				set: value,
+				piece: ownProps.name,
+			})
+		);
 	},
 });
 
