@@ -7,7 +7,7 @@ import ClassButton from '../../../core/components/ClassButton';
 import ElementButton from '../../../core/components/ElementButton';
 import HeroStars from '../HeroStars';
 import HeroStats from '../HeroStats';
-import Zodiac from '../Zodiac';
+import Zodiac from '../../../core/components/ZodiacButton';
 
 const style = theme => ({
 	root: {
