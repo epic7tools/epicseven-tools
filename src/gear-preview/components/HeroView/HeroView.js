@@ -3,7 +3,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 import React from 'react';
-import Element from '../Element';
+import ElementButton from '../../../core/components/ElementButton';
 import HeroStars from '../HeroStars';
 import HeroStats from '../HeroStats';
 import Zodiac from '../Zodiac';
@@ -30,7 +30,7 @@ const HeroView = ({classes, className, hero, ...props}) => (
 				{hero.name}
 			</Typography>
 			<HeroStars awakened={hero.rarity} total={6} />
-			<Element variant={hero.element} />
+			<ElementButton variant={hero.element} />
 			<Zodiac variant={hero.zodiac} />
 		</div>
 		<HeroStats stats={hero.stats} />
