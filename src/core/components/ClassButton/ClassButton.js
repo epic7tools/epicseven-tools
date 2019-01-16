@@ -3,23 +3,29 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
-import ElementIcon from '../ElementIcon';
+import ClassIcon from '../ClassIcon';
 
 const variants = {
-	ice: {
-		label: 'Ice',
+	knight: {
+		label: 'Knight',
 	},
-	earth: {
-		label: 'Earth',
+	mage: {
+		label: 'Mage',
 	},
-	fire: {
-		label: 'Fire',
+	material: {
+		label: 'Material',
 	},
-	light: {
-		label: 'Light',
+	ranger: {
+		label: 'Ranger',
 	},
-	dark: {
-		label: 'Dark',
+	'soul-weaver': {
+		label: 'Soul Weaver',
+	},
+	thief: {
+		label: 'Thief',
+	},
+	warrior: {
+		label: 'Warrior',
 	},
 };
 
@@ -39,17 +45,25 @@ const styles = theme => ({
 	dark: {},
 });
 
-const ElementButton = ({className, classes, variant, ...props}) => (
+const ClassButton = ({className, classes, variant, ...props}) => (
 	<Button className={classNames(classes.root, className)} {...props}>
-		<ElementIcon variant={variant} className={classes.icon} />
+		<ClassIcon variant={variant} className={classes.icon} />
 		{variants[variant].label}
 	</Button>
 );
 
-ElementButton.propTypes = {
+ClassButton.propTypes = {
 	children: PropTypes.node,
 	classes: PropTypes.object,
-	variant: PropTypes.oneOf(['ice', 'earth', 'fire', 'light', 'dark']),
+	variant: PropTypes.oneOf([
+		'knight',
+		'mage',
+		'material',
+		'ranger',
+		'soul-weaver',
+		'thief',
+		'warrior',
+	]),
 };
 
-export default withStyles(styles)(ElementButton);
+export default withStyles(styles)(ClassButton);
