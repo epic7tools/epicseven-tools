@@ -1,60 +1,50 @@
-import Button from '@material-ui/core/Button';
-import withStyles from '@material-ui/core/styles/withStyles';
-import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
-import ClassIcon from '../ClassIcon';
+import ImageButtonBase from '../ImageButtonBase';
+import knight from './assets/knight.png';
+import mage from './assets/mage.png';
+import material from './assets/material.png';
+import ranger from './assets/ranger.png';
+import soulWeaver from './assets/soul-weaver.png';
+import thief from './assets/thief.png';
+import warrior from './assets/warrior.png';
 
 const variants = {
 	knight: {
 		label: 'Knight',
+		icon: knight,
 	},
 	mage: {
 		label: 'Mage',
+		icon: mage,
 	},
 	material: {
 		label: 'Material',
+		icon: material,
 	},
 	ranger: {
 		label: 'Ranger',
+		icon: ranger,
 	},
 	'soul-weaver': {
 		label: 'Soul Weaver',
+		icon: soulWeaver,
 	},
 	thief: {
 		label: 'Thief',
+		icon: thief,
 	},
 	warrior: {
 		label: 'Warrior',
+		icon: warrior,
 	},
 };
 
-const styles = theme => ({
-	root: {
-		display: 'flex',
-	},
-	icon: {
-		marginRight: theme.spacing.unit / 2,
-		height: 20,
-		width: 20,
-	},
-	ice: {},
-	earth: {},
-	fire: {},
-	light: {},
-	dark: {},
-});
-
-const ClassButton = ({className, classes, variant, ...props}) => (
-	<Button className={classNames(classes.root, className)} {...props}>
-		<ClassIcon variant={variant} className={classes.icon} />
-		{variants[variant].label}
-	</Button>
+const ClassButton = ({variant, ...props}) => (
+	<ImageButtonBase src={variants[variant].icon} label={variants[variant].label} {...props} />
 );
 
 ClassButton.propTypes = {
-	children: PropTypes.node,
-	classes: PropTypes.object,
 	variant: PropTypes.oneOf([
 		'knight',
 		'mage',
@@ -66,4 +56,4 @@ ClassButton.propTypes = {
 	]),
 };
 
-export default withStyles(styles)(ClassButton);
+export default ClassButton;
