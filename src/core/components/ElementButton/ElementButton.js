@@ -1,56 +1,41 @@
-import Button from '@material-ui/core/Button';
-import withStyles from '@material-ui/core/styles/withStyles';
-import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
-import ElementIcon from '../ElementIcon';
+import dark from '../ElementButton/assets/dark.png';
+import earth from '../ElementButton/assets/earth.png';
+import fire from '../ElementButton/assets/fire.png';
+import ice from '../ElementButton/assets/ice.png';
+import light from '../ElementButton/assets/light.png';
+import ImageButtonBase from '../ImageButtonBase/ImageButtonBase';
 
 const variants = {
 	ice: {
 		label: 'Ice',
+		icon: ice,
 	},
 	earth: {
 		label: 'Earth',
+		icon: earth,
 	},
 	fire: {
 		label: 'Fire',
+		icon: fire,
 	},
 	light: {
 		label: 'Light',
+		icon: light,
 	},
 	dark: {
 		label: 'Dark',
+		icon: dark,
 	},
 };
 
-const styles = theme => ({
-	root: {
-		display: 'flex',
-	},
-	icon: {
-		marginRight: theme.spacing.unit / 2,
-		height: 20,
-		width: 20,
-	},
-	typography: {},
-	ice: {},
-	earth: {},
-	fire: {},
-	light: {},
-	dark: {},
-});
-
-const ElementButton = ({className, classes, variant, ...props}) => (
-	<Button className={classNames(classes.root, className)} {...props}>
-		<ElementIcon variant={variant} className={classes.icon} />
-		{variants[variant].label}
-	</Button>
+const ElementButton = ({variant, ...props}) => (
+	<ImageButtonBase src={variants[variant].icon} label={variants[variant].label} {...props} />
 );
 
 ElementButton.propTypes = {
-	children: PropTypes.node,
-	classes: PropTypes.object,
 	variant: PropTypes.oneOf(['ice', 'earth', 'fire', 'light', 'dark']),
 };
 
-export default withStyles(styles)(ElementButton);
+export default ElementButton;
