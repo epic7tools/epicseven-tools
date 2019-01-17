@@ -2,21 +2,21 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import HeroStar from './HeroStar';
 
-const handleStarChange = (func, minimum, i) => () => {
-	if (func && i >= minimum) {
-		func({awakened: i});
+const handleStarChange = (func, stars) => () => {
+	if (func && stars) {
+		func({stars});
 	}
 };
 
-const HeroStars = ({minimum, awakened, total, onClick, onMouseEnter, ...props}) => {
+const HeroStars = ({awakened, total, onChange, ...props}) => {
 	const stars = [];
 	for (let i = 0; i < total; i++) {
 		stars.push(
 			<HeroStar
 				key={i}
 				awakened={i < awakened}
-				onClick={handleStarChange(onClick, minimum, i)}
-				onMouseEnter={handleStarChange(onMouseEnter, minimum, i)}
+				onClick={handleStarChange(onChange, i + 1)}
+				component={Boolean(onChange) ? null : 'span'}
 			/>
 		);
 	}
