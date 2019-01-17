@@ -1,6 +1,12 @@
 import merge from 'lodash.merge';
 import {atk, def, hp} from '../../core/constants/stats';
-import {CHANGE_GEAR, CHANGE_GEARSET, SELECT_HERO} from '../constants/actionTypes';
+import {
+	CHANGE_GEAR,
+	CHANGE_GEARSET,
+	HOVER_AWAKENING,
+	SELECT_HERO,
+	SET_AWAKENING,
+} from '../constants/actionTypes';
 
 const defaultLine = {
 	stat: '',
@@ -14,6 +20,7 @@ const initialStats = {
 	sub2: defaultLine,
 	sub3: defaultLine,
 	sub4: defaultLine,
+	awakening: 0,
 };
 
 const initialState = {
@@ -70,6 +77,17 @@ export default (state = initialState, action) => {
 				}),
 			};
 		}
+		case SET_AWAKENING:
+			return {
+				...state,
+				awakening: action.payload.awakened,
+				hoverAwakening: null,
+			};
+		case HOVER_AWAKENING:
+			return {
+				...state,
+				hoverAwakening: action.payload.awakened,
+			};
 		default:
 			return state;
 	}

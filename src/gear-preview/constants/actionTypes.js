@@ -4,3 +4,5 @@ export const GEAR_PREVIEW = `${PREFIX}gear-preview/`;
 export const CHANGE_GEAR = `${GEAR_PREVIEW}change-gear`;
 export const SELECT_HERO = `${GEAR_PREVIEW}select-hero`;
 export const CHANGE_GEARSET = `${GEAR_PREVIEW}change-gearset`;
+export const SET_AWAKENING = `${GEAR_PREVIEW}set-awakening`;
+export const HOVER_AWAKENING = `${GEAR_PREVIEW}hover-awakening`;
