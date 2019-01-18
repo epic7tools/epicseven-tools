@@ -1,11 +1,9 @@
 import getSelectedHero from './getSelectedHero';
 import {createSelector} from 'reselect';
+import getSelectedLevel from './getSelectedLevel';
 
-// this selector will eventually take the level we've requested & use those stats
 export default createSelector(
 	getSelectedHero,
-	hero => {
-		console.log('hero', hero);
-		return hero.stats.max6;
-	}
+	getSelectedLevel,
+	(hero, lvl) => hero.stats[lvl]
 );

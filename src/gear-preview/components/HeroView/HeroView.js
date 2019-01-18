@@ -8,6 +8,7 @@ import ElementButton from '../../../core/components/ElementButton';
 import Zodiac from '../../../core/components/ZodiacButton';
 import HeroStars from '../HeroStars';
 import HeroStats from '../HeroStats';
+import LevelSelect from '../LevelSelect';
 
 const style = theme => ({
 	root: {
@@ -22,11 +23,15 @@ const style = theme => ({
 		padding: theme.spacing.unit * 2,
 		paddingBottom: 0,
 	},
-	heroDetails: {
+	row: {
 		display: 'flex',
 	},
-	inputs: {
+	awakening: {
 		display: 'flex',
+		marginBottom: theme.spacing.unit,
+	},
+	awakeningStars: {
+		marginLeft: theme.spacing.unit,
 	},
 });
 
@@ -37,13 +42,22 @@ const HeroView = ({classes, className, hero, onAwakeningChange, stars, ...props}
 				{hero.name}
 			</Typography>
 			<HeroStars awakened={hero.rarity} total={hero.rarity} />
-			<div className={classes.heroDetails}>
+			<div className={classes.row}>
 				<ElementButton variant={hero.element} />
 				<ClassButton variant={hero.classType} />
 				<Zodiac variant={hero.zodiac} />
 			</div>
 			<Typography variant="h5">Stats</Typography>
-			<HeroStars awakened={stars} total={6} onChange={onAwakeningChange} />
+			<div className={classes.awakening}>
+				<Typography variant="body2">Awakening</Typography>
+				<HeroStars
+					awakened={stars}
+					total={6}
+					onChange={onAwakeningChange}
+					className={classes.awakeningStars}
+				/>
+			</div>
+			<LevelSelect fullWidth />
 		</div>
 		<HeroStats stats={hero.stats} />
 	</Paper>
