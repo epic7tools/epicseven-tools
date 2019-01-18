@@ -1,4 +1,4 @@
-import IconButton from '@material-ui/core/es/IconButton/IconButton';
+import IconButton from '@material-ui/core/IconButton';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Star from '@material-ui/icons/Star';
 import StarBorder from '@material-ui/icons/StarBorder';

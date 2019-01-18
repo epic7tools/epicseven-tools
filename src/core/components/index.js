@@ -1,4 +1,4 @@
-import MuiThemeProvider from '@material-ui/core/es/styles/MuiThemeProvider';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import React from 'react';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
