@@ -83,11 +83,15 @@ export default (state = initialState, action) => {
 				...state,
 				awakenedStars: action.payload.stars === state.awakenedStars ? 0 : action.payload.stars,
 			};
-		case SELECT_LEVEL:
+		case SELECT_LEVEL: {
+			const level = action.payload;
+			const awakenedStars = level === 'max5' && state.awakenedStars === 6 ? 5 : state.awakenedStars;
 			return {
 				...state,
-				level: action.payload,
+				level,
+				awakenedStars,
 			};
+		}
 		default:
 			return state;
 	}

@@ -35,7 +35,7 @@ const style = theme => ({
 	},
 });
 
-const HeroView = ({classes, className, hero, onAwakeningChange, stars, ...props}) => (
+const HeroView = ({classes, className, hero, onAwakeningChange, stars, maxStars, ...props}) => (
 	<Paper className={classNames(classes.root, className)} {...props}>
 		<div className={classes.head}>
 			<Typography className={classes.title} variant="h4" component="span">
@@ -52,7 +52,7 @@ const HeroView = ({classes, className, hero, onAwakeningChange, stars, ...props}
 				<Typography variant="body2">Awakening</Typography>
 				<HeroStars
 					awakened={stars}
-					total={6}
+					total={maxStars}
 					onChange={onAwakeningChange}
 					className={classes.awakeningStars}
 				/>
