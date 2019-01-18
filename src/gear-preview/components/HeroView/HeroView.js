@@ -5,10 +5,9 @@ import classNames from 'classnames';
 import React from 'react';
 import ClassButton from '../../../core/components/ClassButton';
 import ElementButton from '../../../core/components/ElementButton';
+import Zodiac from '../../../core/components/ZodiacButton';
 import HeroStars from '../HeroStars';
 import HeroStats from '../HeroStats';
-import Zodiac from '../../../core/components/ZodiacButton';
-import LevelSelect from '../LevelSelect';
 
 const style = theme => ({
 	root: {

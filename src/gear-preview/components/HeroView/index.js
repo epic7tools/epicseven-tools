@@ -5,11 +5,13 @@ import getHeroById from '../../../core/selectors/getHeroById';
 import setAwakening from '../../actions/setAwakening';
 import getAwakenedStars from '../../selectors/getAwakenedStars';
 import getHeroGearStats from '../../selectors/getHeroGearStats';
+import getSelectedHeroAwakenedStats from '../../selectors/getSelectedHeroAwakenedStats';
 import HeroView from './HeroView';
 
 const mapState = (state, ownProps) => {
 	const hero = getHeroById(state, ownProps.id);
 	const gearStats = getHeroGearStats(state, hero);
+	const awakenedStats = getSelectedHeroAwakenedStats(state);
 
 	return {
 		stars: getAwakenedStars(state),
@@ -17,7 +19,7 @@ const mapState = (state, ownProps) => {
 			...hero,
 			stats: baseStats.map(stat => ({
 				...stat,
-				base: hero.stats.max[stat.id] || 0,
+				base: awakenedStats[stat.id],
 				gear: gearStats[stat.id],
 			})),
 		},
