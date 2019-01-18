@@ -31,7 +31,7 @@
 		"redux-devtools-extension": "^2.13.7"
 	},
 	"scripts": {
-		"prestart": "yarn build",
+		"heroku-postbuild": "yarn build",
 		"start": "node server.js",
 		"dev": "react-scripts start",
 		"build": "react-scripts build",
