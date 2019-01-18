@@ -1,6 +1,12 @@
 import merge from 'lodash.merge';
 import {atk, def, hp} from '../../core/constants/stats';
-import {CHANGE_GEAR, CHANGE_GEARSET, SELECT_HERO} from '../constants/actionTypes';
+import {
+	CHANGE_GEAR,
+	CHANGE_GEARSET,
+	SELECT_HERO,
+	SELECT_LEVEL,
+	SET_AWAKENING,
+} from '../constants/actionTypes';
 
 const defaultLine = {
 	stat: '',
@@ -14,9 +20,12 @@ const initialStats = {
 	sub2: defaultLine,
 	sub3: defaultLine,
 	sub4: defaultLine,
+	awakenedStars: 0,
 };
 
 const initialState = {
+	hero: '',
+	level: 'max6',
 	gear: {
 		weapon: merge({}, initialStats, {
 			main: {
@@ -37,7 +46,6 @@ const initialState = {
 		ring: initialStats,
 		boots: initialStats,
 	},
-	hero: '',
 };
 
 export default (state = initialState, action) => {
@@ -68,6 +76,20 @@ export default (state = initialState, action) => {
 				gear: merge({}, state.gear, {
 					[piece]: {set},
 				}),
+			};
+		}
+		case SET_AWAKENING:
+			return {
+				...state,
+				awakenedStars: action.payload.stars === state.awakenedStars ? 0 : action.payload.stars,
+			};
+		case SELECT_LEVEL: {
+			const level = action.payload;
+			const awakenedStars = level === 'max5' && state.awakenedStars === 6 ? 5 : state.awakenedStars;
+			return {
+				...state,
+				level,
+				awakenedStars,
 			};
 		}
 		default:

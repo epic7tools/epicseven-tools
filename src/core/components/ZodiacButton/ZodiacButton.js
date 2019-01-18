@@ -48,7 +48,7 @@ const variants = {
 	},
 	aries: {
 		label: 'Aries',
-		icon: aquarius,
+		icon: aries,
 	},
 	taurus: {
 		label: 'Taurus',

@@ -3,11 +3,11 @@ import {bindActionCreators} from 'redux';
 import getEquipmentTypes from '../../../core/selectors/getEquipmentTypes';
 import changeGear from '../../actions/changeGear';
 import selectHero from '../../actions/selectHero';
-import getSelectedHero from '../../selectors/getSelectedHero';
+import getSelectedHeroId from '../../selectors/getSelectedHeroId';
 import GearPreview from './GearPreview';
 
 const mapState = state => ({
-	hero: getSelectedHero(state),
+	hero: getSelectedHeroId(state),
 	equipment: getEquipmentTypes(state),
 });
 
