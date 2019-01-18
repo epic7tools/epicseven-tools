@@ -22,15 +22,15 @@ const HeroStat = ({className, classes, name, base, gear, percentage, ...props}) 
 				{name}
 			</TableCell>
 			<TableCell className={classes.base} align="right">
-				{base}
+				{Math.floor(base)}
 				{percentage && '%'}
 			</TableCell>
 			<TableCell className={classes.gear} align="right">
-				{gear > 0 && Math.round(gear)}
+				{gear > 0 && Math.floor(gear)}
 				{gear > 0 && percentage && '%'}
 			</TableCell>
 			<TableCell className={classes.total} align="right">
-				{Math.round(base + gear)}
+				{Math.floor(base + gear)}
 				{percentage && '%'}
 			</TableCell>
 		</TableRow>

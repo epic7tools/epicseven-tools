@@ -2,14 +2,16 @@ import {createSelector} from 'reselect';
 import {baseStats as stats} from '../../core/constants/stats';
 import getCompleteGearSets from './getCompleteGearSets';
 import getGearStatsFlattened from './getGearStatsFlattened';
+import getSelectedHero from './getSelectedHero';
+import getSelectedHeroAwakenedStats from './getSelectedHeroAwakenedStats';
 
 export default createSelector(
-	(state, hero) => hero,
+	getSelectedHero,
 	getGearStatsFlattened,
 	getCompleteGearSets,
-	(hero, statModifiers, sets) => {
+	getSelectedHeroAwakenedStats,
+	(hero, statModifiers, sets, baseStats) => {
 		const gearStats = {};
-		const baseStats = hero.stats.max;
 
 		stats.filter(stat => !('extends' in stat)).forEach(stat => (gearStats[stat.id] = 0));
 
