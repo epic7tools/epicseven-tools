@@ -23,17 +23,13 @@
 		"reselect": "^4.0.0"
 	},
 	"devDependencies": {
-		"express": "^4.16.4",
-		"express-favicon": "^2.0.1",
 		"path": "^0.12.7",
 		"prettier": "^1.15.3",
 		"react-scripts": "^2.1.1",
 		"redux-devtools-extension": "^2.13.7"
 	},
 	"scripts": {
-		"heroku-postbuild": "yarn build",
-		"start": "node server.js",
-		"dev": "react-scripts start",
+		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
