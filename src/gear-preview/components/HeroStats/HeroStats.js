@@ -36,8 +36,8 @@ HeroStats.propTypes = {
 		PropTypes.shape({
 			id: PropTypes.string.isRequired,
 			label: PropTypes.string.isRequired,
-			base: PropTypes.number.isRequired,
-			gear: PropTypes.number.isRequired,
+			base: PropTypes.number,
+			gear: PropTypes.number,
 			percentage: PropTypes.bool.isRequired,
 		})
 	),
