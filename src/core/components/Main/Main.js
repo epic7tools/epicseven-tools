@@ -8,9 +8,7 @@ const styles = theme => ({
 	root: {
 		flexGrow: 1,
 	},
-	content: {
-		padding: theme.spacing.unit * 2,
-	},
+	content: {},
 	appBarSpacer: theme.mixins.toolbar,
 });
 

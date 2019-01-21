@@ -6,13 +6,15 @@ import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import React from 'react';
 
-const styles = {
-	root: {},
+const styles = theme => ({
+	root: {
+		background: theme.palette.primary.dark,
+	},
 	menuButton: {
 		marginLeft: -12,
 		marginRight: 20,
 	},
-};
+});
 
 const AppBar = ({classes}) => (
 	<MuiAppBar className={classes.root} position="absolute">
