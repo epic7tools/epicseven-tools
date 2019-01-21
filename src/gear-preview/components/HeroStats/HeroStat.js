@@ -41,12 +41,13 @@ HeroStat.propTypes = {
 	className: PropTypes.string,
 	classes: PropTypes.object.isRequired,
 	name: PropTypes.string.isRequired,
-	base: PropTypes.number.isRequired,
+	base: PropTypes.number,
 	gear: PropTypes.number,
 	percentage: PropTypes.bool,
 };
 
 HeroStat.defaultProps = {
+	base: 0,
 	gear: 0,
 	percentage: false,
 };

@@ -4,7 +4,12 @@ import getSelectedHeroAwakenings from './getSelectedHeroAwakenings';
 import getSelectedHeroBaseStats from './getSelectedHeroBaseStats';
 
 // handles deprecated "3%" style strings
-const getIncrease = value => (typeof value === 'string' ? parseFloat(value) / 100 : value);
+const getIncrease = value => {
+	if (typeof value !== 'string') {
+		return value;
+	}
+	return value.endsWith('%') ? parseFloat(value) / 100 : parseInt(value);
+};
 
 export default createSelector(
 	getSelectedHeroBaseStats,
@@ -18,12 +23,15 @@ export default createSelector(
 				Object.entries(increase).forEach(i => {
 					const stat = i[0];
 					const value = getIncrease(i[1]);
-					if (value < 1) {
-						newBaseStats[stat] += statsById[stat].percentage
-							? value * 100
-							: baseStats[stat] * value;
-					} else {
-						newBaseStats[stat] += value;
+					// handling some bad data with empty keys
+					if (stat) {
+						if (value < 1) {
+							newBaseStats[stat] += statsById[stat].percentage
+								? value * 100
+								: baseStats[stat] * value;
+						} else {
+							newBaseStats[stat] += value;
+						}
 					}
 				});
 			});
