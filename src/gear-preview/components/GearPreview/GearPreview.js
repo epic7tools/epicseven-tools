@@ -1,3 +1,4 @@
+import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
@@ -5,15 +6,24 @@ import React, {Component} from 'react';
 import GearInput from '../GearInput';
 import HeroSelect from '../HeroSelect';
 import HeroView from '../HeroView';
+import SnapshotIcon from '@material-ui/icons/CameraRollOutlined';
 
 const style = theme => ({
-	root: {},
-	selection: {
-		width: 600,
-		marginLeft: 'auto',
-		marginRight: 'auto',
+	root: {
+		justifyContent: 'center',
+		flexDirection: 'column',
+	},
+	top: {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		maxWidth: 600,
+	},
+	heroSelect: {
 		padding: theme.spacing.unit,
 	},
+	saveButtonPaper: {},
+	saveButton: {},
 	main: {
 		display: 'flex',
 		alignItems: 'flex-start',
@@ -59,9 +69,19 @@ class GearPreview extends Component {
 
 		return (
 			<div className={classNames(classes.root, className)} {...props}>
-				<Paper className={classes.selection}>
-					<HeroSelect value={hero} onChange={this.handleHeroChange} />
+				<Paper className={classes.top}>
+					<HeroSelect
+						margin="dense"
+						className={classes.heroSelect}
+						value={hero}
+						onChange={this.handleHeroChange}
+					/>
+					<Button className={classes.saveButton}>
+						<SnapshotIcon />
+						Snapshot
+					</Button>
 				</Paper>
+
 				<div className={classes.main}>
 					{hero && <HeroView className={classes.heroview} id={hero} />}
 					<div className={classes.equipment}>{equipmentInputs}</div>
