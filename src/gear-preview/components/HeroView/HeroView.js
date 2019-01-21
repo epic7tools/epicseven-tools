@@ -5,10 +5,9 @@ import classNames from 'classnames';
 import React from 'react';
 import ClassButton from '../../../core/components/ClassButton';
 import ElementButton from '../../../core/components/ElementButton';
+import StarsInput from '../../../core/components/StarsInput';
 import Zodiac from '../../../core/components/ZodiacButton';
-import HeroStars from '../HeroStars';
 import HeroStats from '../HeroStats';
-import LevelSelect from '../LevelSelect';
 
 const style = theme => ({
 	root: {
@@ -26,13 +25,6 @@ const style = theme => ({
 	row: {
 		display: 'flex',
 	},
-	awakening: {
-		display: 'flex',
-		marginBottom: theme.spacing.unit,
-	},
-	awakeningStars: {
-		marginLeft: theme.spacing.unit,
-	},
 });
 
 const HeroView = ({classes, className, hero, onAwakeningChange, stars, maxStars, ...props}) => (
@@ -41,23 +33,13 @@ const HeroView = ({classes, className, hero, onAwakeningChange, stars, maxStars,
 			<Typography className={classes.title} variant="h4" component="span">
 				{hero.name}
 			</Typography>
-			<HeroStars awakened={hero.rarity} total={hero.rarity} />
+			<StarsInput value={hero.rarity} maximum={hero.rarity} />
 			<div className={classes.row}>
 				<ElementButton variant={hero.element} />
 				<ClassButton variant={hero.classType} />
 				<Zodiac variant={hero.zodiac} />
 			</div>
 			<Typography variant="h5">Stats</Typography>
-			<div className={classes.awakening}>
-				<Typography variant="body2">Awakening</Typography>
-				<HeroStars
-					awakened={stars}
-					total={maxStars}
-					onChange={onAwakeningChange}
-					className={classes.awakeningStars}
-				/>
-			</div>
-			<LevelSelect fullWidth />
 		</div>
 		<HeroStats stats={hero.stats} />
 	</Paper>

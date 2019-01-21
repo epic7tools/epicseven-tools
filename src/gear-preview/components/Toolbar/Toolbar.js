@@ -8,7 +8,9 @@ import CloudUpload from '@material-ui/icons/CloudUpload';
 import Save from '@material-ui/icons/Save';
 import classNames from 'classnames';
 import React from 'react';
+import AwakeningSelect from '../AwakeningSelect';
 import HeroToolbarInput from '../HeroToolbarInput';
+import LevelSelect from '../LevelSelect';
 
 const style = theme => ({
 	root: {
@@ -41,10 +43,24 @@ const handleHeroChange = onHeroChange => event => {
 	}
 };
 
-const Toolbar = ({className, classes, onSnapshot, onImport, onExport, onHeroChange, ...props}) => (
+const Toolbar = ({
+	className,
+	classes,
+	onSnapshot,
+	onImport,
+	onExport,
+	onHeroChange,
+	onAwakeningChange,
+	onLevelChange,
+	...props
+}) => (
 	<AppBar className={classNames(classes.root, className)} position="static" {...props}>
 		<MuiToolbar className={classes.toolbar}>
 			<HeroToolbarInput className={classes.heroSelect} onChange={handleHeroChange(onHeroChange)} />
+			<Divider className={classes.divider} />
+			<AwakeningSelect />
+			<Divider className={classes.divider} />
+			<LevelSelect />
 			<Divider className={classes.divider} />
 			<IconButton onClick={onSnapshot}>
 				<Save />

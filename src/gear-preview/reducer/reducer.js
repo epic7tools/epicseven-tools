@@ -4,7 +4,7 @@ import {
 	CHANGE_GEAR,
 	CHANGE_GEARSET,
 	SELECT_HERO,
-	SELECT_LEVEL,
+	SET_LEVEL,
 	SET_AWAKENING,
 } from '../constants/actionTypes';
 
@@ -20,12 +20,12 @@ const initialStats = {
 	sub2: defaultLine,
 	sub3: defaultLine,
 	sub4: defaultLine,
-	awakenedStars: 0,
 };
 
 const initialState = {
 	hero: '',
-	level: 'max6',
+	level: 5,
+	awakening: 0,
 	gear: {
 		weapon: merge({}, initialStats, {
 			main: {
@@ -81,15 +81,15 @@ export default (state = initialState, action) => {
 		case SET_AWAKENING:
 			return {
 				...state,
-				awakenedStars: action.payload.stars === state.awakenedStars ? 0 : action.payload.stars,
+				awakening: action.payload.stars === state.awakening ? 0 : action.payload.stars,
 			};
-		case SELECT_LEVEL: {
-			const level = action.payload;
-			const awakenedStars = level === 'max5' && state.awakenedStars === 6 ? 5 : state.awakenedStars;
+		case SET_LEVEL: {
+			const level = action.payload.stars;
+			const awakening = Math.min(level, state.awakening);
 			return {
 				...state,
 				level,
-				awakenedStars,
+				awakening,
 			};
 		}
 		default:
