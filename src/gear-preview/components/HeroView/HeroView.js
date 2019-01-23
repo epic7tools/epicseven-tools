@@ -10,9 +10,7 @@ import Zodiac from '../../../core/components/ZodiacButton';
 import HeroStats from '../HeroStats';
 
 const style = theme => ({
-	root: {
-		minWidth: 420,
-	},
+	root: {},
 	title: {
 		display: 'inline',
 		marginRight: theme.spacing.unit,

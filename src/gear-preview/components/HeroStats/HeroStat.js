@@ -4,6 +4,7 @@ import TableRow from '@material-ui/core/TableRow';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
+import StatValue from './StatValue';
 
 const style = theme => ({
 	root: {},
@@ -22,16 +23,13 @@ const HeroStat = ({className, classes, name, base, gear, percentage, ...props}) 
 				{name}
 			</TableCell>
 			<TableCell className={classes.base} align="right">
-				{Math.floor(base)}
-				{percentage && '%'}
+				<StatValue value={base} percentage={percentage} />
 			</TableCell>
 			<TableCell className={classes.gear} align="right">
-				{gear > 0 && Math.floor(gear)}
-				{gear > 0 && percentage && '%'}
+				<StatValue value={gear} percentage={percentage} />
 			</TableCell>
 			<TableCell className={classes.total} align="right">
-				{Math.floor(base + gear)}
-				{percentage && '%'}
+				<StatValue value={base + gear} percentage={percentage} />
 			</TableCell>
 		</TableRow>
 	);

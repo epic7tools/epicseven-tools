@@ -1,5 +1,5 @@
 import merge from 'lodash.merge';
-import {atk, def, hp} from '../../core/constants/stats';
+import {atk, baseStats, def, hp} from '../../core/constants/stats';
 import {
 	CHANGE_GEAR,
 	CHANGE_GEARSET,
@@ -46,6 +46,10 @@ const initialState = {
 		ring: initialStats,
 		boots: initialStats,
 	},
+	snapshot: {
+		atk.id,
+
+	}
 };
 
 export default (state = initialState, action) => {
