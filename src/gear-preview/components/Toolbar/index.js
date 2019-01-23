@@ -1,19 +1,13 @@
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import selectHero from '../../actions/selectHero';
+import getSelectedHeroId from '../../selectors/getSelectedHeroId';
 import Toolbar from './Toolbar';
 
-const mapDispatch = dispatch => ({
-	onHeroChange: change => {
-		console.log('Changing hero:', change);
-	},
-	onAwakeningChange: change => {
-		console.log('Changing awakening', change);
-	},
-	onLevelChange: change => {
-		console.log('Changing level', change);
-	},
-});
+const mapState = state => ({hero: getSelectedHeroId(state)});
+const mapDispatch = dispatch => bindActionCreators({onHeroChange: selectHero}, dispatch);
 
 export default connect(
-	null,
+	mapState,
 	mapDispatch
 )(Toolbar);

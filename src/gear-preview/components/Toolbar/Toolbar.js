@@ -1,15 +1,11 @@
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
 import withStyles from '@material-ui/core/styles/withStyles';
 import MuiToolbar from '@material-ui/core/Toolbar';
-import CloudDownload from '@material-ui/icons/CloudDownload';
-import CloudUpload from '@material-ui/icons/CloudUpload';
-import Save from '@material-ui/icons/Save';
 import classNames from 'classnames';
 import React from 'react';
+import HeroSelect from '../../../core/components/HeroSelect';
 import AwakeningSelect from '../AwakeningSelect';
-import HeroToolbarInput from '../HeroToolbarInput';
 import LevelSelect from '../LevelSelect';
 
 const style = theme => ({
@@ -22,6 +18,7 @@ const style = theme => ({
 	heroSelect: {
 		flexGrow: 1,
 		fontSize: '1.25em',
+		marginRight: theme.spacing.unit * 2,
 	},
 	divider: {
 		width: 1,
@@ -43,34 +40,18 @@ const handleHeroChange = onHeroChange => event => {
 	}
 };
 
-const Toolbar = ({
-	className,
-	classes,
-	onSnapshot,
-	onImport,
-	onExport,
-	onHeroChange,
-	onAwakeningChange,
-	onLevelChange,
-	...props
-}) => (
+const Toolbar = ({className, classes, onHeroChange, hero, ...props}) => (
 	<AppBar className={classNames(classes.root, className)} position="static" {...props}>
 		<MuiToolbar className={classes.toolbar}>
-			<HeroToolbarInput className={classes.heroSelect} onChange={handleHeroChange(onHeroChange)} />
+			<HeroSelect
+				className={classes.heroSelect}
+				onChange={handleHeroChange(onHeroChange)}
+				variant="standard"
+				value={hero}
+			/>
+			<AwakeningSelect align="center" />
 			<Divider className={classes.divider} />
-			<AwakeningSelect />
-			<Divider className={classes.divider} />
-			<LevelSelect />
-			<Divider className={classes.divider} />
-			<IconButton onClick={onSnapshot}>
-				<Save />
-			</IconButton>
-			<IconButton onClick={onExport}>
-				<CloudDownload />
-			</IconButton>
-			<IconButton onClick={onImport}>
-				<CloudUpload />
-			</IconButton>
+			<LevelSelect align="center" />
 		</MuiToolbar>
 	</AppBar>
 );
