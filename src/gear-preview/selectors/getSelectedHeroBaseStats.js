@@ -1,9 +1,9 @@
 import getSelectedHero from './getSelectedHero';
 import {createSelector} from 'reselect';
-import getSelectedLevel from './getSelectedLevel';
+import getSelectedStars from './getSelectedStars';
 
 export default createSelector(
 	getSelectedHero,
-	getSelectedLevel,
-	(hero, lvl) => hero.stats[lvl]
+	getSelectedStars,
+	(hero, stars) => hero.stats[`max${stars}`]
 );

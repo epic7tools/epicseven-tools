@@ -1,17 +1,17 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import StarsInput from '../../../core/components/StarsInput';
-import setLevel from '../../actions/setLevel';
+import setAwakening from '../../actions/setAwakening';
+import getAwakenedStars from '../../selectors/getAwakenedStars';
 import getSelectedStars from '../../selectors/getSelectedStars';
 
 const mapState = state => ({
-	value: getSelectedStars(state),
-	minimum: 5,
-	maximum: 6,
-	label: 'Level',
+	value: getAwakenedStars(state),
+	maximum: getSelectedStars(state),
+	label: 'Awakening',
 });
 
-const mapDispatch = dispatch => bindActionCreators({onChange: setLevel}, dispatch);
+const mapDispatch = dispatch => bindActionCreators({onChange: setAwakening}, dispatch);
 
 export default connect(
 	mapState,

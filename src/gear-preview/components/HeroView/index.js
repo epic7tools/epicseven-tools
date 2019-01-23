@@ -1,11 +1,7 @@
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {baseStats} from '../../../core/constants/stats';
 import getHeroById from '../../../core/selectors/getHeroById';
-import setAwakening from '../../actions/setAwakening';
-import getAwakenedStars from '../../selectors/getAwakenedStars';
 import getHeroGearStats from '../../selectors/getHeroGearStats';
-import getMaxAwakening from '../../selectors/getMaxAwakening';
 import getSelectedHeroAwakenedStats from '../../selectors/getSelectedHeroAwakenedStats';
 import HeroView from './HeroView';
 
@@ -15,8 +11,6 @@ const mapState = (state, ownProps) => {
 	const awakenedStats = getSelectedHeroAwakenedStats(state);
 
 	return {
-		stars: getAwakenedStars(state),
-		maxStars: getMaxAwakening(state),
 		hero: {
 			...hero,
 			stats: baseStats.map(stat => ({
@@ -28,15 +22,7 @@ const mapState = (state, ownProps) => {
 	};
 };
 
-const mapDispatch = dispatch =>
-	bindActionCreators(
-		{
-			onAwakeningChange: setAwakening,
-		},
-		dispatch
-	);
-
 export default connect(
 	mapState,
-	mapDispatch
+	() => ({})
 )(HeroView);
