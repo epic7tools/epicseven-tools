@@ -1,15 +1,26 @@
-import TableCell from '@material-ui/core/TableCell';
-import TableBody from '@material-ui/core/TableBody';
-import TableHead from '@material-ui/core/TableHead';
+import withStyles from '@material-ui/core/styles/withStyles';
 import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 import HeroStat from './HeroStat';
 
-const HeroStats = ({stats, ...props}) => (
-	<Table padding="dense" {...props}>
-		<TableHead>
+const style = {
+	root: {},
+	row: {
+		'&:last-child > *': {
+			borderBottom: '0',
+		},
+	},
+};
+
+const HeroStats = ({classes, className, stats, ...props}) => (
+	<Table padding="dense" className={classNames(classes.root, className)} {...props}>
+		<TableHead className={classes.tableHead}>
 			<TableRow>
 				<TableCell />
 				<TableCell align="right">Base</TableCell>
@@ -25,6 +36,7 @@ const HeroStats = ({stats, ...props}) => (
 					base={stat.base}
 					gear={stat.gear}
 					percentage={stat.percentage}
+					className={classes.row}
 				/>
 			))}
 		</TableBody>
@@ -47,4 +59,4 @@ HeroStats.defaultProps = {
 	stats: [],
 };
 
-export default HeroStats;
+export default withStyles(style)(HeroStats);

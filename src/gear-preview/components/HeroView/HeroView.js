@@ -12,7 +12,6 @@ import HeroStats from '../HeroStats';
 const style = theme => ({
 	root: {
 		minWidth: 420,
-		padding: theme.spacing.unit,
 	},
 	title: {
 		display: 'inline',
@@ -39,7 +38,6 @@ const HeroView = ({classes, className, hero, onAwakeningChange, stars, maxStars,
 				<ClassButton variant={hero.classType} />
 				<Zodiac variant={hero.zodiac} />
 			</div>
-			<Typography variant="h5">Stats</Typography>
 		</div>
 		<HeroStats stats={hero.stats} />
 	</Paper>
