@@ -56,6 +56,7 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				hero: action.payload,
+				snapshot: {},
 			};
 		case CHANGE_GEAR: {
 			const {event, piece, line, name: nameProp, value} = action.payload;
