@@ -1,11 +1,12 @@
 import merge from 'lodash.merge';
-import {atk, def, hp} from '../../core/constants/stats';
+import {atk, baseStats, def, hp} from '../../core/constants/stats';
 import {
 	CHANGE_GEAR,
 	CHANGE_GEARSET,
 	SELECT_HERO,
 	SET_LEVEL,
 	SET_AWAKENING,
+	MAKE_SNAPSHOT,
 } from '../constants/actionTypes';
 
 const defaultLine = {
@@ -26,6 +27,7 @@ const initialState = {
 	hero: '',
 	level: 5,
 	awakening: 0,
+	snapshot: {},
 	gear: {
 		weapon: merge({}, initialStats, {
 			main: {
@@ -54,6 +56,7 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				hero: action.payload,
+				snapshot: {},
 			};
 		case CHANGE_GEAR: {
 			const {event, piece, line, name: nameProp, value} = action.payload;
@@ -90,6 +93,12 @@ export default (state = initialState, action) => {
 				...state,
 				level,
 				awakening,
+			};
+		}
+		case MAKE_SNAPSHOT: {
+			return {
+				...state,
+				snapshot: action.payload,
 			};
 		}
 		default:

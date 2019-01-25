@@ -30,14 +30,7 @@ const HeroStats = ({classes, className, stats, ...props}) => (
 		</TableHead>
 		<TableBody>
 			{stats.map(stat => (
-				<HeroStat
-					key={stat.id}
-					name={stat.label}
-					base={stat.base}
-					gear={stat.gear}
-					percentage={stat.percentage}
-					className={classes.row}
-				/>
+				<HeroStat key={stat.id} className={classes.row} {...stat} />
 			))}
 		</TableBody>
 	</Table>

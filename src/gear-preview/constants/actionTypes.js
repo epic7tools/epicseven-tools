@@ -6,3 +6,4 @@ export const SELECT_HERO = `${GEAR_PREVIEW}select-hero`;
 export const CHANGE_GEARSET = `${GEAR_PREVIEW}change-gearset`;
 export const SET_AWAKENING = `${GEAR_PREVIEW}set-awakening`;
 export const SET_LEVEL = `${GEAR_PREVIEW}set-level`;
+export const MAKE_SNAPSHOT = `${GEAR_PREVIEW}make-snapshot`;

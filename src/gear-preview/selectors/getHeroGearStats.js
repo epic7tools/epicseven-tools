@@ -13,7 +13,7 @@ export default createSelector(
 	(hero, statModifiers, sets, baseStats) => {
 		const gearStats = {};
 
-		stats.filter(stat => !('extends' in stat)).forEach(stat => (gearStats[stat.id] = 0));
+		stats.forEach(stat => (gearStats[stat.id] = 0));
 
 		const calculateStats = x => {
 			if (x.stat.extends) {
