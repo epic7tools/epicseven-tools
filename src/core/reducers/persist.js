@@ -2,14 +2,18 @@ import {persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import root from './root';
 
+const version = 0;
+
 const config = {
-	version: 0,
+	version,
 	storage,
 	key: 'root',
 	whitelist: ['gearPreview'],
 
 	// clear localStorage when version updated
-	migrate: () => ({}),
+	migrate: state => {
+		return Promise.resolve(state._persist.version < version ? {} : state);
+	},
 };
 
 export default persistReducer(config, root);
