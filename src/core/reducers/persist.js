@@ -12,7 +12,7 @@ const config = {
 
 	// clear localStorage when version updated
 	migrate: state => {
-		return Promise.resolve(state._persist.version < version ? {} : state);
+		return Promise.resolve(state && state._persist.version < version ? {} : state);
 	},
 };
 
