@@ -1,3 +1,4 @@
+import {createSelector} from 'reselect';
 import getSelectedHeroAwakenedStats from './getSelectedHeroAwakenedStats';
 import getSnapshot from './getSnapshot';
 

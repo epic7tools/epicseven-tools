@@ -6,6 +6,7 @@ import {
 	SELECT_HERO,
 	SET_LEVEL,
 	SET_AWAKENING,
+	MAKE_SNAPSHOT,
 } from '../constants/actionTypes';
 
 const defaultLine = {
@@ -46,10 +47,6 @@ const initialState = {
 		ring: initialStats,
 		boots: initialStats,
 	},
-	snapshot: {
-		atk.id,
-
-	}
 };
 
 export default (state = initialState, action) => {
@@ -94,6 +91,12 @@ export default (state = initialState, action) => {
 				...state,
 				level,
 				awakening,
+			};
+		}
+		case MAKE_SNAPSHOT: {
+			return {
+				...state,
+				snapshot: action.payload,
 			};
 		}
 		default:

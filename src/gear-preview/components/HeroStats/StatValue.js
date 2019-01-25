@@ -12,7 +12,7 @@ const style = theme => ({
 		justifyContent: 'flex-end',
 	},
 	value: {},
-	difference: {
+	diff: {
 		marginLeft: theme.spacing.unit / 2,
 	},
 	greater: {
@@ -23,22 +23,22 @@ const style = theme => ({
 	},
 });
 
-const StatValue = ({classes, className, value, difference, percentage, ...props}) => {
-	const sign = difference < 0 ? '-' : '+';
+const StatValue = ({classes, className, value, diff, percentage, ...props}) => {
+	const sign = diff < 0 ? '-' : '+';
 	return (
 		<div className={classNames(classes.root, className)} {...props}>
 			<Typography className={classes.value} variant="inherit">
 				{formatValueText(value, percentage)}
 			</Typography>
-			{difference && (
+			{diff !== undefined && diff !== 0 && (
 				<Typography
-					className={classNames(classes.difference, {
-						[classes.greater]: difference > 0,
-						[classes.lesser]: difference < 0,
+					className={classNames(classes.diff, {
+						[classes.greater]: diff > 0,
+						[classes.lesser]: diff < 0,
 					})}
 					variant="inherit"
 				>
-					{`(${sign}${formatValueText(difference, percentage)})`}
+					{`(${sign}${formatValueText(diff, percentage)})`}
 				</Typography>
 			)}
 		</div>

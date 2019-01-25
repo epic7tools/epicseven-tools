@@ -8,7 +8,7 @@ import StatValue from './StatValue';
 
 const style = theme => ({
 	root: {},
-	name: {},
+	label: {},
 	base: {},
 	gear: {},
 	total: {
@@ -16,11 +16,11 @@ const style = theme => ({
 	},
 });
 
-const HeroStat = ({className, classes, name, base, gear, percentage, ...props}) => {
+const HeroStat = ({className, classes, label, base, gear, total, diff, percentage, ...props}) => {
 	return (
 		<TableRow className={classNames(classes.root, className)} {...props}>
-			<TableCell className={classes.name} component="th" scope="row">
-				{name}
+			<TableCell className={classes.label} component="th" scope="row">
+				{label}
 			</TableCell>
 			<TableCell className={classes.base} align="right">
 				<StatValue value={base} percentage={percentage} />
@@ -29,7 +29,7 @@ const HeroStat = ({className, classes, name, base, gear, percentage, ...props}) 
 				<StatValue value={gear} percentage={percentage} />
 			</TableCell>
 			<TableCell className={classes.total} align="right">
-				<StatValue value={base + gear} percentage={percentage} />
+				<StatValue value={total} diff={diff} percentage={percentage} />
 			</TableCell>
 		</TableRow>
 	);
@@ -38,9 +38,11 @@ const HeroStat = ({className, classes, name, base, gear, percentage, ...props}) 
 HeroStat.propTypes = {
 	className: PropTypes.string,
 	classes: PropTypes.object.isRequired,
-	name: PropTypes.string.isRequired,
+	label: PropTypes.string.isRequired,
 	base: PropTypes.number,
 	gear: PropTypes.number,
+	total: PropTypes.number,
+	diff: PropTypes.number,
 	percentage: PropTypes.bool,
 };
 
