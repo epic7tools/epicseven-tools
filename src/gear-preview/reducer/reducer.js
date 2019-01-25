@@ -27,6 +27,7 @@ const initialState = {
 	hero: '',
 	level: 5,
 	awakening: 0,
+	snapshot: {},
 	gear: {
 		weapon: merge({}, initialStats, {
 			main: {

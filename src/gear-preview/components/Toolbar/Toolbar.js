@@ -6,8 +6,9 @@ import classNames from 'classnames';
 import React from 'react';
 import HeroSelect from '../../../core/components/HeroSelect';
 import AwakeningSelect from '../AwakeningSelect';
+import ClearSnapshotButton from '../ClearSnapshotButton';
 import LevelSelect from '../LevelSelect';
-import SnapshotButton from '../SnapshotButton/SnapshotButton';
+import SnapshotButton from '../SnapshotButton';
 
 const style = theme => ({
 	root: {
@@ -55,6 +56,7 @@ const Toolbar = ({className, classes, onHeroChange, hero, totalStats, ...props})
 			<LevelSelect align="center" />
 			<Divider className={classes.divider} />
 			<SnapshotButton stats={totalStats} />
+			<ClearSnapshotButton />
 		</MuiToolbar>
 	</AppBar>
 );
