@@ -5,5 +5,5 @@ import getHeroIDs from './getHeroIDs';
 export default createSelector(
 	getHeroIDs,
 	getHeroEntities,
-	(ids, entities) => ids.map(id => entities[id])
+	(ids, entities) => ids.map(id => entities[id]).filter(hero => hero.classType !== 'material')
 );
