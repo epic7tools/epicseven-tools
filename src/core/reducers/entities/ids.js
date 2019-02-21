@@ -1,7 +1,7 @@
 import {
 	GET_ARTIFACTS_SUCCESS,
 	GET_HEROES_SUCCESS,
-	GET_RESOURCES_SUCCESS,
+	GET_ITEMS_SUCCESS,
 	GET_STATUS_EFFECTS_SUCCESS,
 } from '../../constants/actionTypes';
 
@@ -22,10 +22,10 @@ export default (state = {}, action) => {
 				...state,
 				statusEffects: [...action.payload.result],
 			};
-		case GET_RESOURCES_SUCCESS:
+		case GET_ITEMS_SUCCESS:
 			return {
 				...state,
-				resources: [...action.payload.result],
+				items: [...action.payload.result],
 			};
 		default:
 			return state;
