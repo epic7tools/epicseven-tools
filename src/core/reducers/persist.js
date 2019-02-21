@@ -2,7 +2,7 @@ import {persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import root from './root';
 
-const version = 1;
+const version = 2;
 
 const config = {
 	version,

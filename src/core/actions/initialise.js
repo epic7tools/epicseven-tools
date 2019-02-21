@@ -3,7 +3,7 @@ import loadingFailed from './loadingFailed';
 import loadingSuccess from './loadingSuccess';
 import getArtifacts from './requests/getArtifacts';
 import getHeroes from './requests/getHeroes';
-import getResources from './requests/getResources';
+import getItems from './requests/getItems';
 import getStatusEffects from './requests/getStatusEffects';
 
 const callApi = async (dispatch, action) =>
@@ -19,7 +19,7 @@ const makeApiCalls = async dispatch =>
 		callApi(dispatch, getHeroes()),
 		callApi(dispatch, getArtifacts()),
 		callApi(dispatch, getStatusEffects()),
-		callApi(dispatch, getResources()),
+		callApi(dispatch, getItems()),
 	]);
 
 export default () => dispatch => {

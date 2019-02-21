@@ -6,6 +6,6 @@ export default createSelector(
 	heroes =>
 		heroes.map(hero => ({
 			label: hero.name,
-			value: hero.fileId,
+			value: hero._id,
 		}))
 );

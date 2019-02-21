@@ -10,6 +10,6 @@ export default createSelector(
 		[ls.id]: 0,
 		[ca.id]: 0,
 		[dmg.id]: 0,
-		...hero.stats[`max${stars}`],
+		...hero.stats[stars === 5 ? 'lv50FiveStarNoAwaken' : 'lv60SixStarNoAwaken'],
 	})
 );

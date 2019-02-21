@@ -1,3 +1,3 @@
 import {schema} from 'normalizr';
 
-export default new schema.Entity('equipmentStat', {}, {idAttribute: 'fileId'});
+export default new schema.Entity('equipmentStat', {}, {idAttribute: '_id'});
