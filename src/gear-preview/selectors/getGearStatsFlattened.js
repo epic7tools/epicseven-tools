@@ -7,11 +7,12 @@ export default createSelector(
 	stats => {
 		const flattened = [];
 		Object.entries(stats).forEach(piece => {
-			Object.entries(piece[1]).forEach(line => {
-				const stat = line[1];
+			Object.entries(piece[1]).forEach(([line, stat]) => {
 				if (stat.stat && stat.value) {
 					flattened.push({
 						...stat,
+						// if it's a percentage stat, divide it by 100 to get actual percentage
+						value: statsById[stat.stat].percentage ? stat.value / 100 : stat.value,
 						stat: statsById[stat.stat],
 					});
 				}

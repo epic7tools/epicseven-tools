@@ -17,7 +17,7 @@ export default createSelector(
 
 		const calculateStats = x => {
 			if (x.stat.extends) {
-				gearStats[x.stat.extends] += baseStats[x.stat.extends] * (Number(x.value) / 100);
+				gearStats[x.stat.extends] += baseStats[x.stat.extends] * Number(x.value);
 			} else {
 				gearStats[x.stat.id] += Number(x.value);
 			}
