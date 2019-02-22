@@ -21,7 +21,9 @@ export default createSelector(
 						// AND the value is not an integer, assume that we are adding
 						// a percentage of the base stats
 						newBaseStats[stat] +=
-							!statsById[stat].percentage && !isInt(value) ? baseStats[stat] * value : value;
+							!statsById[stat].percentage && !isInt(value)
+								? baseStats[stat] * Number(value)
+								: Number(value);
 					}
 				});
 			});
