@@ -5,9 +5,20 @@ cache:
   yarn: true
   directories:
     - node_modules
-script:
+before_script:
   - yarn format:ci
+script:
   - yarn test
+after_success:
+  - yarn build
+
 branches:
   only:
     - master
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: build
+  on:
+    branch: master
