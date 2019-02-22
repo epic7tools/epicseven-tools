@@ -1,7 +1,9 @@
 import withStyles from '@material-ui/core/styles/withStyles';
 import * as PropTypes from 'prop-types';
-import React, {Component} from 'react';
-import GearPreview from '../../../gear-preview/components/GearPreview';
+import React from 'react';
+import {Redirect, Route, Switch} from 'react-router-dom';
+import GearPreview from '../../../gear-preview';
+import Data from '../../../data';
 import LoadingScreen from '../LoadingScreen';
 
 const styles = theme => ({
@@ -12,17 +14,22 @@ const styles = theme => ({
 	appBarSpacer: theme.mixins.toolbar,
 });
 
-class Main extends Component {
-	render() {
-		const {classes, isLoading, ...props} = this.props;
-		return (
-			<main className={classes.root} {...props}>
-				<div className={classes.appBarSpacer} />
-				<div className={classes.content}>{isLoading ? <LoadingScreen /> : <GearPreview />}</div>
-			</main>
-		);
-	}
-}
+const Main = ({classes, isLoading, staticContext, ...props}) => {
+	const routes = (
+		<Switch>
+			<Route path="/data" component={Data} />
+			<Route path="/gear-preview" component={GearPreview} />
+			<Route render={() => <Redirect to="/gear-preview" />} />
+		</Switch>
+	);
+
+	return (
+		<main className={classes.root} {...props}>
+			<div className={classes.appBarSpacer} />
+			<div className={classes.content}>{isLoading ? <LoadingScreen /> : routes}</div>
+		</main>
+	);
+};
 
 Main.propTypes = {classes: PropTypes.any, isLoading: PropTypes.bool.isRequired};
 

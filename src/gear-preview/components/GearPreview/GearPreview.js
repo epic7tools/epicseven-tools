@@ -21,6 +21,7 @@ const GearPreview = ({
 	onHeroChange,
 	onGearChange,
 	hero,
+	staticContext,
 	...props
 }) => (
 	<div className={classNames(classes.root, className)} {...props}>
