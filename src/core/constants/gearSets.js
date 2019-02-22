@@ -88,6 +88,12 @@ export const rage = Object.freeze({
 	required: 4,
 });
 
+export const immunity = Object.freeze({
+	id: 'immunity',
+	label: 'Immunity Set',
+	required: 2,
+});
+
 export const gearSets = Object.freeze([
 	attack,
 	critical,
@@ -100,6 +106,7 @@ export const gearSets = Object.freeze([
 	resist,
 	counter,
 	rage,
+	immunity,
 ]);
 
 export const gearSetsById = Object.freeze({
@@ -114,6 +121,7 @@ export const gearSetsById = Object.freeze({
 	resist,
 	counter,
 	rage,
+	immunity,
 });
 
 export default gearSets;
