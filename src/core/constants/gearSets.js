@@ -1,4 +1,4 @@
-import {atkPerc, ca, chc, chd, defPerc, dmg, eff, efr, hpPerc, ls, spdPerc} from './stats';
+import {atkPerc, ca, chc, chd, dac, defPerc, dmg, eff, efr, hpPerc, ls, spdPerc} from './stats';
 
 export const attack = Object.freeze({
 	id: 'attack',
@@ -94,6 +94,14 @@ export const immunity = Object.freeze({
 	required: 2,
 });
 
+export const unity = Object.freeze({
+	id: 'unity',
+	label: 'Unity Set',
+	stat: dac.id,
+	value: 0.04,
+	required: 2,
+});
+
 export const gearSets = Object.freeze([
 	attack,
 	critical,
@@ -107,6 +115,7 @@ export const gearSets = Object.freeze([
 	counter,
 	rage,
 	immunity,
+	unity,
 ]);
 
 export const gearSetsById = Object.freeze({
@@ -122,6 +131,7 @@ export const gearSetsById = Object.freeze({
 	counter,
 	rage,
 	immunity,
+	unity,
 });
 
 export default gearSets;
