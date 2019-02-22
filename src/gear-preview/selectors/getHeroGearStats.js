@@ -16,10 +16,12 @@ export default createSelector(
 		stats.forEach(stat => (gearStats[stat.id] = 0));
 
 		const calculateStats = x => {
-			if (x.stat.extends) {
-				gearStats[x.stat.extends] += baseStats[x.stat.extends] * Number(x.value);
-			} else {
-				gearStats[x.stat.id] += Number(x.value);
+			if (x.stat) {
+				if (x.stat.extends) {
+					gearStats[x.stat.extends] += baseStats[x.stat.extends] * Number(x.value);
+				} else {
+					gearStats[x.stat.id] += Number(x.value);
+				}
 			}
 		};
 
