@@ -1,12 +1,12 @@
 import merge from 'lodash.merge';
-import {atk, baseStats, def, hp} from '../../core/constants/stats';
+import {atk, def, hp} from '../../core/constants/stats';
 import {
 	CHANGE_GEAR,
 	CHANGE_GEARSET,
-	SELECT_HERO,
-	SET_LEVEL,
-	SET_AWAKENING,
 	MAKE_SNAPSHOT,
+	SELECT_HERO,
+	SET_AWAKENING,
+	SET_LEVEL,
 } from '../constants/actionTypes';
 
 const defaultLine = {
@@ -29,6 +29,14 @@ const initialState = {
 	awakening: 0,
 	snapshot: {},
 	gear: {
+		artifact: {
+			stat1: {
+				stat: atk.id,
+			},
+			stat2: {
+				stat: hp.id,
+			},
+		},
 		weapon: merge({}, initialStats, {
 			main: {
 				stat: atk.id,

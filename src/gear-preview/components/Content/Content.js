@@ -1,6 +1,7 @@
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import React from 'react';
+import ArtifactInput from '../ArtifactInput';
 import GearInput from '../GearInput';
 import HeroView from '../HeroView';
 
@@ -15,6 +16,7 @@ const style = theme => ({
 	},
 	equipment: {
 		display: 'flex',
+		alignItems: 'flex-start',
 		flexWrap: 'wrap',
 		'& > *': {
 			margin: theme.spacing.unit,
@@ -42,7 +44,10 @@ const Content = ({classes, className, hero, equipment, onGearChange, ...props}) 
 	return (
 		<div className={classNames(classes.root, className)} {...props}>
 			{hero && <HeroView className={classes.heroview} id={hero} />}
-			<div className={classes.equipment}>{equipmentInputs}</div>
+			<div className={classes.equipment}>
+				{equipmentInputs}
+				<ArtifactInput name="artifact" onChange={handleGearChange(onGearChange)} />
+			</div>
 		</div>
 	);
 };
