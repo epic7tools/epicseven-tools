@@ -4,10 +4,10 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import MuiToolbar from '@material-ui/core/Toolbar';
 import classNames from 'classnames';
 import React from 'react';
-import HeroSelect from '../../../core/components/HeroSelect';
 import AwakeningSelect from '../AwakeningSelect';
 import ClearSnapshotButton from '../ClearSnapshotButton';
 import LevelSelect from '../LevelSelect';
+import NewHeroSelect from '../NewHeroSelect';
 import SnapshotButton from '../SnapshotButton';
 
 const style = theme => ({
@@ -36,21 +36,16 @@ const style = theme => ({
 	},
 });
 
-const handleHeroChange = onHeroChange => event => {
+const handleHeroChange = onHeroChange => ({value}) => {
 	if (onHeroChange) {
-		onHeroChange(event.target.value);
+		onHeroChange(value);
 	}
 };
 
 const Toolbar = ({className, classes, onHeroChange, hero, totalStats, ...props}) => (
 	<AppBar className={classNames(classes.root, className)} position="static" {...props}>
 		<MuiToolbar className={classes.toolbar}>
-			<HeroSelect
-				className={classes.heroSelect}
-				onChange={handleHeroChange(onHeroChange)}
-				variant="standard"
-				value={hero}
-			/>
+			<NewHeroSelect onChange={handleHeroChange(onHeroChange)} />
 			<AwakeningSelect align="center" />
 			<Divider className={classes.divider} />
 			<LevelSelect align="center" />
