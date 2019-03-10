@@ -16,11 +16,19 @@ const style = theme => ({
 	},
 	toolbar: {
 		display: 'flex',
+		padding: 0,
 	},
 	heroSelect: {
 		flexGrow: 1,
 		fontSize: '1.25em',
 		marginRight: theme.spacing.unit * 2,
+		minHeight: 64,
+	},
+	input: {
+		minHeight: 64,
+		padding: 0,
+		fontSize: 'inherit',
+		paddingLeft: theme.spacing.unit * 2,
 	},
 	divider: {
 		width: 1,
@@ -45,7 +53,19 @@ const handleHeroChange = onHeroChange => ({value}) => {
 const Toolbar = ({className, classes, onHeroChange, hero, totalStats, ...props}) => (
 	<AppBar className={classNames(classes.root, className)} position="static" {...props}>
 		<MuiToolbar className={classes.toolbar}>
-			<NewHeroSelect onChange={handleHeroChange(onHeroChange)} />
+			<NewHeroSelect
+				onChange={handleHeroChange(onHeroChange)}
+				getInputProps={() => ({
+					disableUnderline: true,
+					fullWidth: true,
+					classes: {
+						input: classes.input,
+					},
+				})}
+				getRootProps={() => ({
+					className: classes.heroSelect,
+				})}
+			/>
 			<AwakeningSelect align="center" />
 			<Divider className={classes.divider} />
 			<LevelSelect align="center" />
