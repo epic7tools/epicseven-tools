@@ -20,7 +20,7 @@ const style = theme => ({
 	},
 	heroSelect: {
 		flexGrow: 1,
-		fontSize: '1.25em',
+		fontSize: theme.typography.pxToRem(16),
 		marginRight: theme.spacing.unit * 2,
 		minHeight: 64,
 	},
@@ -44,9 +44,9 @@ const style = theme => ({
 	},
 });
 
-const handleHeroChange = onHeroChange => ({value}) => {
+const handleHeroChange = onHeroChange => change => {
 	if (onHeroChange) {
-		onHeroChange(value);
+		onHeroChange(change ? change.value : null);
 	}
 };
 
@@ -56,6 +56,7 @@ const Toolbar = ({className, classes, onHeroChange, hero, totalStats, ...props})
 			<NewHeroSelect
 				onChange={handleHeroChange(onHeroChange)}
 				getInputProps={() => ({
+					placeholder: 'Select a hero',
 					disableUnderline: true,
 					fullWidth: true,
 					classes: {
