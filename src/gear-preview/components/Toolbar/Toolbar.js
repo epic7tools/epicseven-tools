@@ -13,6 +13,7 @@ import SnapshotButton from '../SnapshotButton';
 const style = theme => ({
 	root: {
 		background: theme.palette.primary,
+		zIndex: theme.zIndex.appBar - 1,
 	},
 	toolbar: {
 		display: 'flex',
@@ -54,6 +55,7 @@ const Toolbar = ({className, classes, onHeroChange, hero, totalStats, ...props})
 	<AppBar className={classNames(classes.root, className)} position="static" {...props}>
 		<MuiToolbar className={classes.toolbar}>
 			<NewHeroSelect
+				defaultSelectedItem={hero}
 				onChange={handleHeroChange(onHeroChange)}
 				getInputProps={() => ({
 					placeholder: 'Select a hero',
