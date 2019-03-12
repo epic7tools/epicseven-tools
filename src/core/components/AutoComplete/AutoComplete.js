@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {Component} from 'react';
 import MuiDownshift from 'mui-downshift';
 
-class NewHeroSelect extends Component {
+class AutoComplete extends Component {
 	static defaultProps = {
 		items: [],
 	};
@@ -29,8 +30,6 @@ class NewHeroSelect extends Component {
 			<MuiDownshift
 				items={filteredItems}
 				onStateChange={this.handleStateChange}
-				// getListItemKey={rowIndex => filteredItems[rowIndex].value}
-				// keyMapper={rowIndex => filteredItems[rowIndex] && filteredItems[rowIndex].label}
 				{...props}
 				inputRef={node => {
 					this.input = node;
@@ -40,4 +39,4 @@ class NewHeroSelect extends Component {
 	}
 }
 
-export default NewHeroSelect;
+export default AutoComplete;

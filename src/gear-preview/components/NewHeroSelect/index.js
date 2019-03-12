@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
+import AutoComplete from '../../../core/components/AutoComplete';
 import getHeroes from '../../../core/selectors/getHeroes';
-import NewHeroSelect from './NewHeroSelect';
 
 const mapState = state => ({
 	items: getHeroes(state).map(hero => ({
@@ -9,4 +9,4 @@ const mapState = state => ({
 	})),
 });
 
-export default connect(mapState)(NewHeroSelect);
+export default connect(mapState)(AutoComplete);
