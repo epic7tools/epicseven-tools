@@ -27,7 +27,6 @@ export default createSelector(
 			}
 		});
 
-		console.log(completedSets);
 		return completedSets;
 	}
 );
