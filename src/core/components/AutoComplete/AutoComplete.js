@@ -28,8 +28,10 @@ class AutoComplete extends Component {
 		const {filteredItems} = this.state;
 		return (
 			<MuiDownshift
+				scrollIntoView={() => {}} // workaround for bug causing entire page to scroll
 				items={filteredItems}
 				onStateChange={this.handleStateChange}
+				getListItemKey={index => filteredItems[index].value}
 				{...props}
 				inputRef={node => {
 					this.input = node;
