@@ -7,16 +7,22 @@ class AutoComplete extends Component {
 		items: [],
 	};
 
-	state = {
-		filteredItems: this.props.items,
-	};
+	constructor(props) {
+		super(props);
+		const {defaultSelectedItem} = props;
+		this.state = {
+			filteredItems: defaultSelectedItem
+				? this.filterItems(defaultSelectedItem.label)
+				: this.props.items,
+		};
+	}
+
+	filterItems = filter =>
+		this.props.items.filter(item => item.label.toLowerCase().includes(filter.toLowerCase()));
 
 	handleStateChange = changes => {
 		if (typeof changes.inputValue === 'string') {
-			const filteredItems = this.props.items.filter(item =>
-				item.label.toLowerCase().includes(changes.inputValue.toLowerCase())
-			);
-			this.setState({filteredItems});
+			this.setState({filteredItems: this.filterItems(changes.inputValue)});
 		}
 		if (this.input && this.props.blurOnSelect) {
 			this.input.blur();
