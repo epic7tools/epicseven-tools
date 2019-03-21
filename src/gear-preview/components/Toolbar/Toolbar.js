@@ -46,7 +46,6 @@ const style = theme => ({
 });
 
 const handleHeroChange = onHeroChange => change => {
-	console.log('handling hero change', change);
 	if (onHeroChange) {
 		onHeroChange(change ? change.value : null);
 	}
