@@ -3,6 +3,9 @@ import {atk, def, hp} from '../../core/constants/stats';
 import {
 	CHANGE_GEAR,
 	CHANGE_GEARSET,
+	HERO_LOAD,
+	HERO_LOAD_FAILURE,
+	HERO_LOAD_SUCCESS,
 	MAKE_SNAPSHOT,
 	SELECT_HERO,
 	SET_AWAKENING,
@@ -25,6 +28,7 @@ const initialStats = {
 
 const initialState = {
 	hero: '',
+	loading: false,
 	level: 5,
 	awakening: 0,
 	snapshot: {},
@@ -64,7 +68,19 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				hero: action.payload,
+				loading: false,
 				snapshot: {},
+			};
+		case HERO_LOAD:
+			return {
+				...state,
+				loading: true,
+			};
+		case HERO_LOAD_FAILURE:
+		case HERO_LOAD_SUCCESS:
+			return {
+				...state,
+				loading: false,
 			};
 		case CHANGE_GEAR: {
 			const {event, piece, line, name: nameProp, value} = action.payload;

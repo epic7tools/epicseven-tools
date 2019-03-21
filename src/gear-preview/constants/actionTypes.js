@@ -7,3 +7,6 @@ export const CHANGE_GEARSET = `${GEAR_PREVIEW}change-gearset`;
 export const SET_AWAKENING = `${GEAR_PREVIEW}set-awakening`;
 export const SET_LEVEL = `${GEAR_PREVIEW}set-level`;
 export const MAKE_SNAPSHOT = `${GEAR_PREVIEW}make-snapshot`;
+export const HERO_LOAD = `${GEAR_PREVIEW}hero-load`;
+export const HERO_LOAD_SUCCESS = `${GEAR_PREVIEW}hero-load-success`;
+export const HERO_LOAD_FAILURE = `${GEAR_PREVIEW}hero-load-fail`;
