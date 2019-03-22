@@ -1,6 +1,6 @@
-import beginLoading from './beginLoading';
-import loadingFailed from './loadingFailed';
-import loadingSuccess from './loadingSuccess';
+import load from './basic/load';
+import loadFailure from './basic/loadFailure';
+import loadSuccess from './basic/loadSuccess';
 import getHero from './requests/getHero';
 import getHeroes from './requests/getHeroes';
 import callApi from './util/callApi';
@@ -16,8 +16,8 @@ const makeApiCalls = async (dispatch, getState) => {
 };
 
 export default () => (dispatch, getState) => {
-	dispatch(beginLoading());
+	dispatch(load());
 	return makeApiCalls(dispatch, getState)
-		.then(() => dispatch(loadingSuccess()))
-		.catch(e => dispatch(loadingFailed(e)));
+		.then(() => dispatch(loadSuccess()))
+		.catch(e => dispatch(loadFailure(e)));
 };

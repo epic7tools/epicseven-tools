@@ -1,4 +1,6 @@
-import {LOADING, LOADING_FAILURE, LOADING_SUCCESS} from '../constants/actionTypes';
+import load from '../actions/basic/load';
+import loadFailure from '../actions/basic/loadFailure';
+import loadSuccess from '../actions/basic/loadSuccess';
 
 const initialState = {
 	inProgress: true,
@@ -7,14 +9,14 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case LOADING:
+		case load.toString():
 			return initialState;
-		case LOADING_SUCCESS:
+		case loadSuccess.toString():
 			return {
 				inProgress: false,
 				error: false,
 			};
-		case LOADING_FAILURE:
+		case loadFailure.toString():
 			return {
 				inProgress: false,
 				error: true,
