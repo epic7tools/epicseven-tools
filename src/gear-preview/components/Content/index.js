@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import getEquipmentTypes from '../../../core/selectors/getEquipmentTypes';
-import changeGear from '../../actions/changeGear';
+import changeGear from '../../actions/basic/changeGear';
 import getSelectedHeroId from '../../selectors/getSelectedHeroId';
 import Content from './Content';
 

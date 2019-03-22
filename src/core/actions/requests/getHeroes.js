@@ -5,6 +5,6 @@ import createGetRequest from './createGetRequest';
 
 export default () =>
 	createGetRequest([hero], {
-		endpoint: `${API_URL}/heroes?_sort=name`,
+		endpoint: `${API_URL}/heroes`,
 		types: [GET_HEROES, GET_HEROES_SUCCESS, GET_HEROES_FAILURE],
 	});

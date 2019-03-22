@@ -1,16 +1,13 @@
 import merge from 'lodash.merge';
 import {atk, def, hp} from '../../core/constants/stats';
-import {
-	CHANGE_GEAR,
-	CHANGE_GEARSET,
-	HERO_LOAD,
-	HERO_LOAD_FAILURE,
-	HERO_LOAD_SUCCESS,
-	MAKE_SNAPSHOT,
-	SELECT_HERO,
-	SET_AWAKENING,
-	SET_LEVEL,
-} from '../constants/actionTypes';
+import changeGear from '../actions/basic/changeGear';
+import changeGearSet from '../actions/basic/changeGearSet';
+import makeSnapshot from '../actions/basic/makeSnapshot';
+import selectHero from '../actions/basic/selectHero';
+import selectHeroFailure from '../actions/basic/selectHeroFailure';
+import selectHeroSuccess from '../actions/basic/selectHeroSuccess';
+import setAwakening from '../actions/basic/setAwakening';
+import setLevel from '../actions/basic/setLevel';
 
 const defaultLine = {
 	stat: '',
@@ -64,25 +61,26 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case SELECT_HERO:
+		case selectHero.toString():
+			return {
+				...state,
+				loading: true,
+			};
+		case selectHeroSuccess.toString(): {
+			console.log('handling hero success');
 			return {
 				...state,
 				hero: action.payload,
 				loading: false,
 				snapshot: {},
 			};
-		case HERO_LOAD:
-			return {
-				...state,
-				loading: true,
-			};
-		case HERO_LOAD_FAILURE:
-		case HERO_LOAD_SUCCESS:
+		}
+		case selectHeroFailure.toString():
 			return {
 				...state,
 				loading: false,
 			};
-		case CHANGE_GEAR: {
+		case changeGear.toString(): {
 			const {event, piece, line, name: nameProp, value} = action.payload;
 			const name = event !== 'blur' && nameProp === 'value' ? 'currentValue' : nameProp;
 			return {
@@ -96,7 +94,7 @@ export default (state = initialState, action) => {
 				}),
 			};
 		}
-		case CHANGE_GEARSET: {
+		case changeGearSet.toString(): {
 			const {piece, set} = action.payload;
 			return {
 				...state,
@@ -105,12 +103,12 @@ export default (state = initialState, action) => {
 				}),
 			};
 		}
-		case SET_AWAKENING:
+		case setAwakening.toString():
 			return {
 				...state,
 				awakening: action.payload.stars === state.awakening ? 0 : action.payload.stars,
 			};
-		case SET_LEVEL: {
+		case setLevel.toString(): {
 			const level = action.payload.stars;
 			const awakening = Math.min(level, state.awakening);
 			return {
@@ -119,7 +117,7 @@ export default (state = initialState, action) => {
 				awakening,
 			};
 		}
-		case MAKE_SNAPSHOT: {
+		case makeSnapshot.toString(): {
 			return {
 				...state,
 				snapshot: action.payload,
