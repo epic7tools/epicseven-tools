@@ -1,12 +1,12 @@
 import {connect} from 'react-redux';
-import getHeroList from '../../selectors/getHeroList';
-import HeroSelect from './HeroSelect';
+import AutoComplete from '../../../core/components/AutoComplete';
+import getHeroes from '../../../core/selectors/getHeroes';
 
 const mapState = state => ({
-	items: getHeroList(state),
+	items: getHeroes(state).map(hero => ({
+		label: hero.name,
+		value: hero.id,
+	})),
 });
 
-export default connect(
-	mapState,
-	() => ({})
-)(HeroSelect);
+export default connect(mapState)(AutoComplete);

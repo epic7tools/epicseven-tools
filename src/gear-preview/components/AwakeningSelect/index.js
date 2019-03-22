@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import StarsInput from '../../../core/components/StarsInput';
-import setAwakening from '../../actions/setAwakening';
+import setAwakening from '../../actions/basic/setAwakening';
 import getAwakenedStars from '../../selectors/getAwakenedStars';
 import getSelectedStars from '../../selectors/getSelectedStars';
 

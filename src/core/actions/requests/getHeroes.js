@@ -1,10 +1,14 @@
-import {GET_HEROES, GET_HEROES_FAILURE, GET_HEROES_SUCCESS} from '../../constants/actionTypes';
+import {
+	FETCH_HEROES,
+	FETCH_HEROES_FAILURE,
+	FETCH_HEROES_SUCCESS,
+} from '../../constants/requestActionTypes';
 import hero from '../../schemas/hero';
 import {API_URL} from '../../util/env';
 import createGetRequest from './createGetRequest';
 
 export default () =>
 	createGetRequest([hero], {
-		endpoint: `${API_URL}/heroes?_sort=name`,
-		types: [GET_HEROES, GET_HEROES_SUCCESS, GET_HEROES_FAILURE],
+		endpoint: `${API_URL}/heroes`,
+		types: [FETCH_HEROES, FETCH_HEROES_SUCCESS, FETCH_HEROES_FAILURE],
 	});

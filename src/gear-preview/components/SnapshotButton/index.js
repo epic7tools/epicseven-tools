@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import makeSnapshot from '../../actions/makeSnapshot';
+import makeSnapshot from '../../actions/basic/makeSnapshot';
 import SnapshotButton from './SnapshotButton';
 
 const mapDispatch = (dispatch, ownProps) =>

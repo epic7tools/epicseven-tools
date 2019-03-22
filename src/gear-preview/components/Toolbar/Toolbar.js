@@ -6,8 +6,8 @@ import classNames from 'classnames';
 import React from 'react';
 import AwakeningSelect from '../AwakeningSelect';
 import ClearSnapshotButton from '../ClearSnapshotButton';
+import HeroSelect from '../../../core/components/HeroSelect';
 import LevelSelect from '../LevelSelect';
-import NewHeroSelect from '../NewHeroSelect';
 import SnapshotButton from '../SnapshotButton';
 
 const style = theme => ({
@@ -51,10 +51,11 @@ const handleHeroChange = onHeroChange => change => {
 	}
 };
 
-const Toolbar = ({className, classes, onHeroChange, hero, totalStats, ...props}) => (
+const Toolbar = ({className, classes, onHeroChange, hero, totalStats, isHeroLoading, ...props}) => (
 	<AppBar className={classNames(classes.root, className)} position="static" {...props}>
 		<MuiToolbar className={classes.toolbar}>
-			<NewHeroSelect
+			<HeroSelect
+				loading={isHeroLoading}
 				defaultSelectedItem={hero}
 				onChange={handleHeroChange(onHeroChange)}
 				getInputProps={() => ({

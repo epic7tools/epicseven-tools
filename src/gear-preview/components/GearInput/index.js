@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import changeGearSet from '../../actions/changeGearSet';
+import changeGearSet from '../../actions/basic/changeGearSet';
 import getGearStats from '../../selectors/getGearStats';
 import GearInput from './GearInput';
 

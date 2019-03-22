@@ -1,8 +1,9 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import selectHero from '../../actions/selectHero';
+import changeHero from '../../actions/changeHero';
 import getHeroTotalStats from '../../selectors/getHeroTotalStats';
 import getSelectedHero from '../../selectors/getSelectedHero';
+import isHeroLoading from '../../selectors/isHeroLoading';
 import Toolbar from './Toolbar';
 
 const mapState = state => {
@@ -16,11 +17,12 @@ const mapState = state => {
 			value: hero.id,
 			label: hero.name,
 		},
+		isHeroLoading: isHeroLoading(state),
 		totalStats: getHeroTotalStats(state),
 	};
 };
 
-const mapDispatch = dispatch => bindActionCreators({onHeroChange: selectHero}, dispatch);
+const mapDispatch = dispatch => bindActionCreators({onHeroChange: changeHero}, dispatch);
 
 export default connect(
 	mapState,

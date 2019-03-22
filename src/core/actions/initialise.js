@@ -1,30 +1,23 @@
-import beginLoading from './beginLoading';
-import loadingFailed from './loadingFailed';
-import loadingSuccess from './loadingSuccess';
-import getArtifacts from './requests/getArtifacts';
+import load from './basic/load';
+import loadFailure from './basic/loadFailure';
+import loadSuccess from './basic/loadSuccess';
+import getHero from './requests/getHero';
 import getHeroes from './requests/getHeroes';
-import getItems from './requests/getItems';
-import getStatusEffects from './requests/getStatusEffects';
+import callApi from './util/callApi';
 
-const callApi = async (dispatch, action) =>
-	dispatch(action).then(x => {
-		if (x.error) {
-			throw x;
-		}
-		return Promise.resolve(x);
-	});
+const makeApiCalls = async (dispatch, getState) => {
+	const apiCalls = [callApi(dispatch, getHeroes())];
 
-const makeApiCalls = async dispatch =>
-	Promise.all([
-		callApi(dispatch, getHeroes()),
-		callApi(dispatch, getArtifacts()),
-		callApi(dispatch, getStatusEffects()),
-		callApi(dispatch, getItems()),
-	]);
+	if (getState().gearPreview.hero) {
+		apiCalls.push(callApi(dispatch, getHero(getState().gearPreview.hero)));
+	}
 
-export default () => dispatch => {
-	dispatch(beginLoading());
-	return makeApiCalls(dispatch)
-		.then(() => dispatch(loadingSuccess()))
-		.catch(e => dispatch(loadingFailed(e)));
+	return Promise.all(apiCalls);
+};
+
+export default () => (dispatch, getState) => {
+	dispatch(load());
+	return makeApiCalls(dispatch, getState)
+		.then(() => dispatch(loadSuccess()))
+		.catch(e => dispatch(loadFailure(e)));
 };
