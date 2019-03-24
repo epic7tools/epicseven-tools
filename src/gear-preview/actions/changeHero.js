@@ -1,19 +1,20 @@
-import getHero from '../../core/actions/requests/getHero';
+import {batchActions} from 'redux-batched-actions';
+import fetchHero from '../../core/actions/requests/fetchHero';
 import callApi from '../../core/actions/util/callApi';
 import getHeroById from '../../core/selectors/getHeroById';
+import loadingHeroInfo from './basic/loadingHeroInfo';
+import loadingHeroInfoComplete from './basic/loadingHeroInfoComplete';
 import selectHero from './basic/selectHero';
-import selectHeroFailure from './basic/selectHeroFailure';
-import selectHeroSuccess from './basic/selectHeroSuccess';
 
 export default heroId => (dispatch, getState) => {
 	if (heroId && !getHeroById(getState(), heroId).gameId) {
-		dispatch(selectHero());
-		callApi(dispatch, getHero(heroId))
+		dispatch(loadingHeroInfo());
+		callApi(dispatch, fetchHero(heroId))
 			.then(() => {
-				dispatch(selectHeroSuccess(heroId));
+				dispatch(batchActions([selectHero(heroId), loadingHeroInfoComplete()]));
 			})
-			.catch(() => dispatch(selectHeroFailure()));
+			.catch(() => dispatch(loadingHeroInfoComplete()));
 	} else {
-		dispatch(selectHeroSuccess(heroId));
+		dispatch(selectHero(heroId));
 	}
 };

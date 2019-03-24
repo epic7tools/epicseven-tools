@@ -1,1 +1,1 @@
-export default state => state.gearPreview.loading;
+export default state => state.gearPreview.hero.loading;

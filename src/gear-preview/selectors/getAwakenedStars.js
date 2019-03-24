@@ -1,1 +1,1 @@
-export default state => state.gearPreview.awakening;
+export default state => state.gearPreview.hero.awakening;
