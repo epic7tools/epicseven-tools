@@ -51,7 +51,7 @@ const handleHeroChange = onHeroChange => change => {
 	}
 };
 
-const Toolbar = ({className, classes, onHeroChange, hero, totalStats, isHeroLoading, ...props}) => (
+const Toolbar = ({className, classes, onHeroChange, hero, isHeroLoading, ...props}) => (
 	<AppBar className={classNames(classes.root, className)} position="static" {...props}>
 		<MuiToolbar className={classes.toolbar}>
 			<HeroSelect
@@ -74,7 +74,7 @@ const Toolbar = ({className, classes, onHeroChange, hero, totalStats, isHeroLoad
 			<Divider className={classes.divider} />
 			<LevelSelect align="center" />
 			<Divider className={classes.divider} />
-			<SnapshotButton stats={totalStats} />
+			<SnapshotButton />
 			<ClearSnapshotButton />
 		</MuiToolbar>
 	</AppBar>

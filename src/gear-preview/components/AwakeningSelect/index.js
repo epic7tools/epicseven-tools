@@ -3,11 +3,11 @@ import {bindActionCreators} from 'redux';
 import StarsInput from '../../../core/components/StarsInput';
 import setAwakening from '../../actions/basic/setAwakening';
 import getAwakenedStars from '../../selectors/getAwakenedStars';
-import getSelectedStars from '../../selectors/getSelectedStars';
+import getStars from '../../selectors/getStars';
 
 const mapState = state => ({
 	value: getAwakenedStars(state),
-	maximum: getSelectedStars(state),
+	maximum: getStars(state),
 	label: 'Awakening',
 });
 

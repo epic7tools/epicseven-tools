@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import StarsInput from '../../../core/components/StarsInput';
 import setLevel from '../../actions/basic/setLevel';
-import getSelectedStars from '../../selectors/getSelectedStars';
+import getSelectedStars from '../../selectors/getStars';
 
 const mapState = state => ({
 	value: getSelectedStars(state),

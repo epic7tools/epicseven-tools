@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import getHeroById from '../../../core/selectors/getHeroById';
-import getHeroAllStats from '../../selectors/getHeroAllStats';
+import getAllStats from '../../selectors/getAllStats';
 import HeroView from './HeroView';
 
 const mapState = (state, ownProps) => {
@@ -8,7 +8,7 @@ const mapState = (state, ownProps) => {
 	return {
 		hero: {
 			...hero,
-			stats: getHeroAllStats(state),
+			stats: getAllStats(state),
 		},
 	};
 };

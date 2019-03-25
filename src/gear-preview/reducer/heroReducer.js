@@ -1,52 +1,93 @@
 import loadingHeroInfo from '../actions/basic/loadingHeroInfo';
-import loadingHeroInfoComplete from '../actions/basic/loadingHeroInfoComplete';
+import loadingHeroInfoFail from '../actions/basic/loadingHeroInfoFail';
+import loadingHeroInfoSuccess from '../actions/basic/loadingHeroInfoSuccess';
+import makeSnapshot from '../actions/basic/makeSnapshot';
 import selectHero from '../actions/basic/selectHero';
 import setAwakening from '../actions/basic/setAwakening';
 import setLevel from '../actions/basic/setLevel';
-import statsInitialState from './heroStatsReducer';
+import {
+	FETCH_HERO_BASE_STATS_SUCCESS,
+	FETCH_HERO_EQUIPPED_STATS_SUCCESS,
+} from '../constants/requestActionTypes';
 
 const initialState = {
 	id: '',
 	loading: false,
-	level: 5,
+	stars: 5,
 	awakening: 0,
-	stats: statsInitialState,
+	staging: {},
+	base: {},
+	equipped: {},
+	snapshot: {},
 };
 
 export default (state = initialState, action) => {
-	const newState = {
-		...state,
-		stats: statsInitialState(state.stats, action),
-	};
-
 	switch (action.type) {
 		case loadingHeroInfo.toString():
 			return {
-				...newState,
+				...state,
 				loading: true,
 			};
-		case loadingHeroInfoComplete.toString():
+		case loadingHeroInfoSuccess.toString():
 			return {
-				...newState,
-				loading: true,
+				...state,
+				...state.staging,
+				loading: false,
+				staging: {},
 			};
-		case selectHero.toString():
+		case loadingHeroInfoFail.toString():
 			return {
-				...newState,
-				id: action.payload,
+				...state,
+				loading: false,
+				staging: {},
 			};
 		case setAwakening.toString():
 			return {
-				...newState,
+				...state,
 				awakening: action.payload.stars === state.awakening ? 0 : action.payload.stars,
 			};
 		case setLevel.toString(): {
-			const level = action.payload.stars;
-			const awakening = Math.min(level, state.awakening);
+			const stars = action.payload.stars;
+			const awakening = Math.min(stars, state.awakening);
 			return {
-				...newState,
-				level,
+				...state,
+				stars,
 				awakening,
+			};
+		}
+		case makeSnapshot.toString(): {
+			return {
+				...state,
+				snapshot: state.equipped,
+			};
+		}
+
+		// staging
+		case FETCH_HERO_BASE_STATS_SUCCESS:
+			return {
+				...state,
+				staging: {
+					...state.staging,
+					base: action.payload,
+				},
+			};
+		case FETCH_HERO_EQUIPPED_STATS_SUCCESS: {
+			return {
+				...state,
+				staging: {
+					...state.staging,
+					equipped: action.payload.stats,
+				},
+			};
+		}
+		case selectHero.toString(): {
+			return {
+				...state,
+				staging: {
+					...state.staging,
+					id: action.payload,
+					snapshot: {},
+				},
 			};
 		}
 		default:

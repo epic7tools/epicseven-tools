@@ -51,25 +51,19 @@ export default (state = initialState, action) => {
 		case changeGear.toString(): {
 			const {event, piece, line, name: nameProp, value} = action.payload;
 			const name = event !== 'blur' && nameProp === 'value' ? 'currentValue' : nameProp;
-			return {
-				...state,
-				gear: merge({}, state.gear, {
-					[piece]: {
-						[line]: {
-							[name]: value,
-						},
+			return merge({}, state, {
+				[piece]: {
+					[line]: {
+						[name]: value,
 					},
-				}),
-			};
+				},
+			});
 		}
 		case changeGearSet.toString(): {
 			const {piece, set} = action.payload;
-			return {
-				...state,
-				gear: merge({}, state.gear, {
-					[piece]: {set},
-				}),
-			};
+			return merge({}, state, {
+				[piece]: {set},
+			});
 		}
 		default:
 			return state;

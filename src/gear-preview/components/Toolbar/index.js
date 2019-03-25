@@ -1,15 +1,14 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import changeHero from '../../actions/changeHero';
-import getHeroTotalStats from '../../selectors/getHeroTotalStats';
-import getSelectedHero from '../../selectors/getSelectedHero';
+import getHero from '../../selectors/getHero';
 import isHeroLoading from '../../selectors/isHeroLoading';
 import Toolbar from './Toolbar';
 
 const mapState = state => {
-	const hero = getSelectedHero(state);
+	const hero = getHero(state);
 	if (!hero) {
-		return {hero: null, totalStats: {}};
+		return {hero: null};
 	}
 
 	return {
@@ -18,7 +17,6 @@ const mapState = state => {
 			label: hero.name,
 		},
 		isHeroLoading: isHeroLoading(state),
-		totalStats: getHeroTotalStats(state),
 	};
 };
 

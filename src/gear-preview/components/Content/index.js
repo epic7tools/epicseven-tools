@@ -2,11 +2,11 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import getEquipmentTypes from '../../../core/selectors/getEquipmentTypes';
 import changeGear from '../../actions/basic/changeGear';
-import getSelectedHeroId from '../../selectors/getSelectedHeroId';
+import getHeroId from '../../selectors/getHeroId';
 import Content from './Content';
 
 const mapState = state => ({
-	hero: getSelectedHeroId(state),
+	hero: getHeroId(state),
 	equipment: getEquipmentTypes(state),
 });
 
