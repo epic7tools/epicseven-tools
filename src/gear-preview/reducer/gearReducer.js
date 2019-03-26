@@ -53,6 +53,8 @@ export default (state = initialState, action) => {
 		case changeGear.toString(): {
 			const {event, piece, line, name: nameProp, value} = action.payload;
 			const name = event !== 'blur' && nameProp === 'value' ? 'currentValue' : nameProp;
+			// if we have the old stat value in the action, we would know which line to remove, and
+			// could therefore store it as a basic stat->value map (the same format required by the api)
 			return merge({}, state, {
 				[piece]: {
 					[line]: {
