@@ -21,9 +21,11 @@ const initialState = {
 	artifact: {
 		stat1: {
 			stat: atk.id,
+			currentValue: '',
 		},
 		stat2: {
 			stat: hp.id,
+			currentValue: '',
 		},
 	},
 	weapon: merge({}, initialGearPiece, {

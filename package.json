@@ -13,6 +13,7 @@
 		"mui-downshift": "^1.4.1",
 		"normalizr": "^3.3.0",
 		"prop-types": "^15.6.2",
+		"query-string": "^6.4.0",
 		"react": "^16.7.0",
 		"react-dom": "^16.7.0",
 		"react-redux": "^6.0.0",

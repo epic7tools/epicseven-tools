@@ -41,20 +41,7 @@ export default (state = initialState, action) => {
 				loading: false,
 				staging: {},
 			};
-		case setAwakening.toString():
-			return {
-				...state,
-				awakening: action.payload.stars === state.awakening ? 0 : action.payload.stars,
-			};
-		case setLevel.toString(): {
-			const stars = action.payload.stars;
-			const awakening = Math.min(stars, state.awakening);
-			return {
-				...state,
-				stars,
-				awakening,
-			};
-		}
+
 		case makeSnapshot.toString(): {
 			return {
 				...state,
@@ -81,6 +68,14 @@ export default (state = initialState, action) => {
 			};
 		}
 		case selectHero.toString(): {
+			if (!action.payload) {
+				return {
+					...initialState,
+					stars: state.stars,
+					awakening: state.awakening,
+				};
+			}
+
 			return {
 				...state,
 				staging: {
@@ -90,6 +85,22 @@ export default (state = initialState, action) => {
 				},
 			};
 		}
+
+		case setAwakening.toString():
+			return {
+				...state,
+				awakening: action.payload.stars === state.awakening ? 0 : action.payload.stars,
+			};
+		case setLevel.toString(): {
+			const stars = action.payload.stars;
+			const awakening = Math.min(stars, state.awakening);
+			return {
+				...state,
+				stars,
+				awakening,
+			};
+		}
+
 		default:
 			return state;
 	}

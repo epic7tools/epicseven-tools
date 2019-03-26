@@ -1,14 +1,18 @@
-import {
-	FETCH_HERO,
-	FETCH_HERO_FAILURE,
-	FETCH_HERO_SUCCESS,
-} from '../../../core/constants/requestActionTypes';
-import hero from '../../../core/schemas/hero';
+import createPostRequest from '../../../core/actions/requests/createPostRequest';
 import {API_URL} from '../../../core/util/env';
-import createGetRequest from '../../../core/actions/requests/createGetRequest';
+import {
+	FETCH_HERO_EQUIPPED_STATS,
+	FETCH_HERO_EQUIPPED_STATS_FAILURE,
+	FETCH_HERO_EQUIPPED_STATS_SUCCESS,
+} from '../../constants/requestActionTypes';
 
-export default id =>
-	createGetRequest(hero, {
+export default (id, body) =>
+	createPostRequest({
 		endpoint: `${API_URL}/heroes/${id}/equip`,
-		types: [FETCH_HERO, FETCH_HERO_SUCCESS, FETCH_HERO_FAILURE],
+		types: [
+			FETCH_HERO_EQUIPPED_STATS,
+			FETCH_HERO_EQUIPPED_STATS_SUCCESS,
+			FETCH_HERO_EQUIPPED_STATS_FAILURE,
+		],
+		body,
 	});
