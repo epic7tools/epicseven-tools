@@ -38,7 +38,7 @@ const initialState = {
 			stat: hp.id,
 		},
 	}),
-	armor: merge({}, initialGearPiece, {
+	armour: merge({}, initialGearPiece, {
 		main: {
 			stat: def.id,
 		},

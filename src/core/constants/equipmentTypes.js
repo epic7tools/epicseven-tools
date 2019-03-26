@@ -23,9 +23,9 @@ export const helmet = Object.freeze({
 	},
 });
 
-export const armor = Object.freeze({
-	id: 'armor',
-	label: 'Armor',
+export const armour = Object.freeze({
+	id: 'armour',
+	label: 'armour',
 	stats: {
 		main: [def.id],
 		sub: statsExcept([def.id, atk.id, atkPerc.id]),
@@ -62,12 +62,12 @@ export const boots = Object.freeze({
 export const equipmentTypesById = Object.freeze({
 	weapon,
 	helmet,
-	armor,
+	armour,
 	necklace,
 	ring,
 	boots,
 });
 
-export const equipmentTypes = Object.freeze([weapon, helmet, armor, necklace, ring, boots]);
+export const equipmentTypes = Object.freeze([weapon, helmet, armour, necklace, ring, boots]);
 
 export default equipmentTypes;
