@@ -50,8 +50,7 @@ export default (state = initialState, action) => {
 		}
 
 		// staging
-		case FETCH_HERO_BASE_STATS_SUCCESS: {
-			console.log('base action', action);
+		case FETCH_HERO_BASE_STATS_SUCCESS:
 			return {
 				...state,
 				staging: {
@@ -59,9 +58,7 @@ export default (state = initialState, action) => {
 					base: action.payload,
 				},
 			};
-		}
-		case FETCH_HERO_EQUIPPED_STATS_SUCCESS: {
-			console.log('equipped action', action);
+		case FETCH_HERO_EQUIPPED_STATS_SUCCESS:
 			return {
 				...state,
 				staging: {
@@ -69,7 +66,6 @@ export default (state = initialState, action) => {
 					equipped: action.payload.stats,
 				},
 			};
-		}
 		case selectHero.toString(): {
 			if (!action.payload) {
 				return {
@@ -92,15 +88,21 @@ export default (state = initialState, action) => {
 		case setAwakening.toString():
 			return {
 				...state,
-				awakening: action.payload.stars === state.awakening ? 0 : action.payload.stars,
+				staging: {
+					...state.staging,
+					awakening: action.payload.stars === state.awakening ? 0 : action.payload.stars,
+				},
 			};
 		case setLevel.toString(): {
 			const stars = action.payload.stars;
 			const awakening = Math.min(stars, state.awakening);
 			return {
 				...state,
-				stars,
-				awakening,
+				staging: {
+					...state.staging,
+					stars,
+					awakening,
+				},
 			};
 		}
 

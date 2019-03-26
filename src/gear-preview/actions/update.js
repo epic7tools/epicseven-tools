@@ -9,8 +9,12 @@ import fetchHeroEquippedStats from './requests/fetchHeroEquippedStats';
 
 export default (stage = 0) => (dispatch, getState) => {
 	dispatch(loadingHeroInfo());
-
 	const {id, stars, awakening, gear} = getEquipRequest(getState());
+
+	if (!id) {
+		dispatch(loadingHeroInfoSuccess());
+		return Promise.resolve();
+	}
 
 	const requests = [
 		fetchHero(id),
@@ -23,9 +27,7 @@ export default (stage = 0) => (dispatch, getState) => {
 		}),
 	];
 
-	console.log(requests.filter((el, index) => index >= stage));
-
-	callApis(requests.filter((el, index) => index >= stage))(dispatch)
+	return callApis(requests.filter((el, index) => index >= stage))(dispatch)
 		.then(() => dispatch(loadingHeroInfoSuccess()))
 		.catch(() => dispatch(loadingHeroInfoFail()));
 };

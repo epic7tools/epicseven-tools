@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import StarsInput from '../../../core/components/StarsInput';
-import setAwakening from '../../actions/basic/setAwakening';
+import onChangeAwakening from '../../actions/onChangeAwakening';
 import getAwakenedStars from '../../selectors/getAwakenedStars';
 import getStars from '../../selectors/getStars';
 
@@ -11,7 +11,7 @@ const mapState = state => ({
 	label: 'Awakening',
 });
 
-const mapDispatch = dispatch => bindActionCreators({onChange: setAwakening}, dispatch);
+const mapDispatch = dispatch => bindActionCreators({onChange: onChangeAwakening}, dispatch);
 
 export default connect(
 	mapState,

@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import StarsInput from '../../../core/components/StarsInput';
-import setLevel from '../../actions/basic/setLevel';
+import onChangeLevel from '../../actions/onChangeLevel';
 import getSelectedStars from '../../selectors/getStars';
 
 const mapState = state => ({
@@ -11,7 +11,7 @@ const mapState = state => ({
 	label: 'Level',
 });
 
-const mapDispatch = dispatch => bindActionCreators({onChange: setLevel}, dispatch);
+const mapDispatch = dispatch => bindActionCreators({onChange: onChangeLevel}, dispatch);
 
 export default connect(
 	mapState,
