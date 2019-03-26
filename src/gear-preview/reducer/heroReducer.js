@@ -50,7 +50,8 @@ export default (state = initialState, action) => {
 		}
 
 		// staging
-		case FETCH_HERO_BASE_STATS_SUCCESS:
+		case FETCH_HERO_BASE_STATS_SUCCESS: {
+			console.log('base action', action);
 			return {
 				...state,
 				staging: {
@@ -58,7 +59,9 @@ export default (state = initialState, action) => {
 					base: action.payload,
 				},
 			};
+		}
 		case FETCH_HERO_EQUIPPED_STATS_SUCCESS: {
+			console.log('equipped action', action);
 			return {
 				...state,
 				staging: {
