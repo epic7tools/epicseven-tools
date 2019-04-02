@@ -8,7 +8,10 @@ import {API_URL} from '../../util/env';
 import createGetRequest from './createGetRequest';
 
 export default () =>
-	createGetRequest([hero], {
-		endpoint: `${API_URL}/heroes`,
-		types: [FETCH_HEROES, FETCH_HEROES_SUCCESS, FETCH_HEROES_FAILURE],
-	});
+	createGetRequest(
+		{
+			endpoint: `${API_URL}/heroes`,
+			types: [FETCH_HEROES, FETCH_HEROES_SUCCESS, FETCH_HEROES_FAILURE],
+		},
+		[hero]
+	);

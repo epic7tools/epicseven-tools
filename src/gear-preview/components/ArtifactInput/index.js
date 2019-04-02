@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
-import getGearStats from '../../selectors/getGearStats';
+import getGear from '../../selectors/getGear';
 import ArtifactInput from './ArtifactInput';
 
 const mapState = (state, ownProps) => ({
-	values: getGearStats(state)[ownProps.name],
+	values: getGear(state)[ownProps.name],
 });
 
 const mapDispatch = (dispatch, ownProps) => ({

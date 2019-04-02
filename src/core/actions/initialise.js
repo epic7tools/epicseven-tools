@@ -1,23 +1,23 @@
+import getHeroId from '../../gear-preview/selectors/getHeroId';
 import load from './basic/load';
 import loadFailure from './basic/loadFailure';
 import loadSuccess from './basic/loadSuccess';
-import getHero from './requests/getHero';
-import getHeroes from './requests/getHeroes';
-import callApi from './util/callApi';
+import fetchHero from './requests/fetchHero';
+import fetchHeroes from './requests/fetchHeroes';
+import callApis from './util/callApis';
 
-const makeApiCalls = async (dispatch, getState) => {
-	const apiCalls = [callApi(dispatch, getHeroes())];
-
-	if (getState().gearPreview.hero) {
-		apiCalls.push(callApi(dispatch, getHero(getState().gearPreview.hero)));
+const makeApiCalls = async (dispatch, state) => {
+	const actions = [fetchHeroes()];
+	const heroId = getHeroId(state);
+	if (heroId) {
+		actions.push(fetchHero(heroId));
 	}
-
-	return Promise.all(apiCalls);
+	return callApis(actions)(dispatch);
 };
 
 export default () => (dispatch, getState) => {
 	dispatch(load());
-	return makeApiCalls(dispatch, getState)
+	return makeApiCalls(dispatch, getState())
 		.then(() => dispatch(loadSuccess()))
 		.catch(e => dispatch(loadFailure(e)));
 };

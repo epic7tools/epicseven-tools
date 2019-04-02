@@ -1,1 +1,1 @@
-export default state => state.gearPreview.snapshot;
+export default state => state.gearPreview.hero.snapshot;

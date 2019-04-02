@@ -1,9 +1,11 @@
 import {RSAA} from 'redux-api-middleware';
 import normalizeType from '../../util/normalizeType';
 
-export default (schema, req) => {
+export default (req, schema) => {
 	const types = [...req.types];
-	types[1] = normalizeType(types[1], schema);
+	if (schema) {
+		types[1] = normalizeType(types[1], schema);
+	}
 	return {
 		[RSAA]: {
 			...req,

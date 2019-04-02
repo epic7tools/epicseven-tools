@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
-import changeGearSet from '../../actions/basic/changeGearSet';
-import getGearStats from '../../selectors/getGearStats';
+import onChangeGearSet from '../../actions/onChangeGearSet';
+import getGear from '../../selectors/getGear';
 import GearInput from './GearInput';
 
 const mapState = (state, ownProps) => ({
-	values: getGearStats(state)[ownProps.name],
+	values: getGear(state)[ownProps.name],
 });
 
 const mapDispatch = (dispatch, ownProps) => ({
@@ -18,7 +18,7 @@ const mapDispatch = (dispatch, ownProps) => ({
 	},
 	onGearsetChange: value => {
 		dispatch(
-			changeGearSet({
+			onChangeGearSet({
 				set: value,
 				piece: ownProps.name,
 			})

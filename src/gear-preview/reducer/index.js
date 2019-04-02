@@ -1,3 +1,8 @@
-import reducer from './reducer';
+import {combineReducers} from 'redux';
+import gearReducer from './gearReducer';
+import heroReducer from './heroReducer';
 
-export default reducer;
+export default combineReducers({
+	gear: gearReducer,
+	hero: heroReducer,
+});
