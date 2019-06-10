@@ -9,7 +9,7 @@ const style = theme => ({
 		display: 'flex',
 	},
 	icon: {
-		marginRight: theme.spacing.unit / 2,
+		marginRight: theme.spacing(0.5),
 		height: 20,
 		width: 20,
 	},

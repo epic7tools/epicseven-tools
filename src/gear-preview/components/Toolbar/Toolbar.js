@@ -22,14 +22,14 @@ const style = theme => ({
 	heroSelect: {
 		flexGrow: 1,
 		fontSize: theme.typography.pxToRem(16),
-		marginRight: theme.spacing.unit * 2,
+		marginRight: theme.spacing(2),
 		minHeight: 64,
 	},
 	input: {
 		minHeight: 64,
 		padding: 0,
 		fontSize: 'inherit',
-		paddingLeft: theme.spacing.unit * 2,
+		paddingLeft: theme.spacing(2),
 	},
 	divider: {
 		width: 1,
@@ -41,7 +41,7 @@ const style = theme => ({
 		alignItems: 'baseline',
 	},
 	buttonIcon: {
-		marginRight: theme.spacing.unit,
+		marginRight: theme.spacing(1),
 	},
 });
 

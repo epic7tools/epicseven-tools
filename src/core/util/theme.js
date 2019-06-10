@@ -4,7 +4,4 @@ export default createMuiTheme({
 	palette: {
 		type: 'dark',
 	},
-	typography: {
-		useNextVariants: true,
-	},
 });

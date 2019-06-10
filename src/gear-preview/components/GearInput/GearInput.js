@@ -8,7 +8,7 @@ import GearStatInput from '../GearStatInput';
 
 const style = theme => ({
 	root: {
-		padding: theme.spacing.unit * 2,
+		padding: theme.spacing(2),
 		minWidth: 340,
 	},
 });

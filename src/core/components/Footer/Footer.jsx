@@ -6,7 +6,7 @@ import React from 'react';
 
 const style = theme => ({
 	root: {
-		padding: theme.spacing.unit * 2,
+		padding: theme.spacing(2),
 		background: theme.palette.background.paper,
 		textAlign: 'center',
 	},

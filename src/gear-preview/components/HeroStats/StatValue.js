@@ -13,7 +13,7 @@ const style = theme => ({
 	},
 	value: {},
 	diff: {
-		marginLeft: theme.spacing.unit / 2,
+		marginLeft: theme.spacing(0.5),
 	},
 	greater: {
 		color: lightGreen['A700'],
