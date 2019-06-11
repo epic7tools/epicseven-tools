@@ -4,8 +4,8 @@
 	"private": true,
 	"license": "MIT",
 	"dependencies": {
-		"@material-ui/core": "^3.8.1",
-		"@material-ui/icons": "^3.0.2",
+		"@material-ui/core": "^4.0.0",
+		"@material-ui/icons": "^4.0.0",
 		"classnames": "^2.2.6",
 		"lodash.isempty": "^4.4.0",
 		"lodash.merge": "^4.6.1",
@@ -14,8 +14,8 @@
 		"normalizr": "^3.3.0",
 		"prop-types": "^15.6.2",
 		"query-string": "^6.4.0",
-		"react": "^16.7.0",
-		"react-dom": "^16.7.0",
+		"react": "^16.8.0",
+		"react-dom": "^16.8.0",
 		"react-redux": "^6.0.0",
 		"redux": "^4.0.1",
 		"redux-actions": "^2.6.4",
@@ -26,6 +26,7 @@
 		"reselect": "^4.0.0"
 	},
 	"devDependencies": {
+		"@material-ui/codemod": "^4.0.2",
 		"path": "^0.12.7",
 		"prettier": "^1.15.3",
 		"react-scripts": "^2.1.1",

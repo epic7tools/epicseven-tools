@@ -9,17 +9,17 @@ const style = theme => ({
 	root: {
 		display: 'flex',
 		alignItems: 'flex-start',
-		padding: theme.spacing.unit * 2,
+		padding: theme.spacing(2),
 	},
 	heroview: {
-		margin: theme.spacing.unit,
+		margin: theme.spacing(1),
 	},
 	equipment: {
 		display: 'flex',
 		alignItems: 'flex-start',
 		flexWrap: 'wrap',
 		'& > *': {
-			margin: theme.spacing.unit,
+			margin: theme.spacing(1),
 		},
 	},
 });

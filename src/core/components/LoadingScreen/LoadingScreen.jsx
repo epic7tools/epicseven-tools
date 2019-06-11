@@ -9,7 +9,7 @@ const style = theme => ({
 		display: 'flex',
 		flexDirection: 'column',
 		'& > *': {
-			marginBottom: theme.spacing.unit * 2,
+			marginBottom: theme.spacing(2),
 		},
 	},
 	progress: {},

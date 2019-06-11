@@ -13,10 +13,10 @@ const style = theme => ({
 	root: {},
 	title: {
 		display: 'inline',
-		marginRight: theme.spacing.unit,
+		marginRight: theme.spacing(1),
 	},
 	head: {
-		padding: theme.spacing.unit * 2,
+		padding: theme.spacing(2),
 		paddingBottom: 0,
 	},
 	row: {

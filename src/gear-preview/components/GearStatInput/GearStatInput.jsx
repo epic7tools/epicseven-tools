@@ -9,7 +9,7 @@ import GearStatValueInput from '../GearStatValueInput';
 const style = theme => ({
 	root: {
 		'& > *:not(:last-child)': {
-			marginRight: theme.spacing.unit,
+			marginRight: theme.spacing(1),
 		},
 	},
 });
