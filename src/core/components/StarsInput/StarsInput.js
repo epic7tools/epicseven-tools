@@ -1,13 +1,13 @@
+import {makeStyles} from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import InputLabel from '@material-ui/core/InputLabel';
-import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 import Star from './Star';
 
-const style = {
+const useStyles = makeStyles({
 	root: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -28,7 +28,7 @@ const style = {
 		display: 'flex',
 		alignItems: 'flex-start',
 	},
-};
+});
 
 const handleStarChange = (func, disabled, stars) => () => {
 	if (!disabled) {
@@ -38,7 +38,6 @@ const handleStarChange = (func, disabled, stars) => () => {
 
 const StarsInput = ({
 	align,
-	classes,
 	className,
 	InputProps,
 	label,
@@ -48,6 +47,7 @@ const StarsInput = ({
 	value,
 	...props
 }) => {
+	const classes = useStyles();
 	const stars = [];
 	for (let i = 0; i < maximum; i++) {
 		const disabled = !Boolean(onChange) || i + 1 < minimum;
@@ -88,7 +88,6 @@ const StarsInput = ({
 };
 
 StarsInput.propTypes = {
-	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
 	InputProps: PropTypes.object,
 	label: PropTypes.node,
@@ -104,4 +103,4 @@ StarsInput.defaultProps = {
 	align: 'left',
 };
 
-export default withStyles(style)(StarsInput);
+export default StarsInput;

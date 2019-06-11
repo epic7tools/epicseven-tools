@@ -1,16 +1,16 @@
+import {makeStyles} from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
-import withStyles from '@material-ui/core/styles/withStyles';
 import MuiToolbar from '@material-ui/core/Toolbar';
 import classNames from 'classnames';
 import React from 'react';
+import HeroSelect from '../../../core/components/HeroSelect';
 import AwakeningSelect from '../AwakeningSelect';
 import ClearSnapshotButton from '../ClearSnapshotButton';
-import HeroSelect from '../../../core/components/HeroSelect';
 import LevelSelect from '../LevelSelect';
 import SnapshotButton from '../SnapshotButton';
 
-const style = theme => ({
+const useStyles = makeStyles(theme => ({
 	root: {
 		background: theme.palette.primary,
 		zIndex: theme.zIndex.appBar - 1,
@@ -43,7 +43,7 @@ const style = theme => ({
 	buttonIcon: {
 		marginRight: theme.spacing(1),
 	},
-});
+}));
 
 const handleHeroChange = onHeroChange => change => {
 	if (onHeroChange) {
@@ -51,33 +51,36 @@ const handleHeroChange = onHeroChange => change => {
 	}
 };
 
-const Toolbar = ({className, classes, onHeroChange, hero, isHeroLoading, ...props}) => (
-	<AppBar className={classNames(classes.root, className)} position="static" {...props}>
-		<MuiToolbar className={classes.toolbar}>
-			<HeroSelect
-				loading={isHeroLoading}
-				defaultSelectedItem={hero}
-				onChange={handleHeroChange(onHeroChange)}
-				getInputProps={() => ({
-					placeholder: 'Select a hero',
-					disableUnderline: true,
-					fullWidth: true,
-					classes: {
-						input: classes.input,
-					},
-				})}
-				getRootProps={() => ({
-					className: classes.heroSelect,
-				})}
-			/>
-			<AwakeningSelect align="center" />
-			<Divider className={classes.divider} />
-			<LevelSelect align="center" />
-			<Divider className={classes.divider} />
-			<SnapshotButton />
-			<ClearSnapshotButton />
-		</MuiToolbar>
-	</AppBar>
-);
+const Toolbar = ({className, onHeroChange, hero, isHeroLoading, ...props}) => {
+	const classes = useStyles();
+	return (
+		<AppBar className={classNames(classes.root, className)} position="static" {...props}>
+			<MuiToolbar className={classes.toolbar}>
+				<HeroSelect
+					loading={isHeroLoading}
+					defaultSelectedItem={hero}
+					onChange={handleHeroChange(onHeroChange)}
+					getInputProps={() => ({
+						placeholder: 'Select a hero',
+						disableUnderline: true,
+						fullWidth: true,
+						classes: {
+							input: classes.input,
+						},
+					})}
+					getRootProps={() => ({
+						className: classes.heroSelect,
+					})}
+				/>
+				<AwakeningSelect align="center" />
+				<Divider className={classes.divider} />
+				<LevelSelect align="center" />
+				<Divider className={classes.divider} />
+				<SnapshotButton />
+				<ClearSnapshotButton />
+			</MuiToolbar>
+		</AppBar>
+	);
+};
 
-export default withStyles(style)(Toolbar);
+export default Toolbar;

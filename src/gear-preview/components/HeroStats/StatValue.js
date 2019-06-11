@@ -1,12 +1,12 @@
+import {makeStyles} from '@material-ui/core';
 import lightGreen from '@material-ui/core/colors/lightGreen';
 import red from '@material-ui/core/colors/red';
-import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 import React from 'react';
 import formatValueText from './formatValueText';
 
-const style = theme => ({
+const useStyles = makeStyles(theme => ({
 	root: {
 		display: 'flex',
 		justifyContent: 'flex-end',
@@ -21,9 +21,10 @@ const style = theme => ({
 	lesser: {
 		color: red['500'],
 	},
-});
+}));
 
-const StatValue = ({classes, className, value, diff, percentage, ...props}) => {
+const StatValue = ({className, value, diff, percentage, ...props}) => {
+	const classes = useStyles();
 	const sign = diff < 0 ? '-' : '+';
 	return (
 		<div className={classNames(classes.root, className)} {...props}>
@@ -45,4 +46,4 @@ const StatValue = ({classes, className, value, diff, percentage, ...props}) => {
 	);
 };
 
-export default withStyles(style)(StatValue);
+export default StatValue;

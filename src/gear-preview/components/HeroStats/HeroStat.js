@@ -1,4 +1,4 @@
-import withStyles from '@material-ui/core/styles/withStyles';
+import {makeStyles} from '@material-ui/core';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import classNames from 'classnames';
@@ -6,7 +6,7 @@ import * as PropTypes from 'prop-types';
 import React from 'react';
 import StatValue from './StatValue';
 
-const style = theme => ({
+const useStyles = makeStyles(theme => ({
 	root: {},
 	label: {},
 	base: {},
@@ -14,9 +14,10 @@ const style = theme => ({
 	total: {
 		fontWeight: theme.typography.fontWeightMedium,
 	},
-});
+}));
 
-const HeroStat = ({className, classes, label, base, gear, total, diff, percentage, ...props}) => {
+const HeroStat = ({className, label, base, gear, total, diff, percentage, ...props}) => {
+	const classes = useStyles();
 	return (
 		<TableRow className={classNames(classes.root, className)} {...props}>
 			<TableCell className={classes.label} component="th" scope="row">
@@ -37,7 +38,6 @@ const HeroStat = ({className, classes, label, base, gear, total, diff, percentag
 
 HeroStat.propTypes = {
 	className: PropTypes.string,
-	classes: PropTypes.object.isRequired,
 	label: PropTypes.string.isRequired,
 	base: PropTypes.number,
 	gear: PropTypes.number,
@@ -52,4 +52,4 @@ HeroStat.defaultProps = {
 	percentage: false,
 };
 
-export default withStyles(style)(HeroStat);
+export default HeroStat;

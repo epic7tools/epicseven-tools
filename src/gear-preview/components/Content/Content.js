@@ -1,11 +1,11 @@
-import withStyles from '@material-ui/core/styles/withStyles';
+import {makeStyles} from '@material-ui/core';
 import classNames from 'classnames';
 import React from 'react';
 import ArtifactInput from '../ArtifactInput';
 import GearInput from '../GearInput';
 import HeroView from '../HeroView';
 
-const style = theme => ({
+const useStyles = makeStyles(theme => ({
 	root: {
 		display: 'flex',
 		alignItems: 'flex-start',
@@ -22,7 +22,7 @@ const style = theme => ({
 			margin: theme.spacing(1),
 		},
 	},
-});
+}));
 
 const handleGearChange = onGearChange => change => {
 	if (onGearChange) {
@@ -30,7 +30,8 @@ const handleGearChange = onGearChange => change => {
 	}
 };
 
-const Content = ({classes, className, hero, equipment, onGearChange, ...props}) => {
+const Content = ({className, hero, equipment, onGearChange, ...props}) => {
+	const classes = useStyles();
 	const equipmentInputs = equipment.map(piece => (
 		<GearInput
 			key={piece.id}
@@ -52,4 +53,4 @@ const Content = ({classes, className, hero, equipment, onGearChange, ...props}) 
 	);
 };
 
-export default withStyles(style)(Content);
+export default Content;
