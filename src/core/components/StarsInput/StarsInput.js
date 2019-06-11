@@ -1,4 +1,4 @@
-import InputBase from '@material-ui/core/InputBase/InputBase';
+import InputBase from '@material-ui/core/InputBase';
 import InputLabel from '@material-ui/core/InputLabel';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
