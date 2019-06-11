@@ -1,9 +1,9 @@
+import StarsInput from 'core/components/StarsInput';
+import onChangeAwakening from 'gear-preview/actions/onChangeAwakening';
+import getAwakenedStars from 'gear-preview/selectors/getAwakenedStars';
+import getStars from 'gear-preview/selectors/getStars';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import StarsInput from '../../../core/components/StarsInput';
-import onChangeAwakening from '../../actions/onChangeAwakening';
-import getAwakenedStars from '../../selectors/getAwakenedStars';
-import getStars from '../../selectors/getStars';
 
 const mapState = state => ({
 	value: getAwakenedStars(state),

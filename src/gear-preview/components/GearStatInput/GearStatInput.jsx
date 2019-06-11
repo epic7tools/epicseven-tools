@@ -1,10 +1,10 @@
 import {makeStyles} from '@material-ui/core';
 import classNames from 'classnames';
+import {statsById} from 'core/constants/stats';
+import GearStatSelect from 'gear-preview/components/GearStatSelect';
+import GearStatValueInput from 'gear-preview/components/GearStatValueInput';
 import * as PropTypes from 'prop-types';
 import React from 'react';
-import {statsById} from '../../../core/constants/stats';
-import GearStatSelect from '../GearStatSelect';
-import GearStatValueInput from '../GearStatValueInput';
 
 const useStyles = makeStyles(theme => ({
 	root: {

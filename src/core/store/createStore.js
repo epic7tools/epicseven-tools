@@ -1,5 +1,5 @@
+import isProd from 'core/util/isProd';
 import {applyMiddleware, compose, createStore} from 'redux';
-import isProd from '../util/isProd';
 import devEnhancers from './dev/enhancers';
 import devMiddleware from './dev/middleware';
 import prodEnhancers from './prod/enhancers';

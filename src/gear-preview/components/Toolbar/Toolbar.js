@@ -3,12 +3,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
 import MuiToolbar from '@material-ui/core/Toolbar';
 import classNames from 'classnames';
+import HeroSelect from 'core/components/HeroSelect';
+import AwakeningSelect from 'gear-preview/components/AwakeningSelect';
+import ClearSnapshotButton from 'gear-preview/components/ClearSnapshotButton';
+import LevelSelect from 'gear-preview/components/LevelSelect';
+import SnapshotButton from 'gear-preview/components/SnapshotButton';
 import React from 'react';
-import HeroSelect from '../../../core/components/HeroSelect';
-import AwakeningSelect from '../AwakeningSelect';
-import ClearSnapshotButton from '../ClearSnapshotButton';
-import LevelSelect from '../LevelSelect';
-import SnapshotButton from '../SnapshotButton';
 
 const useStyles = makeStyles(theme => ({
 	root: {

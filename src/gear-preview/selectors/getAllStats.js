@@ -1,5 +1,5 @@
+import {baseStats as stats} from 'core/constants/stats';
 import {createSelector} from 'reselect';
-import {baseStats as stats} from '../../core/constants/stats';
 import getBaseStats from './getBaseStats';
 import getDiffStats from './getDiffStats';
 import getGearStats from './getGearStats';

@@ -1,7 +1,7 @@
+import {statsById} from 'core/constants/stats';
 import merge from 'lodash.merge';
 import {createSelector} from 'reselect';
 import getGear from './getGear';
-import {statsById} from '../../core/constants/stats';
 
 export default createSelector(
 	getGear,

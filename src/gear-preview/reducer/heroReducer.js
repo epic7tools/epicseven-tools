@@ -1,14 +1,14 @@
-import loadingHeroInfo from '../actions/basic/loadingHeroInfo';
-import loadingHeroInfoFail from '../actions/basic/loadingHeroInfoFail';
-import loadingHeroInfoSuccess from '../actions/basic/loadingHeroInfoSuccess';
-import makeSnapshot from '../actions/basic/makeSnapshot';
-import selectHero from '../actions/basic/selectHero';
-import setAwakening from '../actions/basic/setAwakening';
-import setLevel from '../actions/basic/setLevel';
+import loadingHeroInfo from 'gear-preview/actions/basic/loadingHeroInfo';
+import loadingHeroInfoFail from 'gear-preview/actions/basic/loadingHeroInfoFail';
+import loadingHeroInfoSuccess from 'gear-preview/actions/basic/loadingHeroInfoSuccess';
+import makeSnapshot from 'gear-preview/actions/basic/makeSnapshot';
+import selectHero from 'gear-preview/actions/basic/selectHero';
+import setAwakening from 'gear-preview/actions/basic/setAwakening';
+import setLevel from 'gear-preview/actions/basic/setLevel';
 import {
 	FETCH_HERO_BASE_STATS_SUCCESS,
 	FETCH_HERO_EQUIPPED_STATS_SUCCESS,
-} from '../constants/requestActionTypes';
+} from 'gear-preview/constants/requestActionTypes';
 
 const initialState = {
 	id: '',

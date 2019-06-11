@@ -1,9 +1,9 @@
 import {makeStyles} from '@material-ui/core';
 import classNames from 'classnames';
+import ArtifactInput from 'gear-preview/components/ArtifactInput';
+import GearInput from 'gear-preview/components/GearInput';
+import HeroView from 'gear-preview/components/HeroView';
 import React from 'react';
-import ArtifactInput from '../ArtifactInput';
-import GearInput from '../GearInput';
-import HeroView from '../HeroView';
 
 const useStyles = makeStyles(theme => ({
 	root: {

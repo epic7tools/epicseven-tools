@@ -1,5 +1,5 @@
+import normalizeType from 'core/util/normalizeType';
 import {RSAA} from 'redux-api-middleware';
-import normalizeType from '../../util/normalizeType';
 
 export default (req, schema) => {
 	const types = [...req.types];

@@ -1,6 +1,6 @@
-import load from '../actions/basic/load';
-import loadFailure from '../actions/basic/loadFailure';
-import loadSuccess from '../actions/basic/loadSuccess';
+import load from 'core/actions/basic/load';
+import loadFailure from 'core/actions/basic/loadFailure';
+import loadSuccess from 'core/actions/basic/loadSuccess';
 
 const initialState = {
 	inProgress: true,

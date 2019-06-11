@@ -1,5 +1,5 @@
-import {statsById} from '../constants/stats';
-import equipmentTypes from '../constants/equipmentTypes';
+import equipmentTypes from 'core/constants/equipmentTypes';
+import {statsById} from 'core/constants/stats';
 
 export default () =>
 	equipmentTypes.map(type => ({

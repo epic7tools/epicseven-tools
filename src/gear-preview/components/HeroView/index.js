@@ -1,6 +1,6 @@
+import getHeroById from 'core/selectors/getHeroById';
+import getAllStats from 'gear-preview/selectors/getAllStats';
 import {connect} from 'react-redux';
-import getHeroById from '../../../core/selectors/getHeroById';
-import getAllStats from '../../selectors/getAllStats';
 import HeroView from './HeroView';
 
 const mapState = (state, ownProps) => {

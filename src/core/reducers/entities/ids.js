@@ -1,4 +1,4 @@
-import {FETCH_HEROES_SUCCESS} from '../../constants/requestActionTypes';
+import {FETCH_HEROES_SUCCESS} from 'core/constants/requestActionTypes';
 
 export default (state = {}, action) => {
 	switch (action.type) {

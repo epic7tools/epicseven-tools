@@ -1,3 +1,3 @@
-import middleware from '../prod/middleware';
+import middleware from 'core/store/prod/middleware';
 
 export default [...middleware];

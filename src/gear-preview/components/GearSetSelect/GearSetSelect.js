@@ -1,5 +1,5 @@
+import BasicSelect from 'core/components/BasicSelect';
 import React from 'react';
-import BasicSelect from '../../../core/components/BasicSelect';
 
 const handleChange = onChange => event => {
 	if (onChange) {

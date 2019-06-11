@@ -1,6 +1,6 @@
+import onChangeGearSet from 'gear-preview/actions/onChangeGearSet';
+import getGear from 'gear-preview/selectors/getGear';
 import {connect} from 'react-redux';
-import onChangeGearSet from '../../actions/onChangeGearSet';
-import getGear from '../../selectors/getGear';
 import GearInput from './GearInput';
 
 const mapState = (state, ownProps) => ({

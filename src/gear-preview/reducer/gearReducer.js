@@ -1,7 +1,7 @@
+import {atk, def, hp} from 'core/constants/stats';
+import changeGear from 'gear-preview/actions/basic/changeGear';
+import changeGearSet from 'gear-preview/actions/basic/changeGearSet';
 import merge from 'lodash.merge';
-import {atk, def, hp} from '../../core/constants/stats';
-import changeGear from '../actions/basic/changeGear';
-import changeGearSet from '../actions/basic/changeGearSet';
 
 const defaultGearStat = {
 	stat: '',
