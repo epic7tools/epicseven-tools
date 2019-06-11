@@ -8616,32 +8616,27 @@ react-event-listener@^0.6.6:
     prop-types "^15.6.0"
     warning "^4.0.1"
 
-react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4:
+react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
-
-react-is@^16.8.2:
-  version "16.8.2"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.2.tgz#09891d324cad1cb0c1f2d91f70a71a4bee34df0f"
-  integrity sha512-D+NxhSR2HUCjYky1q1DwpNUD44cDpUXzSmmFyC3ug1bClcU/iDNy0YNn1iwme28fn+NFhpA13IndOd42CrFb+Q==
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-redux@^6.0.0:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-6.0.1.tgz#0d423e2c1cb10ada87293d47e7de7c329623ba4d"
-  integrity sha512-T52I52Kxhbqy/6TEfBv85rQSDz6+Y28V/pf52vDWs1YRXG19mcFOGfHnY2HsNFHyhP+ST34Aih98fvt6tqwVcQ==
+react-redux@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.0.tgz#72af7cf490a74acdc516ea9c1dd80e25af9ea0b2"
+  integrity sha512-hyu/PoFK3vZgdLTg9ozbt7WF3GgX5+Yn3pZm5/96/o4UueXA+zj08aiSC9Mfj2WtD1bvpIb3C5yvskzZySzzaw==
   dependencies:
-    "@babel/runtime" "^7.3.1"
+    "@babel/runtime" "^7.4.5"
     hoist-non-react-statics "^3.3.0"
     invariant "^2.2.4"
     loose-envify "^1.4.0"
     prop-types "^15.7.2"
-    react-is "^16.8.2"
+    react-is "^16.8.6"
 
 react-scripts@3.0.1:
   version "3.0.1"
@@ -8830,9 +8825,9 @@ reduce-reducers@^0.4.3:
   integrity sha512-+CNMnI8QhgVMtAt54uQs3kUxC3Sybpa7Y63HR14uGLgI9/QR5ggHvpxwhGGe3wmx5V91YwqQIblN9k5lspAmGw==
 
 redux-actions@^2.6.4:
-  version "2.6.4"
-  resolved "https://registry.yarnpkg.com/redux-actions/-/redux-actions-2.6.4.tgz#e1d9d7d987d274071b0134b707365d3e25ba3b26"
-  integrity sha512-Gho+gnsvyR5h0pApoMdHLYssVEu4I0DNqyC91u43Xy/BvLrEddEMtukLF8oL3WXUy7DjxqKOKZHKmpKyN6hxlQ==
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/redux-actions/-/redux-actions-2.6.5.tgz#bdca548768ee99832a63910c276def85e821a27e"
+  integrity sha512-pFhEcWFTYNk7DhQgxMGnbsB1H2glqhQJRQrtPb96kD3hWiZRzXHwwmFPswg6V2MjraXRXWNmuP9P84tvdLAJmw==
   dependencies:
     invariant "^2.2.4"
     just-curry-it "^3.1.0"
@@ -8851,9 +8846,9 @@ redux-devtools-extension@^2.13.7:
   integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
 
 redux-form@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/redux-form/-/redux-form-8.1.0.tgz#087b39eaa96b6f5cc0764a30eca10e0459884cce"
-  integrity sha512-d2+0OaJpSq3kwkbPtFlG3W/HENWLxX8NqqTHSOnfgIrID/9faH/rxejLa1X3HChilCTm71zWe/g9zaLPCMCofQ==
+  version "8.2.3"
+  resolved "https://registry.yarnpkg.com/redux-form/-/redux-form-8.2.3.tgz#6156cddf15ad929cf70671607d3b980a81e94ec1"
+  integrity sha512-AHuhaAoG6bH6t9xfsZA6ZxK9M/QF0GN+AfoRaQzP5o+ZINIiCEUS3ThgAEDbZPvqwuem/WQdtoc0P9HcXvEelA==
   dependencies:
     "@babel/runtime" "^7.2.0"
     es6-error "^4.1.1"
