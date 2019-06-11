@@ -1,16 +1,17 @@
+import {makeStyles} from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField';
 import classNames from 'classnames';
 import React from 'react';
 
-const style = {
+const useStyles = makeStyles({
 	root: {
 		width: 100,
 	},
-};
+});
 
-const GearStatValueInput = ({className, classes, percentage, ...props}) => {
+const GearStatValueInput = ({className, percentage, ...props}) => {
+	const classes = useStyles();
 	const endAdornment = percentage ? <InputAdornment position="end">%</InputAdornment> : null;
 
 	return (
@@ -27,4 +28,4 @@ const GearStatValueInput = ({className, classes, percentage, ...props}) => {
 	);
 };
 
-export default withStyles(style)(GearStatValueInput);
+export default GearStatValueInput;

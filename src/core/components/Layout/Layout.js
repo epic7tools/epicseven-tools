@@ -1,11 +1,11 @@
+import {makeStyles} from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import withStyles from '@material-ui/core/styles/withStyles';
 import React from 'react';
 import AppBar from '../AppBar';
 import Footer from '../Footer';
 import Main from '../Main';
 
-const styles = {
+const useStyles = makeStyles({
 	root: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -13,15 +13,18 @@ const styles = {
 	main: {
 		minHeight: '100vh',
 	},
+});
+
+const Layout = () => {
+	const classes = useStyles();
+	return (
+		<div className={classes.root}>
+			<CssBaseline />
+			<AppBar />
+			<Main className={classes.main} />
+			<Footer />
+		</div>
+	);
 };
 
-const Layout = ({classes}) => (
-	<div className={classes.root}>
-		<CssBaseline />
-		<AppBar />
-		<Main className={classes.main} />
-		<Footer />
-	</div>
-);
-
-export default withStyles(styles)(Layout);
+export default Layout;

@@ -1,16 +1,17 @@
-import withStyles from '@material-ui/core/styles/withStyles';
+import {makeStyles} from '@material-ui/core';
+import classNames from 'classnames';
 import React from 'react';
 import BasicSelect from '../../../core/components/BasicSelect';
-import classNames from 'classnames';
 
-const style = {
+const useStyles = makeStyles({
 	root: {
 		minWidth: 200,
 	},
+});
+
+const GearStatSelect = ({className, ...props}) => {
+	const classes = useStyles();
+	return <BasicSelect className={classNames(classes.root, className)} margin="dense" {...props} />;
 };
 
-const GearStatSelect = ({className, classes, ...other}) => {
-	return <BasicSelect className={classNames(classes.root, className)} margin="dense" {...other} />;
-};
-
-export default withStyles(style)(GearStatSelect);
+export default GearStatSelect;

@@ -1,5 +1,5 @@
+import {makeStyles} from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
-import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 import React from 'react';
@@ -9,7 +9,7 @@ import StarsInput from '../../../core/components/StarsInput';
 import Zodiac from '../../../core/components/ZodiacButton';
 import HeroStats from '../HeroStats';
 
-const style = theme => ({
+const useStyles = makeStyles(theme => ({
 	root: {},
 	title: {
 		display: 'inline',
@@ -22,23 +22,26 @@ const style = theme => ({
 	row: {
 		display: 'flex',
 	},
-});
+}));
 
-const HeroView = ({classes, className, hero, onAwakeningChange, stars, maxStars, ...props}) => (
-	<Paper className={classNames(classes.root, className)} {...props}>
-		<div className={classes.head}>
-			<Typography className={classes.title} variant="h4" component="span">
-				{hero.name}
-			</Typography>
-			<StarsInput value={hero.rarity} maximum={hero.rarity} />
-			<div className={classes.row}>
-				<ElementButton variant={hero.element} />
-				<ClassButton variant={hero.classType} />
-				<Zodiac variant={hero.zodiac} />
+const HeroView = ({className, hero, onAwakeningChange, stars, maxStars, ...props}) => {
+	const classes = useStyles();
+	return (
+		<Paper className={classNames(classes.root, className)} {...props}>
+			<div className={classes.head}>
+				<Typography className={classes.title} variant="h4" component="span">
+					{hero.name}
+				</Typography>
+				<StarsInput value={hero.rarity} maximum={hero.rarity} />
+				<div className={classes.row}>
+					<ElementButton variant={hero.element} />
+					<ClassButton variant={hero.classType} />
+					<Zodiac variant={hero.zodiac} />
+				</div>
 			</div>
-		</div>
-		<HeroStats stats={hero.stats} />
-	</Paper>
-);
+			<HeroStats stats={hero.stats} />
+		</Paper>
+	);
+};
 
-export default withStyles(style)(HeroView);
+export default HeroView;
