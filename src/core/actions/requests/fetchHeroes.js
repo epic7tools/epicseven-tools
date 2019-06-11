@@ -2,9 +2,9 @@ import {
 	FETCH_HEROES,
 	FETCH_HEROES_FAILURE,
 	FETCH_HEROES_SUCCESS,
-} from '../../constants/requestActionTypes';
-import hero from '../../schemas/hero';
-import {API_URL} from '../../util/env';
+} from 'core/constants/requestActionTypes';
+import hero from 'core/schemas/hero';
+import {API_URL} from 'core/util/env';
 import createGetRequest from './createGetRequest';
 
 export default () =>

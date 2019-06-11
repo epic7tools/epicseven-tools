@@ -1,8 +1,8 @@
+import getEquipmentTypes from 'core/selectors/getEquipmentTypes';
+import onChangeGear from 'gear-preview/actions/onChangeGear';
+import getHeroId from 'gear-preview/selectors/getHeroId';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import getEquipmentTypes from '../../../core/selectors/getEquipmentTypes';
-import onChangeGear from '../../actions/onChangeGear';
-import getHeroId from '../../selectors/getHeroId';
 import Content from './Content';
 
 const mapState = state => ({

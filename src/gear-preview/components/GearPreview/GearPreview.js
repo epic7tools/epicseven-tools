@@ -1,8 +1,8 @@
 import {makeStyles} from '@material-ui/core';
 import classNames from 'classnames';
+import Content from 'gear-preview/components/Content';
+import Toolbar from 'gear-preview/components/Toolbar';
 import React from 'react';
-import Content from '../Content';
-import Toolbar from '../Toolbar';
 
 const useStyles = makeStyles(theme => ({
 	root: {

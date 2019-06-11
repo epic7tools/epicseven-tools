@@ -1,9 +1,9 @@
 import {makeStyles} from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from 'core/components/AppBar';
+import Footer from 'core/components/Footer';
+import Main from 'core/components/Main';
 import React from 'react';
-import AppBar from '../AppBar';
-import Footer from '../Footer';
-import Main from '../Main';
 
 const useStyles = makeStyles({
 	root: {

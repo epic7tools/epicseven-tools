@@ -1,5 +1,5 @@
+import getGear from 'gear-preview/selectors/getGear';
 import {connect} from 'react-redux';
-import getGear from '../../selectors/getGear';
 import ArtifactInput from './ArtifactInput';
 
 const mapState = (state, ownProps) => ({

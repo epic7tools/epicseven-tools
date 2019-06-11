@@ -1,8 +1,8 @@
+import StarsInput from 'core/components/StarsInput';
+import onChangeLevel from 'gear-preview/actions/onChangeLevel';
+import getSelectedStars from 'gear-preview/selectors/getStars';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import StarsInput from '../../../core/components/StarsInput';
-import onChangeLevel from '../../actions/onChangeLevel';
-import getSelectedStars from '../../selectors/getStars';
 
 const mapState = state => ({
 	value: getSelectedStars(state),

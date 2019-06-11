@@ -1,5 +1,5 @@
+import didLoadError from 'core/selectors/didLoadError';
 import {connect} from 'react-redux';
-import didLoadError from '../../selectors/didLoadError';
 import LoadingScreen from './LoadingScreen';
 
 const mapState = state => ({

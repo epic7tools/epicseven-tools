@@ -1,6 +1,6 @@
+import ImageButtonBase from 'core/components/ImageButtonBase';
 import * as PropTypes from 'prop-types';
 import React from 'react';
-import ImageButtonBase from '../ImageButtonBase';
 import aquarius from './assets/aquarius.png';
 import aries from './assets/aries.png';
 import cancer from './assets/cancer.png';

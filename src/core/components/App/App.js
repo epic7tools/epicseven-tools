@@ -1,5 +1,5 @@
+import Layout from 'core/components/Layout';
 import React, {Component} from 'react';
-import Layout from '../Layout';
 
 class App extends Component {
 	componentDidMount() {

@@ -1,8 +1,8 @@
+import onChangeHero from 'gear-preview/actions/onChangeHero';
+import getHero from 'gear-preview/selectors/getHero';
+import isHeroLoading from 'gear-preview/selectors/isHeroLoading';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import onChangeHero from '../../actions/onChangeHero';
-import getHero from '../../selectors/getHero';
-import isHeroLoading from '../../selectors/isHeroLoading';
 import Toolbar from './Toolbar';
 
 const mapState = state => {

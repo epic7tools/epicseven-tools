@@ -1,5 +1,5 @@
+import getHeroEntities from 'core/selectors/getHeroEntities';
 import {createSelector} from 'reselect';
-import getHeroEntities from '../../core/selectors/getHeroEntities';
 import getSelectedHeroId from './getHeroId';
 
 export default createSelector(

@@ -1,5 +1,5 @@
+import isLoading from 'core/selectors/isLoading';
 import {connect} from 'react-redux';
-import isLoading from '../../selectors/isLoading';
 import Main from './Main';
 
 const mapState = state => ({

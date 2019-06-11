@@ -1,6 +1,6 @@
+import ImageButtonBase from 'core/components/ImageButtonBase';
 import * as PropTypes from 'prop-types';
 import React from 'react';
-import ImageButtonBase from '../ImageButtonBase';
 import knight from './assets/knight.png';
 import mage from './assets/mage.png';
 import material from './assets/material.png';

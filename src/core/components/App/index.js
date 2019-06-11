@@ -1,6 +1,6 @@
+import initialise from 'core/actions/initialise';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import initialise from '../../actions/initialise';
 import App from './App';
 
 const mapDispatch = dispatch =>

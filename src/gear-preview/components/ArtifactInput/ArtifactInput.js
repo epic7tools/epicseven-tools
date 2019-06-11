@@ -2,9 +2,9 @@ import {makeStyles} from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
+import {atk, hp} from 'core/constants/stats';
+import GearStatInput from 'gear-preview/components/GearStatInput';
 import React from 'react';
-import {atk, hp} from '../../../core/constants/stats';
-import GearStatInput from '../GearStatInput';
 
 const useStyles = makeStyles(theme => ({
 	root: {

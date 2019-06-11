@@ -1,10 +1,10 @@
-import createPostRequest from '../../../core/actions/requests/createPostRequest';
-import {API_URL} from '../../../core/util/env';
+import createPostRequest from 'core/actions/requests/createPostRequest';
+import {API_URL} from 'core/util/env';
 import {
 	FETCH_HERO_EQUIPPED_STATS,
 	FETCH_HERO_EQUIPPED_STATS_FAILURE,
 	FETCH_HERO_EQUIPPED_STATS_SUCCESS,
-} from '../../constants/requestActionTypes';
+} from 'gear-preview/constants/requestActionTypes';
 
 export default (id, body) =>
 	createPostRequest({

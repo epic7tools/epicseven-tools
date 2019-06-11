@@ -2,12 +2,12 @@ import {makeStyles} from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
+import ClassButton from 'core/components/ClassButton';
+import ElementButton from 'core/components/ElementButton';
+import StarsInput from 'core/components/StarsInput';
+import Zodiac from 'core/components/ZodiacButton';
+import HeroStats from 'gear-preview/components/HeroStats';
 import React from 'react';
-import ClassButton from '../../../core/components/ClassButton';
-import ElementButton from '../../../core/components/ElementButton';
-import StarsInput from '../../../core/components/StarsInput';
-import Zodiac from '../../../core/components/ZodiacButton';
-import HeroStats from '../HeroStats';
 
 const useStyles = makeStyles(theme => ({
 	root: {},

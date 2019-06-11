@@ -1,4 +1,4 @@
-import getHeroId from '../../gear-preview/selectors/getHeroId';
+import getHeroId from 'gear-preview/selectors/getHeroId';
 import load from './basic/load';
 import loadFailure from './basic/loadFailure';
 import loadSuccess from './basic/loadSuccess';

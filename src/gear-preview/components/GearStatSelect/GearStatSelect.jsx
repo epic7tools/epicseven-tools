@@ -1,7 +1,7 @@
 import {makeStyles} from '@material-ui/core';
 import classNames from 'classnames';
+import BasicSelect from 'core/components/BasicSelect';
 import React from 'react';
-import BasicSelect from '../../../core/components/BasicSelect';
 
 const useStyles = makeStyles({
 	root: {

@@ -1,5 +1,5 @@
+import getGearSets from 'core/selectors/getGearSets';
 import {connect} from 'react-redux';
-import getGearSets from '../../../core/selectors/getGearSets';
 import GearSetSelect from './GearSetSelect';
 
 const mapState = state => ({

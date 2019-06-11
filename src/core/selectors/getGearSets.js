@@ -1,5 +1,5 @@
-import {gearSets} from '../constants/gearSets';
-import {statsById} from '../constants/stats';
+import {gearSets} from 'core/constants/gearSets';
+import {statsById} from 'core/constants/stats';
 
 export default () =>
 	gearSets.map(set => ({

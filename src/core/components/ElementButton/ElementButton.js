@@ -1,11 +1,11 @@
+import ImageButtonBase from 'core/components/ImageButtonBase';
 import * as PropTypes from 'prop-types';
 import React from 'react';
-import dark from '../ElementButton/assets/dark.png';
-import earth from '../ElementButton/assets/earth.png';
-import fire from '../ElementButton/assets/fire.png';
-import ice from '../ElementButton/assets/ice.png';
-import light from '../ElementButton/assets/light.png';
-import ImageButtonBase from '../ImageButtonBase/ImageButtonBase';
+import dark from './assets/dark.png';
+import earth from './assets/earth.png';
+import fire from './assets/fire.png';
+import ice from './assets/ice.png';
+import light from './assets/light.png';
 
 const variants = {
 	ice: {
