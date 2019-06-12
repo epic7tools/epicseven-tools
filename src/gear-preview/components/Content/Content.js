@@ -12,14 +12,14 @@ const useStyles = makeStyles(theme => ({
 		padding: theme.spacing(2),
 	},
 	heroview: {
-		margin: theme.spacing(1),
+		margin: theme.spacing(),
 	},
 	equipment: {
 		display: 'flex',
 		alignItems: 'flex-start',
 		flexWrap: 'wrap',
 		'& > *': {
-			margin: theme.spacing(1),
+			margin: theme.spacing(),
 		},
 	},
 }));

@@ -9,7 +9,7 @@ import React from 'react';
 const useStyles = makeStyles(theme => ({
 	root: {
 		'& > *:not(:last-child)': {
-			marginRight: theme.spacing(1),
+			marginRight: theme.spacing(),
 		},
 	},
 }));
