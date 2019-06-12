@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 	root: {},
 	title: {
 		display: 'inline',
-		marginRight: theme.spacing(1),
+		marginRight: theme.spacing(),
 	},
 	head: {
 		padding: theme.spacing(2),
