@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "https://epic7tools.github.io/epicseven-tools/static/js/main.4eadce83.chunk.js",
+    "main.js.map": "https://epic7tools.github.io/epicseven-tools/static/js/main.4eadce83.chunk.js.map",
+    "runtime~main.js": "https://epic7tools.github.io/epicseven-tools/static/js/runtime~main.24d80abc.js",
+    "runtime~main.js.map": "https://epic7tools.github.io/epicseven-tools/static/js/runtime~main.24d80abc.js.map",
+    "static/js/2.b6b3bacf.chunk.js": "https://epic7tools.github.io/epicseven-tools/static/js/2.b6b3bacf.chunk.js",
+    "static/js/2.b6b3bacf.chunk.js.map": "https://epic7tools.github.io/epicseven-tools/static/js/2.b6b3bacf.chunk.js.map",
+    "index.html": "https://epic7tools.github.io/epicseven-tools/index.html",
+    "precache-manifest.97cdb0a271c805dbb8b1c34e962841bf.js": "https://epic7tools.github.io/epicseven-tools/precache-manifest.97cdb0a271c805dbb8b1c34e962841bf.js",
+    "service-worker.js": "https://epic7tools.github.io/epicseven-tools/service-worker.js"
+  }
+}
